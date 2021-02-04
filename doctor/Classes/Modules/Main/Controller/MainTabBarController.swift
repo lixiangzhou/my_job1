@@ -44,16 +44,15 @@ class MainTabBarController: BaseTabBarController {
         controller.title = title
         let nav = BaseNavigationController(rootViewController: controller)
         return (nav, item)
-        return (controller, item)
     }
     
-    override var childForStatusBarStyle: UIViewController? {
-        selectedViewController
-    }
-    
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        selectedViewController?.preferredStatusBarStyle ?? .default
-    }
+//    override var childForStatusBarStyle: UIViewController? {
+//        selectedViewController
+//    }
+//
+//    override var preferredStatusBarStyle: UIStatusBarStyle {
+//        selectedViewController?.preferredStatusBarStyle ?? .default
+//    }
 }
 
 extension MainTabBarController {

@@ -18,12 +18,6 @@ class MineController: BaseController {
         setUI()
         setBinding()
     }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        setNavigationStyle(.transparency)
-    }
 
     // MARK: - Public Property
     let viewModel = MineViewModel()
@@ -36,6 +30,7 @@ class MineController: BaseController {
 extension MineController {
     override func setUI() {
         hideNavigation = true
+//        needNavigationTransparency = true
         
         view.addSubview(topView)
         
@@ -80,7 +75,7 @@ extension MineController: UITableViewDataSource, UITableViewDelegate {
         
         switch data.type {
         case .myCard:
-            break
+            push(MyCardController())
         case .feedback:
             break
         case .setting:

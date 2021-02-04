@@ -29,11 +29,11 @@ class BaseNavigationController: UINavigationController {
         return vc
     }
     
-    override var childForStatusBarStyle: UIViewController? {
-        topViewController
-    }
-    
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        topViewController?.preferredStatusBarStyle ?? .default
-    }
+//    override var childForStatusBarStyle: UIViewController? {
+//        topViewController
+//    }
+//    
+//    override var preferredStatusBarStyle: UIStatusBarStyle {
+//        topViewController?.preferredStatusBarStyle ?? .default
+//    }
 }

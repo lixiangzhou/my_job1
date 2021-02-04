@@ -49,7 +49,7 @@ extension UIView {
     }
     
     @discardableResult
-    func addShadow(color: UIColor = UIColor.c4167f3.withAlphaComponent(0.3), offset: CGSize = CGSize(width: 0, height: 2), opacity: Float = 1, cornerRadius: CGFloat = 5, shadowRadius: CGFloat = 5, topOffset: CGFloat = 0) -> UIView? {
+    func addShadow(color: UIColor = UIColor(white: 0, alpha: 0.05), offset: CGSize = CGSize(width: 0, height: 2), opacity: Float = 1, cornerRadius: CGFloat = 5, shadowRadius: CGFloat = 5, topOffset: CGFloat = 0) -> UIView? {
         if let sup = superview {
             func configShadow(_ shadow: UIView) {
                 shadow.layer.shadowColor = color.cgColor

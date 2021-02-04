@@ -27,13 +27,15 @@ class PatientManagerController: BaseController {
 // MARK: - UI
 extension PatientManagerController {
     override func setUI() {
-        view.backgroundColor = .yellow
+        
     }
 }
 
 // MARK: - Action
 extension PatientManagerController {
-    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        push(MyCardController())
+    }
 }
 
 // MARK: - Network

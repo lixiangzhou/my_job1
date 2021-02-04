@@ -17,7 +17,7 @@ class BaseController: UIViewController {
         super.viewDidLoad()
 
         view.backgroundColor = .white
-        setNeedsStatusBarAppearanceUpdate()
+//        setNeedsStatusBarAppearanceUpdate()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -28,13 +28,7 @@ class BaseController: UIViewController {
         if hideNavigation {
             navigationController?.setNavigationBarHidden(true, animated: animated)
         }
-
-        if needNavigationTransparency {
-            // 返回到该页面时，导航栏顺畅自然
-            setNavigationStyle(.transparency)
-        } else {
-            setNavigationStyle(.default)
-        }
+        setNavigationStyle(.default)
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -47,11 +41,6 @@ class BaseController: UIViewController {
                 vcs.removeSubrange((idx + 1)...(vcs.count - 2))
                 navigationController?.setValue(vcs, forKey: "viewControllers")
             }
-        }
-
-        if needNavigationTransparency {
-            // 返回到该页面时，导航栏顺畅自然
-            needNavigationTransparency = false
         }
     }
 
@@ -70,8 +59,6 @@ class BaseController: UIViewController {
     }
     
     var hideNavigation = false
-    // 如果下一个页面或上一个页面导航栏是透明的，设置为true
-    var needNavigationTransparency = false
     
     var backClassName: String?
     
@@ -109,9 +96,9 @@ extension BaseController {
         
     }
     
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        .default
-    }
+//    override var preferredStatusBarStyle: UIStatusBarStyle {
+//        .default
+//    }
 }
 
 // MARK: - Action
@@ -195,7 +182,7 @@ extension BaseController {
             shadowImage = nil
         case .default:
             backgroundImage = UIImage.zz_image(withColor: UIColor.white)
-            shadowImage = nil
+            shadowImage = UIImage.zz_image(withColor: UIColor.cf5f5f5)
         case .transparency:
             backgroundImage = UIImage.zz_image(withColor: .clear)
             shadowImage = UIImage()

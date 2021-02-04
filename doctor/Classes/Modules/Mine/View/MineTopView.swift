@@ -122,7 +122,7 @@ extension MineTopView {
             
             let iconView = RoundOptionView(frame: CGRect(x: 16, y: 16, width: 60, height: 60), radius: 30, roundColor: .cf4f5f6, roundingCorners: .allCorners)
             addSubview(iconView)
-            iconView.addShadow(cornerRadius: 30)
+            iconView.addShadow(color: UIColor.c4167f3.withAlphaComponent(0.3), cornerRadius: 30)
             
             zz_add(subview: UILabel(text: "点击登录/注册", font: .boldSize(16), textColor: .c3), frame: CGRect(x: iconView.zz_maxX + 16, y: 35, width: 150, height: 22))
         }
@@ -144,7 +144,7 @@ extension MineTopView {
             
             iconView.zz_setCircle()
             addSubview(iconView)
-            iconView.addShadow(cornerRadius: 30)
+            iconView.addShadow(color: UIColor.c4167f3.withAlphaComponent(0.3), cornerRadius: 30)
             
             addSubview(nameLabel)
             addSubview(titleLabel)
