@@ -20,6 +20,7 @@ class RoundOptionView: BaseView {
         self.init(frame: frame)
         self.radius = radius
         self.roundColor = roundColor
+        self.roundingCorners = roundingCorners
         self.backgroundColor = bgColor
     }
     

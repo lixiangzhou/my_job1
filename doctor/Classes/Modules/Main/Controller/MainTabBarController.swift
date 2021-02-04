@@ -24,7 +24,9 @@ class MainTabBarController: BaseTabBarController {
         let todo = wrap(TodoController(), title: "待办", img: "", selImg: "")
         let pm = wrap(PatientManagerController(), title: "患者管理", img: "", selImg: "")
         let mine = wrap(MineController(), title: "我的", img: "", selImg: "")
-        viewControllers = [todo.nav, pm.nav, mine.nav]
+//        viewControllers = [todo.nav, pm.nav, mine.nav]
+        
+        viewControllers = [mine.nav, pm.nav, todo.nav]
     }
 
     @discardableResult

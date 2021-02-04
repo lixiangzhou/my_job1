@@ -9,6 +9,23 @@
 import UIKit
 
 class BaseViewModel {
+    
+    func lastIconCellConfig() -> LeftRightConfigViewConfig {
+        return LeftRightConfigViewConfig(leftView: UIImageView(), leftViewSize: CGSize(width: 18, height: 18), leftPaddingRight: 8, leftFont: .size(14), hasBottomLine: false)
+    }
+    
+    func commonIconCellConfig() -> LeftRightConfigViewConfig {
+        return LeftRightConfigViewConfig(leftView: UIImageView(), leftViewSize: CGSize(width: 18, height: 18), leftPaddingRight: 8, leftFont: .size(14), hasBottomLine: true)
+    }
+    
+    func commonCellConfig() -> LeftRightConfigViewConfig {
+        return LeftRightConfigViewConfig(leftPaddingRight: 0, leftFont: .size(14))
+    }
+    
+    func lastCellConfig() -> LeftRightConfigViewConfig {
+        return LeftRightConfigViewConfig(leftPaddingRight: 0, leftFont: .size(14), hasBottomLine: true)
+    }
+    
     deinit {
         print("DEINIT => \(self)")
     }

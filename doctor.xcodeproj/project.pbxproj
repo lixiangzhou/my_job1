@@ -124,6 +124,9 @@
 		97BB0E1C25CAC3BC00EB13F6 /* TodoMsgSearchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97BB0E1B25CAC3BC00EB13F6 /* TodoMsgSearchCell.swift */; };
 		97BB0E1F25CAC66B00EB13F6 /* TodoMsgSelectSearchTimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97BB0E1E25CAC66B00EB13F6 /* TodoMsgSelectSearchTimeView.swift */; };
 		97BB0E2525CB893800EB13F6 /* RoundOptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97BB0E2425CB893800EB13F6 /* RoundOptionView.swift */; };
+		97BB0E4025CBBCE200EB13F6 /* MineTopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97BB0E3F25CBBCE200EB13F6 /* MineTopView.swift */; };
+		97BB0E4325CBC27C00EB13F6 /* MineViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97BB0E4225CBC27C00EB13F6 /* MineViewModel.swift */; };
+		97BB0E4625CBDDD900EB13F6 /* MineCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97BB0E4525CBDDD900EB13F6 /* MineCell.swift */; };
 		D4A23EDE166A3A4F2CFA2A3E /* Pods_doctor.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA0FABE064C1CCC8ACB68F0B /* Pods_doctor.framework */; };
 /* End PBXBuildFile section */
 
@@ -251,6 +254,9 @@
 		97BB0E1B25CAC3BC00EB13F6 /* TodoMsgSearchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoMsgSearchCell.swift; sourceTree = "<group>"; };
 		97BB0E1E25CAC66B00EB13F6 /* TodoMsgSelectSearchTimeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoMsgSelectSearchTimeView.swift; sourceTree = "<group>"; };
 		97BB0E2425CB893800EB13F6 /* RoundOptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundOptionView.swift; sourceTree = "<group>"; };
+		97BB0E3F25CBBCE200EB13F6 /* MineTopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MineTopView.swift; sourceTree = "<group>"; };
+		97BB0E4225CBC27C00EB13F6 /* MineViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MineViewModel.swift; sourceTree = "<group>"; };
+		97BB0E4525CBDDD900EB13F6 /* MineCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MineCell.swift; sourceTree = "<group>"; };
 		A88C2482ECF59EB9BCC7A9C5 /* Pods-doctor.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-doctor.release.xcconfig"; path = "Target Support Files/Pods-doctor/Pods-doctor.release.xcconfig"; sourceTree = "<group>"; };
 		B1EB1DC690E702987D845D06 /* Pods-doctor.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-doctor.debug.xcconfig"; path = "Target Support Files/Pods-doctor/Pods-doctor.debug.xcconfig"; sourceTree = "<group>"; };
 		DA0FABE064C1CCC8ACB68F0B /* Pods_doctor.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_doctor.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -753,6 +759,7 @@
 		975222FF25CA7CD000C85D12 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				97BB0E4225CBC27C00EB13F6 /* MineViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -775,6 +782,8 @@
 		9752230225CA7CD000C85D12 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				97BB0E3F25CBBCE200EB13F6 /* MineTopView.swift */,
+				97BB0E4525CBDDD900EB13F6 /* MineCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1008,10 +1017,12 @@
 				9752229B25CA67E200C85D12 /* TableViewExtension.swift in Sources */,
 				9752211D25CA44F700C85D12 /* LLSegmentViewController.swift in Sources */,
 				9752214425CA463F00C85D12 /* BaseView.swift in Sources */,
+				97BB0E4325CBC27C00EB13F6 /* MineViewModel.swift in Sources */,
 				9752226C25CA67E100C85D12 /* UIViewController+ZZExtension.swift in Sources */,
 				9752227025CA67E100C85D12 /* UIBarButtonItem+ZZExtension.swift in Sources */,
 				9752227F25CA67E100C85D12 /* ZZRefreshHeader.swift in Sources */,
 				9752226325CA67E100C85D12 /* Timer+ZZExtension.swift in Sources */,
+				97BB0E4625CBDDD900EB13F6 /* MineCell.swift in Sources */,
 				975222B325CA688500C85D12 /* LeftRightConfigView.swift in Sources */,
 				975222CD25CA6B1600C85D12 /* AppearanceConfig.swift in Sources */,
 				9752213E25CA463F00C85D12 /* BaseTabBarController.swift in Sources */,
@@ -1028,6 +1039,7 @@
 				975222CC25CA6B1600C85D12 /* AppSetupConfig.swift in Sources */,
 				9752228F25CA67E200C85D12 /* IQKBManager.swift in Sources */,
 				9752228325CA67E100C85D12 /* ZZRefreshFooter.swift in Sources */,
+				97BB0E4025CBBCE200EB13F6 /* MineTopView.swift in Sources */,
 				9752228825CA67E100C85D12 /* ZZHud.swift in Sources */,
 				975222B525CA688500C85D12 /* LeftRightUpDownLabelCell.swift in Sources */,
 				9752228225CA67E100C85D12 /* ZZRefreshView.swift in Sources */,

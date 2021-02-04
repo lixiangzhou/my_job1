@@ -31,12 +31,20 @@ extension UIColor {
         return UIColor(stringHexValue: "#f5f5f5")!
     }
     
+    static var cf8f8f8: UIColor {
+        return UIColor(stringHexValue: "#F8F8F8")!
+    }
+    
     static var c4167f3: UIColor {
         return UIColor(stringHexValue: "#4167F3")!
     }
     
     static var cfbfbfb: UIColor {
         return UIColor(stringHexValue: "#FBFBFB")!
+    }
+    
+    static var cf4f5f6: UIColor {
+        return UIColor(stringHexValue: "#F4F5F6")!
     }
 }
 
