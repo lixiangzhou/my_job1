@@ -128,6 +128,11 @@
 		97BB0E4325CBC27C00EB13F6 /* MineViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97BB0E4225CBC27C00EB13F6 /* MineViewModel.swift */; };
 		97BB0E4625CBDDD900EB13F6 /* MineCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97BB0E4525CBDDD900EB13F6 /* MineCell.swift */; };
 		97BB0E4925CBEA7100EB13F6 /* MyCardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97BB0E4825CBEA7100EB13F6 /* MyCardController.swift */; };
+		97BB0E4C25CC08F000EB13F6 /* PersonInfoEditController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97BB0E4B25CC08F000EB13F6 /* PersonInfoEditController.swift */; };
+		97BB0E4F25CC091B00EB13F6 /* PersonInfoEditViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97BB0E4E25CC091B00EB13F6 /* PersonInfoEditViewModel.swift */; };
+		97BB0E5225CC09FD00EB13F6 /* UploadApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97BB0E5125CC09FD00EB13F6 /* UploadApi.swift */; };
+		97BB0E5525CC103400EB13F6 /* PersonInfoEditCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97BB0E5425CC103400EB13F6 /* PersonInfoEditCell.swift */; };
+		97BB0E5825CC104D00EB13F6 /* PersonInfoEditAvatorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97BB0E5725CC104D00EB13F6 /* PersonInfoEditAvatorCell.swift */; };
 		D4A23EDE166A3A4F2CFA2A3E /* Pods_doctor.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA0FABE064C1CCC8ACB68F0B /* Pods_doctor.framework */; };
 /* End PBXBuildFile section */
 
@@ -259,6 +264,11 @@
 		97BB0E4225CBC27C00EB13F6 /* MineViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MineViewModel.swift; sourceTree = "<group>"; };
 		97BB0E4525CBDDD900EB13F6 /* MineCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MineCell.swift; sourceTree = "<group>"; };
 		97BB0E4825CBEA7100EB13F6 /* MyCardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCardController.swift; sourceTree = "<group>"; };
+		97BB0E4B25CC08F000EB13F6 /* PersonInfoEditController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonInfoEditController.swift; sourceTree = "<group>"; };
+		97BB0E4E25CC091B00EB13F6 /* PersonInfoEditViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonInfoEditViewModel.swift; sourceTree = "<group>"; };
+		97BB0E5125CC09FD00EB13F6 /* UploadApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadApi.swift; sourceTree = "<group>"; };
+		97BB0E5425CC103400EB13F6 /* PersonInfoEditCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonInfoEditCell.swift; sourceTree = "<group>"; };
+		97BB0E5725CC104D00EB13F6 /* PersonInfoEditAvatorCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonInfoEditAvatorCell.swift; sourceTree = "<group>"; };
 		A88C2482ECF59EB9BCC7A9C5 /* Pods-doctor.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-doctor.release.xcconfig"; path = "Target Support Files/Pods-doctor/Pods-doctor.release.xcconfig"; sourceTree = "<group>"; };
 		B1EB1DC690E702987D845D06 /* Pods-doctor.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-doctor.debug.xcconfig"; path = "Target Support Files/Pods-doctor/Pods-doctor.debug.xcconfig"; sourceTree = "<group>"; };
 		DA0FABE064C1CCC8ACB68F0B /* Pods_doctor.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_doctor.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -358,6 +368,7 @@
 			isa = PBXGroup;
 			children = (
 				975222D225CA6B7D00C85D12 /* Network.swift */,
+				97BB0E5125CC09FD00EB13F6 /* UploadApi.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -762,6 +773,7 @@
 			isa = PBXGroup;
 			children = (
 				97BB0E4225CBC27C00EB13F6 /* MineViewModel.swift */,
+				97BB0E4E25CC091B00EB13F6 /* PersonInfoEditViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -771,6 +783,7 @@
 			children = (
 				9752230825CA7D9B00C85D12 /* MineController.swift */,
 				97BB0E4825CBEA7100EB13F6 /* MyCardController.swift */,
+				97BB0E4B25CC08F000EB13F6 /* PersonInfoEditController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -787,6 +800,8 @@
 			children = (
 				97BB0E3F25CBBCE200EB13F6 /* MineTopView.swift */,
 				97BB0E4525CBDDD900EB13F6 /* MineCell.swift */,
+				97BB0E5425CC103400EB13F6 /* PersonInfoEditCell.swift */,
+				97BB0E5725CC104D00EB13F6 /* PersonInfoEditAvatorCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -963,10 +978,12 @@
 				9752236025CAB3F900C85D12 /* MsgListViewModel.swift in Sources */,
 				9752211625CA44F700C85D12 /* LLSegmentItemTitleImageView.swift in Sources */,
 				9752226B25CA67E100C85D12 /* Calendar+ZZExtension.swift in Sources */,
+				97BB0E4C25CC08F000EB13F6 /* PersonInfoEditController.swift in Sources */,
 				9752229625CA67E200C85D12 /* FontExtension.swift in Sources */,
 				9752228E25CA67E200C85D12 /* RootControllerManager.swift in Sources */,
 				9752212025CA44F700C85D12 /* LLToolFunc.swift in Sources */,
 				9752229425CA67E200C85D12 /* ConstraintExtension.swift in Sources */,
+				97BB0E5825CC104D00EB13F6 /* PersonInfoEditAvatorCell.swift in Sources */,
 				9752227525CA67E100C85D12 /* UITextField+ZZExtension.swift in Sources */,
 				9752226A25CA67E100C85D12 /* NSObject+ZZExtension.swift in Sources */,
 				9752227325CA67E100C85D12 /* UIImageView+ZZExtension.swift in Sources */,
@@ -992,6 +1009,7 @@
 				9752226225CA67E100C85D12 /* NSNumber+ZZExtension.swift in Sources */,
 				9752228725CA67E100C85D12 /* InputFieldView.swift in Sources */,
 				9752226525CA67E100C85D12 /* String+ZZExtension.swift in Sources */,
+				97BB0E5525CC103400EB13F6 /* PersonInfoEditCell.swift in Sources */,
 				975222B025CA688400C85D12 /* TextLeftRightView.swift in Sources */,
 				9752228525CA67E100C85D12 /* EmptyDataView.swift in Sources */,
 				9752211B25CA44F700C85D12 /* LLSegmentedControl.swift in Sources */,
@@ -1003,6 +1021,7 @@
 				975222BA25CA688500C85D12 /* TextLeftGrowTextRightCell.swift in Sources */,
 				9752229525CA67E200C85D12 /* UIImageViewExtension.swift in Sources */,
 				9752226E25CA67E100C85D12 /* UIColor+ZZExtension.swift in Sources */,
+				97BB0E5225CC09FD00EB13F6 /* UploadApi.swift in Sources */,
 				9752226425CA67E100C85D12 /* DispatchQueue+ZZExtension.swift in Sources */,
 				9752228425CA67E100C85D12 /* RefreshFooter.swift in Sources */,
 				97BB0E1925CAC39400EB13F6 /* TodoMsgSearchViewModel.swift in Sources */,
@@ -1024,6 +1043,7 @@
 				97BB0E4325CBC27C00EB13F6 /* MineViewModel.swift in Sources */,
 				9752226C25CA67E100C85D12 /* UIViewController+ZZExtension.swift in Sources */,
 				9752227025CA67E100C85D12 /* UIBarButtonItem+ZZExtension.swift in Sources */,
+				97BB0E4F25CC091B00EB13F6 /* PersonInfoEditViewModel.swift in Sources */,
 				9752227F25CA67E100C85D12 /* ZZRefreshHeader.swift in Sources */,
 				9752226325CA67E100C85D12 /* Timer+ZZExtension.swift in Sources */,
 				97BB0E4625CBDDD900EB13F6 /* MineCell.swift in Sources */,

@@ -30,7 +30,9 @@ class MineController: BaseController {
 extension MineController {
     override func setUI() {
         hideNavigation = true
-//        needNavigationTransparency = true
+        
+        topView.infoView.iconView.isUserInteractionEnabled = true
+        topView.infoView.iconView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(personInfoAction)))
         
         view.addSubview(topView)
         
@@ -43,15 +45,15 @@ extension MineController {
         tableView.snp.makeConstraints { (make) in
             make.top.equalTo(topView.snp.bottom)
             make.left.right.bottom.equalToSuperview()
-//            make.bottom.equalTo(-UIScreen.zz_tabBarHeight)
         }
-        
     }
 }
 
 // MARK: - Action
 extension MineController {
-    
+    @objc func personInfoAction() {
+        push(PersonInfoEditController())
+    }
 }
 
 // MARK: - Delegate Internal
