@@ -21,20 +21,24 @@ class PatientManagerController: BaseController {
     // MARK: - Public Property
     
     // MARK: - Private Property
-    
+    let picker = ZZDatePicker()
 }
 
 // MARK: - UI
 extension PatientManagerController {
     override func setUI() {
-        
+        picker.selectDateClosure = { date in
+            print(date)
+        }
+        picker.frame = CGRect(x: 0, y: 0, width: UIScreen.zz_width, height: 300)
+        view.addSubview(picker)
     }
 }
 
 // MARK: - Action
 extension PatientManagerController {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        push(MyCardController())
+        print(#function)
     }
 }
 

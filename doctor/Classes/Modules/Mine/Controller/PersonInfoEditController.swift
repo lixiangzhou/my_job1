@@ -56,7 +56,7 @@ extension PersonInfoEditController {
     
     @objc private func avatorAction() {
         view.endEditing(true)
-        TZImagePickerController.singleCropPresent(from: self, delegate: self)
+//        TZImagePickerController.singleCropPresent(from: self, delegate: self)
     }
     
     @objc private func nameAction() {
@@ -124,19 +124,34 @@ extension PersonInfoEditController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let data = viewModel.dataSource[indexPath.row]
+        let model = viewModel.dataSource[indexPath.row]
         
-    }
-}
-
-
-extension PersonInfoEditController: TZImagePickerControllerDelegate, PHAssetsProcessProtocol {
-    func imagePickerController(_ picker: TZImagePickerController!, didFinishPickingPhotos photos: [UIImage]!, sourceAssets assets: [Any]!, isSelectOriginalPhoto: Bool, infos: [[AnyHashable : Any]]!) {
-        if let img = photos.first {
-//            uploadImage(img)
+        switch model.row {
+        case .avator:
+            UIAlertController.showCameraPhotoSheet(from: self, delegate: self)
+            break
+        default:
+            DateSelectView().show()
         }
     }
 }
+
+extension PersonInfoEditController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        print(#function)
+        print(info)
+        if let img = info[UIImagePickerController.InfoKey.editedImage] {
+            print(img)
+        }
+        picker.dismiss()
+    }
+
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        print(#function)
+        picker.dismiss()
+    }
+}
+
 
 // MARK: - Helper
 extension PersonInfoEditController {

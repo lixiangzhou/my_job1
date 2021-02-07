@@ -23,7 +23,7 @@ target 'doctor' do
     pod 'YBImageBrowser'
     pod 'Kingfisher'
     pod 'MJRefresh'
-    
+#    pod 'PGDatePicker'
     
     pod 'JCore'
     pod 'JPush'

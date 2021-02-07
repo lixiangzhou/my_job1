@@ -122,6 +122,55 @@ public extension Date {
         return zz_calendar.component(.weekOfYear, from: self)
     }
     
+    /// 是否是同一周
+    var zz_isThisWeek: Bool {
+        zz_isSameWeek(asDate: Date())
+    }
+    
+    /// 是否是上一周
+    var zz_isLastWeek: Bool {
+        let newDate = Date(timeIntervalSinceReferenceDate: Date.timeIntervalSinceReferenceDate - Date.WeakSeconds)
+        return zz_isSameWeek(asDate: newDate)
+    }
+    
+    /// 是否是下一周
+    var zz_isNextWeek: Bool {
+        let newDate = Date(timeIntervalSinceReferenceDate: Date.timeIntervalSinceReferenceDate + Date.WeakSeconds)
+        return zz_isSameWeek(asDate: newDate)
+    }
+    
+    /// 是否是当月
+    var zz_isThisMonth: Bool {
+        zz_isThisYear && zz_month == Date().zz_month
+    }
+    
+    /// 是否是上个月
+    var zz_isLastMonth: Bool {
+        let newDate = zz_date(byAdding: .month, value: 1)!
+        return newDate.zz_isThisMonth
+    }
+    
+    /// 是否是下个月
+    var zz_isNextMonth: Bool {
+        let newDate = zz_date(byAdding: .month, value: -1)!
+        return newDate.zz_isThisMonth
+    }
+    
+    /// 是否是当年
+    var zz_isThisYear: Bool {
+        zz_year == Date().zz_year
+    }
+    
+    /// 是否是明年
+    var zz_isNextYear: Bool {
+        zz_year == Date().zz_year + 1
+    }
+    
+    /// 是否是去年
+    var zz_isLastYear: Bool {
+        zz_year == Date().zz_year - 1
+    }
+    
     /// 是否今天
     var zz_isToday: Bool {
         return zz_calendar.isDateInToday(self)
@@ -143,16 +192,25 @@ public extension Date {
     
     /// 是否闰年
     var zz_isLeapYear: Bool {
-        let day = self.zz_day
-        return (day % 400 == 0) || (day % 100 != 0 && day % 4 == 0)
+        let year = self.zz_year
+        return (year % 400 == 0) || (year % 100 != 0 && year % 4 == 0)
     }
     
+    /// 是否是未来
+    var zz_isInFuture: Bool {
+        zz_isLater(than: Date())
+    }
+    
+    /// 是否是过去
+    var zz_isInPast: Bool {
+        zz_isEarlier(than: Date())
+    }
 }
 
 
 // MARK: - 设置时间
 public extension Date {
-    
+    fileprivate static let WeakSeconds: Double = 604800
     /// 在当前时间基础上添加一定时间
     ///
     /// - parameter component: 时间组件
@@ -175,8 +233,6 @@ public extension Date {
         return zz_calendar.date(byAdding: components, to: self)
     }
     
-    
-    
     /// 指定时分秒
     ///
     /// - parameter hour:   hour
@@ -195,6 +251,29 @@ public extension Date {
     /// - returns: 是否同一天
     func zz_isSameDay(asDate date: Date) -> Bool {
         return zz_calendar.isDate(self, inSameDayAs: date)
+    }
+    
+    /// 是否同一周
+    ///
+    /// - parameter date: 要比较的Date对象
+    ///
+    /// - returns: 是否同一周
+    func zz_isSameWeek(asDate date: Date) -> Bool {
+        if zz_weekOfMonth != date.zz_weekOfMonth {
+            return false
+        }
+        
+        return abs(timeIntervalSince(date)) < Date.WeakSeconds
+    }
+    
+    /// 是否比指定日期更早
+    func zz_isEarlier(than date: Date) -> Bool {
+        compare(date) == .orderedAscending
+    }
+    
+    /// 是否比指定日期更晚
+    func zz_isLater(than date: Date) -> Bool {
+        compare(date) == .orderedDescending
     }
 }
 
@@ -274,7 +353,83 @@ public extension Date {
         calendar.locale = locale
         return calendar.veryShortWeekdaySymbols[self.zz_weekday - 1]
     }
-    
 }
 
+extension Date {
+    var zz_tomorrow: Date? {
+        zz_date(byAdding: .day, value: 1)
+    }
+    
+    var zz_yesterday: Date? {
+        zz_date(byAdding: .day, value: -1)
+    }
+    
+    func zz_dayAfterNow(_ days: Int) -> Date? {
+        zz_date(byAdding: .day, value: days)
+    }
+    
+    func zz_dayBeforeNow(_ days: Int) -> Date? {
+        zz_date(byAdding: .day, value: -days)
+    }
+    
+    func zz_hourAfterNow(_ hours: Int) -> Date? {
+        zz_date(byAdding: .hour, value: hours)
+    }
+    
+    func zz_hourBeforeNow(_ hours: Int) -> Date? {
+        zz_date(byAdding: .hour, value: -hours)
+    }
+    
+    func zz_minuteAfterNow(_ minutes: Int) -> Date? {
+        zz_date(byAdding: .minute, value: minutes)
+    }
+    
+    func zz_minuteBeforeNow(_ minutes: Int) -> Date? {
+        zz_date(byAdding: .minute, value: -minutes)
+    }
+}
 
+extension Date {
+    func zz_string(dateStyle: DateFormatter.Style, timeStyle: DateFormatter.Style) -> String {
+        let df = DateFormatter()
+        df.dateStyle = dateStyle
+        df.timeStyle = timeStyle
+        return df.string(from: self)
+    }
+    
+    var zz_shortString: String {
+        zz_string(dateStyle: .short, timeStyle: .short)
+    }
+    
+    var zz_shortDateString: String {
+        zz_string(dateStyle: .short, timeStyle: .none)
+    }
+    
+    var zz_shortTimeString: String {
+        zz_string(dateStyle: .none, timeStyle: .short)
+    }
+    
+    var zz_mediumString: String {
+        zz_string(dateStyle: .medium, timeStyle: .medium)
+    }
+    
+    var zz_mediumDateString: String {
+        zz_string(dateStyle: .medium, timeStyle: .none)
+    }
+    
+    var zz_mediumTimeString: String {
+        zz_string(dateStyle: .none, timeStyle: .medium)
+    }
+    
+    var zz_longString: String {
+        zz_string(dateStyle: .long, timeStyle: .long)
+    }
+    
+    var zz_longDateString: String {
+        zz_string(dateStyle: .long, timeStyle: .none)
+    }
+    
+    var zz_longTimeString: String {
+        zz_string(dateStyle: .none, timeStyle: .long)
+    }
+}
