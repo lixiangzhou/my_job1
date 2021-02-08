@@ -26,17 +26,16 @@ class ZZDatePicker: UIView {
     let pickerView = UIPickerView()
     var config: Config = Config() {
         didSet {
-            if config.validateOK {
-                prepareMinMaxAndColumn()
-                refreshDataSource()
-                showSelectDate()
-            }
+            processMinMaxDate()
+            prepareMinMaxAndColumn()
+            refreshDataSource()
+            showSelectDate()
         }
     }
     
     var selectDateClosure: ((Date) -> Void)?
     
-    var viewForRowInComponentClosure: ((_ row: Int, _ component: Int, _ value: Int) -> UIView)?
+    var viewForRowInComponentClosure: ((_ component: Int, _ row: Int, _ unit: DateStyle.Unit, _ value: Int) -> UIView)?
     
     // MARK: - Private Property
     private var years = [Int]()
@@ -60,9 +59,7 @@ class ZZDatePicker: UIView {
     
     private var minDateSeconds = [Int]()
     private var maxDateSeconds = [Int]()
-    
-    private var columns = 0
-    
+
     private let defaultMonths = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
     private let defaultHours = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11,
                                 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23]
@@ -90,11 +87,10 @@ extension ZZDatePicker {
         pickerView.backgroundColor = .orange
         addSubview(pickerView)
         
-        if config.validateOK {
-            prepareMinMaxAndColumn()
-            refreshDataSource()
-            showSelectDate()
-        }
+        processMinMaxDate()
+        prepareMinMaxAndColumn()
+        refreshDataSource()
+        showSelectDate()
     }
     
     override func layoutSubviews() {
@@ -107,65 +103,11 @@ extension ZZDatePicker {
 // MARK: - Delegate
 extension ZZDatePicker: UIPickerViewDataSource, UIPickerViewDelegate {
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        columns
+        config.dateStyle.columns
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        switch config.dateStyle {
-        case .yyyy:
-            return years.count
-        case .yyyy_MM:
-            if component == 0 {
-                return years.count
-            } else {
-                return months.count
-            }
-        case .yyyy_MM_dd:
-            if component == 0 {
-                return years.count
-            } else if component == 1 {
-                return months.count
-            } else if component == 2 {
-                return days.count
-            }
-        case .yyyy_MM_dd_HH:
-            if component == 0 {
-                return years.count
-            } else if component == 1 {
-                return months.count
-            } else if component == 2 {
-                return days.count
-            } else if component == 3 {
-                return hours.count
-            }
-        case .yyyy_MM_dd_HH_mm:
-            if component == 0 {
-                return years.count
-            } else if component == 1 {
-                return months.count
-            } else if component == 2 {
-                return days.count
-            } else if component == 3 {
-                return hours.count
-            } else if component == 4 {
-                return minutes.count
-            }
-        case .yyyy_MM_dd_HH_mm_ss:
-            if component == 0 {
-                return years.count
-            } else if component == 1 {
-                return months.count
-            } else if component == 2 {
-                return days.count
-            } else if component == 3 {
-                return hours.count
-            } else if component == 4 {
-                return minutes.count
-            } else if component == 5 {
-                return seconds.count
-            }
-        }
-        return 0
+        return getDataSource(in: component).count
     }
     
     func pickerView(_ pickerView: UIPickerView, rowHeightForComponent component: Int) -> CGFloat {
@@ -175,224 +117,150 @@ extension ZZDatePicker: UIPickerViewDataSource, UIPickerViewDelegate {
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         refreshDataSource()
         
-        func updateYear() {
-            updateSelectDate(byAdding: .year, value: years[row] - config.selectDateYear)
-        }
-        
-        func updateMonth() {
-            updateSelectDate(byAdding: .month, value: months[row] - config.selectDateMonth)
-        }
-
-        func updateDay() {
-            updateSelectDate(byAdding: .day, value: days[row] - config.selectDateDay)
-        }
-        
-        func updateHour() {
-            updateSelectDate(byAdding: .hour, value: hours[row] - config.selectDateHour)
-        }
-        
-        func updateMinute() {
-            updateSelectDate(byAdding: .minute, value: minutes[row] - config.selectDateMinute)
-        }
-
-        func updateSecond() {
-            updateSelectDate(byAdding: .second, value: seconds[row] - config.selectDateSecond)
-        }
-
-        switch config.dateStyle {
-        case .yyyy:
-            updateYear()
-        case .yyyy_MM:
-            if component == 0 {
-                updateYear()
-            } else if component == 1 {
-                updateMonth()
-            }
-        case .yyyy_MM_dd:
-            if component == 0 {
-                updateYear()
-            } else if component == 1 {
-                updateMonth()
-            } else if component == 2 {
-                updateDay()
-            }
-        case .yyyy_MM_dd_HH:
-            if component == 0 {
-                updateYear()
-            } else if component == 1 {
-                updateMonth()
-            } else if component == 2 {
-                updateDay()
-            } else if component == 3 {
-                updateHour()
-            }
-        case .yyyy_MM_dd_HH_mm:
-            if component == 0 {
-                updateYear()
-            } else if component == 1 {
-                updateMonth()
-            } else if component == 2 {
-                updateDay()
-            } else if component == 3 {
-                updateHour()
-            } else if component == 4 {
-                updateMinute()
-            }
-        case .yyyy_MM_dd_HH_mm_ss:
-            if component == 0 {
-                updateYear()
-            } else if component == 1 {
-                updateMonth()
-            } else if component == 2 {
-                updateDay()
-            } else if component == 3 {
-                updateHour()
-            } else if component == 4 {
-                updateMinute()
-            } else if component == 5 {
-                updateSecond()
-            }
-        }
+        let unit = unitForComponent(component)
+        updateSelectDate(unit, in: row)
         
         fixSelectDate()
         
         pickerView.reloadAllComponents()
         
         showSelectDate()
-        
-        selectDateClosure?(config.selectDate)
     }
     
     func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
-        var txt = ""
-        var value = 0
-        func setYearTxt() {
-            value = years[row]
-            txt = String(format: "%04d\(config.yearUnit)", years[row])
-        }
         
-        func setMonthTxt() {
-            value = months[row]
-            txt = String(format: "%02d\(config.monthUnit)", months[row])
-        }
+        let unit = unitForComponent(component)
+        let dataSource = getDataSource(in: component)
         
-        func setDayTxt() {
-            value = days[row]
-            txt = String(format: "%02d\(config.dayUnit)", days[row])
-        }
+        let value = dataSource[row]
         
-        func setHourTxt() {
-            value = hours[row]
-            txt = String(format: "%02d\(config.hourUnit)", hours[row])
-        }
-        
-        func setMinuteTxt() {
-            value = minutes[row]
-            txt = String(format: "%02d\(config.minuteUnit)", minutes[row])
-        }
-        
-        func setSecondTxt() {
-            value = seconds[row]
-            txt = String(format: "%02d\(config.secondUnit)", seconds[row])
-        }
-        
-        switch config.dateStyle {
-        case .yyyy:
-            setYearTxt()
-        case .yyyy_MM:
-            if component == 0 {
-                setYearTxt()
-            } else if component == 1 {
-                setMonthTxt()
-            }
-        case .yyyy_MM_dd:
-            if component == 0 {
-                setYearTxt()
-            } else if component == 1 {
-                setMonthTxt()
-            } else if component == 2 {
-                setDayTxt()
-            }
-        case .yyyy_MM_dd_HH:
-            if component == 0 {
-                setYearTxt()
-            } else if component == 1 {
-                setMonthTxt()
-            } else if component == 2 {
-                setDayTxt()
-            } else if component == 3 {
-                setHourTxt()
-            }
-        case .yyyy_MM_dd_HH_mm:
-            if component == 0 {
-                setYearTxt()
-            } else if component == 1 {
-                setMonthTxt()
-            } else if component == 2 {
-                setDayTxt()
-            } else if component == 3 {
-                setHourTxt()
-            } else if component == 4 {
-                setMinuteTxt()
-            }
-        case .yyyy_MM_dd_HH_mm_ss:
-            if component == 0 {
-                setYearTxt()
-            } else if component == 1 {
-                setMonthTxt()
-            } else if component == 2 {
-                setDayTxt()
-            } else if component == 3 {
-                setHourTxt()
-            } else if component == 4 {
-                setMinuteTxt()
-            } else if component == 5 {
-                setSecondTxt()
-            }
-        }
-        
-        if let view = viewForRowInComponentClosure?(row, component, value) {
+        if let view = viewForRowInComponentClosure?(component, row, unit, value)  {
             return view
-        } else {
-            return UILabel(text: txt, font: config.txtFont, textColor: config.txtColor)
         }
+        
+        var txt = ""
+        switch unit {
+        case .year:
+            txt = String(format: "%04d\(config.yearUnit)", value)
+        case .month:
+            txt = String(format: "%02d\(config.monthUnit)", value)
+        case .day:
+            txt = String(format: "%02d\(config.dayUnit)", value)
+        case .hour:
+            txt = String(format: "%02d\(config.hourUnit)", value)
+        case .minute:
+            txt = String(format: "%02d\(config.minuteUnit)", value)
+        case .second:
+            txt = String(format: "%02d\(config.secondUnit)", value)
+        default:
+            break
+        }
+        
+        return UILabel(text: txt, font: config.txtFont, textColor: config.txtColor)
+    }
+    
+    // MARK:
+    private func getDataSource(in component: Int) -> [Int] {
+        let unit = unitForComponent(component)
+        switch unit {
+        case .year:
+            return years
+        case .month:
+            return months
+        case .day:
+            return days
+        case .hour:
+            return hours
+        case .minute:
+            return minutes
+        case .second:
+            return seconds
+        default:
+            return []
+        }
+    }
+    
+    private func updateSelectDate(_ unit: DateStyle.Unit, in row: Int) {
+        switch unit {
+        case .year:
+            updateSelectDate(byAdding: .year, value: years[row] - config.selectDateYear)
+        case .month:
+            updateSelectDate(byAdding: .month, value: months[row] - config.selectDateMonth)
+        case .day:
+            updateSelectDate(byAdding: .day, value: days[row] - config.selectDateDay)
+        case .hour:
+            updateSelectDate(byAdding: .hour, value: hours[row] - config.selectDateHour)
+        case .minute:
+            updateSelectDate(byAdding: .minute, value: minutes[row] - config.selectDateMinute)
+        case .second:
+            updateSelectDate(byAdding: .second, value: seconds[row] - config.selectDateSecond)
+        default:
+            break
+        }
+    }
+    
+    private func unitForComponent(_ component: Int) -> DateStyle.Unit {
+        let units = config.dateStyle.units
+        var idx = -1
+        if units.contains(.year) {
+            idx += 1
+            if idx == component {
+                return .year
+            }
+        }
+        if units.contains(.month) {
+            idx += 1
+            if idx == component {
+                return .month
+            }
+        }
+        if units.contains(.day) {
+            idx += 1
+            if idx == component {
+                return .day
+            }
+        }
+        if units.contains(.hour) {
+            idx += 1
+            if idx == component {
+                return .hour
+            }
+        }
+        if units.contains(.minute) {
+            idx += 1
+            if idx == component {
+                return .minute
+            }
+        }
+        if units.contains(.second) {
+            idx += 1
+            if idx == component {
+                return .second
+            }
+        }
+        return []
     }
 }
 
-// MARK: - Helper
+// MARK: - prepareMinMaxAndColumn
 extension ZZDatePicker {
     
     /// 准备初始化最大最小值及列数
     private func prepareMinMaxAndColumn() {
-        switch config.dateStyle {
-        case .yyyy:
-            columns = 1
+        let units = config.dateStyle.units
+        if units.contains(.year) {
             prepareYears()
-        case .yyyy_MM:
-            columns = 2
-            prepareYears()
+        }
+        if units.contains(.month) {
             prepareMonths()
-        case .yyyy_MM_dd:
-            columns = 3
-            prepareYears()
-            prepareMonths()
-        case .yyyy_MM_dd_HH:
-            columns = 4
-            prepareYears()
-            prepareMonths()
+        }
+        if units.contains(.hour) {
             prepareHours()
-        case .yyyy_MM_dd_HH_mm:
-            columns = 5
-            prepareYears()
-            prepareMonths()
-            prepareHours()
+        }
+        if units.contains(.minute) {
             prepareMinutes()
-        case .yyyy_MM_dd_HH_mm_ss:
-            columns = 6
-            prepareYears()
-            prepareMonths()
-            prepareHours()
-            prepareMinutes()
+        }
+        if units.contains(.second) {
             prepareSeconds()
         }
     }
@@ -507,47 +375,26 @@ extension ZZDatePicker {
             }
         }
     }
-    
-    private func maxDaysFor(_ year: Int, month: Int) -> Int {
-        switch month {
-        case 1, 3, 5, 7, 8, 10, 12:
-            return 31
-        case 4, 6, 9, 11:
-            return 30
-        case 2:
-            let isLeap = (year % 400 == 0) || (year % 100 != 0 && year % 4 == 0)
-            return isLeap ? 29 : 28
-        default:
-            return 0
-        }
-    }
 }
 
-// MARK: -
+// MARK: - RefreshDataSource
 extension ZZDatePicker {
     private func refreshDataSource() {
-        switch config.dateStyle {
-        case .yyyy:
-            break
-        case .yyyy_MM:
+        let units = config.dateStyle.units
+        
+        if units.contains(.month) {
             refreshMonthData()
-        case .yyyy_MM_dd:
-            refreshMonthData()
+        }
+        if units.contains(.day) {
             refreshDayData()
-        case .yyyy_MM_dd_HH:
-            refreshMonthData()
-            refreshDayData()
+        }
+        if units.contains(.hour) {
             refreshHourData()
-        case .yyyy_MM_dd_HH_mm:
-            refreshMonthData()
-            refreshDayData()
-            refreshHourData()
+        }
+        if units.contains(.minute) {
             refreshMinuteData()
-        case .yyyy_MM_dd_HH_mm_ss:
-            refreshMonthData()
-            refreshDayData()
-            refreshHourData()
-            refreshMinuteData()
+        }
+        if units.contains(.second) {
             refreshSecondData()
         }
     }
@@ -739,39 +586,32 @@ extension ZZDatePicker {
             idxArray.append(idx)
         }
         
-        
-        switch config.dateStyle {
-        case .yyyy:
+        let units = config.dateStyle.units
+        if units.contains(.year) {
             appendYearIndex()
-        case .yyyy_MM:
-            appendYearIndex()
+        }
+        if units.contains(.month) {
             appendMonthIndex()
-        case .yyyy_MM_dd:
-            appendYearIndex()
-            appendMonthIndex()
+        }
+        if units.contains(.day) {
             appendDayIndex()
-        case .yyyy_MM_dd_HH:
-            appendYearIndex()
-            appendMonthIndex()
-            appendDayIndex()
+        }
+        if units.contains(.hour) {
             appendHourIndex()
-        case .yyyy_MM_dd_HH_mm:
-            appendYearIndex()
-            appendMonthIndex()
-            appendDayIndex()
-            appendHourIndex()
+        }
+        if units.contains(.minute) {
             appendMinuteIndex()
-        case .yyyy_MM_dd_HH_mm_ss:
-            appendYearIndex()
-            appendMonthIndex()
-            appendDayIndex()
-            appendHourIndex()
-            appendMinuteIndex()
+        }
+        if units.contains(.second) {
             appendSecondIndex()
         }
         
         for (column, row) in idxArray.enumerated() {
             pickerView.selectRow(row, inComponent: column, animated: true)
+        }
+        
+        if !isScrollIngInView(pickerView) {
+            selectDateClosure?(config.selectDate)
         }
     }
     
@@ -881,28 +721,20 @@ extension ZZDatePicker {
             }
         }
         
-        switch config.dateStyle {
-        case .yyyy:
-            break
-        case .yyyy_MM:
+        let units = config.dateStyle.units
+        if units.contains(.month) {
             fixSelectMonth()
-        case .yyyy_MM_dd:
-            fixSelectMonth()
+        }
+        if units.contains(.day) {
             fixSelectDay()
-        case .yyyy_MM_dd_HH:
-            fixSelectMonth()
-            fixSelectDay()
+        }
+        if units.contains(.hour) {
             fixSelectHour()
-        case .yyyy_MM_dd_HH_mm:
-            fixSelectMonth()
-            fixSelectDay()
-            fixSelectHour()
+        }
+        if units.contains(.minute) {
             fixSelectMinute()
-        case .yyyy_MM_dd_HH_mm_ss:
-            fixSelectMonth()
-            fixSelectDay()
-            fixSelectHour()
-            fixSelectMinute()
+        }
+        if units.contains(.second) {
             fixSelectSecond()
         }
     }
@@ -913,7 +745,7 @@ extension ZZDatePicker {
     
     private func isScrollIngInView(_ view: UIView) -> Bool {
         if let scrollView = view as? UIScrollView {
-            return scrollView.isDragging || scrollView.isDragging
+            return scrollView.isDragging || scrollView.isDecelerating
         }
         
         for sub in view.subviews {
@@ -923,14 +755,58 @@ extension ZZDatePicker {
         }
         return false
     }
+    
+    private func processMinMaxDate() {
+        let units = config.dateStyle.units
+        if units.contains(.year) {
+            let minInterval = config.selectDate.timeIntervalSince1970
+            let selectInterval = config.selectDate.timeIntervalSince1970
+            let maxInterval = config.selectDate.timeIntervalSince1970
+            
+            if minInterval > selectInterval {
+                config.minDate = Date(year: 1900, month: 1, day: 1, hour: 0, minute: 0, second: 0)!
+            }
+            
+            if maxInterval < selectInterval {
+                config.maxDate = Date(year: 2099, month: 12, day: 31, hour: 23, minute: 59, second: 59)!
+            }
+            
+        } else if units.contains(.month) {
+            if config.minDateYear != config.maxDateYear {
+                config.minDate = Date(year: config.selectDateYear)!
+                config.maxDate = Date(year: config.selectDateYear, month: 12, day: 31, hour: 23, minute: 59, second: 59)!
+            }
+        } else if units.contains(.day) {
+            if !(config.minDateYear == config.maxDateYear && config.minDateMonth == config.maxDateMonth) {
+                let day = maxDaysFor(config.selectDateYear, month: config.selectDateMonth)
+                config.minDate = Date(year: config.selectDateYear, month: config.selectDateMonth)!
+                config.maxDate = Date(year: config.selectDateYear, month: config.selectDateMonth, day: day, hour: 23, minute: 59, second: 59)!
+            }
+        } else if units.contains(.hour) {
+            if !(config.minDateYear == config.maxDateYear && config.minDateMonth == config.maxDateMonth && config.minDateDay == config.maxDateDay) {
+                config.minDate = Date(year: config.selectDateYear, month: config.selectDateMonth, day: config.selectDateDay)!
+                config.maxDate = Date(year: config.selectDateYear, month: config.selectDateMonth, day: config.selectDateDay, hour: 23, minute: 59, second: 59)!
+            }
+        } else if units.contains(.minute) {
+            if !(config.minDateYear == config.maxDateYear && config.minDateMonth == config.maxDateMonth && config.minDateDay == config.maxDateDay && config.minDateHour == config.maxDateHour) {
+                config.minDate = Date(year: config.selectDateYear, month: config.selectDateMonth, day: config.selectDateDay, hour: config.selectDateHour)!
+                config.maxDate = Date(year: config.selectDateYear, month: config.selectDateMonth, day: config.selectDateDay, hour: config.selectDateHour, minute: 59, second: 59)!
+            }
+        } else if units.contains(.second) {
+            if !(config.minDateYear == config.maxDateYear && config.minDateMonth == config.maxDateMonth && config.minDateDay == config.maxDateDay && config.minDateHour == config.maxDateHour && config.minDateMinute != config.maxDateMinute) {
+                config.minDate = Date(year: config.selectDateYear, month: config.selectDateMonth, day: config.selectDateDay, hour: config.selectDateHour, minute: config.selectDateMinute)!
+                config.maxDate = Date(year: config.selectDateYear, month: config.selectDateMonth, day: config.selectDateDay, hour: config.selectDateHour, minute: config.selectDateMinute, second: 59)!
+            }
+        }
+    }
 }
 
 extension ZZDatePicker {
-    struct Config {
+    class Config {
         /// 行高
         var rowHeight: CGFloat = 40
         /// 显示样式
-        var dateStyle: DateStyle = .yyyy_MM_dd_HH_mm_ss
+        var dateStyle: DateStyle = .HH_mm
         
         var yearUnit = "年"
         var monthUnit = "月"
@@ -940,19 +816,12 @@ extension ZZDatePicker {
         var secondUnit = "秒"
         
         var txtFont: UIFont = .size(15)
-        var txtColor: UIColor = UIColor.darkGray
+        var txtColor: UIColor = UIColor.black
         
         /// 最早日期（默认是1900）
-        var minDate: Date = {
-            var date = Date(timeIntervalSince1970: 0)
-            return date.zz_date(byAdding: .year, value: -70)!
-        }()
+        var minDate: Date = Date(year: 1900, month: 1, day: 1, hour: 0, minute: 0, second: 0)!
         /// 最大日期（默认是2099）
-        var maxDate: Date = {
-            var date = Date(timeIntervalSince1970: 0)
-            var newDate = date.zz_date(byAdding: .year, value: 129)!
-            return newDate.zz_date(bySetting: 23, minute: 59, second: 59)!
-        }()
+        var maxDate: Date = Date(year: 2099, month: 12, day: 31, hour: 23, minute: 59, second: 59)!
         /// 开始时的显示时间（默认当前时间）
         var selectDate = Date()
     }
@@ -964,21 +833,111 @@ extension ZZDatePicker {
         case yyyy_MM_dd_HH
         case yyyy_MM_dd_HH_mm
         case yyyy_MM_dd_HH_mm_ss
+        
+        case MM
+        case MM_dd
+        case MM_dd_HH
+        case MM_dd_HH_mm
+        case MM_dd_HH_mm_ss
+        
+        case dd
+        case dd_HH
+        case dd_HH_mm
+        case dd_HH_mm_ss
+        
+        
+        case HH
+        case HH_mm
+        case HH_mm_ss
+        
+        case mm
+        case mm_ss
+        
+        case ss
+        
+        var units: Unit {
+            switch self {
+            case .yyyy:
+                return [Unit.year]
+            case .yyyy_MM:
+                return [Unit.year, Unit.month]
+            case .yyyy_MM_dd:
+                return [Unit.year, Unit.month, Unit.day]
+            case .yyyy_MM_dd_HH:
+                return [Unit.year, Unit.month, Unit.day, Unit.hour]
+            case .yyyy_MM_dd_HH_mm:
+                return [Unit.year, Unit.month, Unit.day, Unit.hour, Unit.minute]
+            case .yyyy_MM_dd_HH_mm_ss:
+                return [Unit.year, Unit.month, Unit.day, Unit.hour, Unit.minute, Unit.second]
+                
+            case .MM:
+                return [Unit.month]
+            case .MM_dd:
+                return [Unit.month, Unit.day]
+            case .MM_dd_HH:
+                return [Unit.month, Unit.day, Unit.hour]
+            case .MM_dd_HH_mm:
+                return [Unit.month, Unit.day, Unit.hour, Unit.minute]
+            case .MM_dd_HH_mm_ss:
+                return [Unit.month, Unit.day, Unit.hour, Unit.minute, Unit.second]
+                
+            case .dd:
+                return [Unit.day]
+            case .dd_HH:
+                return [Unit.day, Unit.hour]
+            case .dd_HH_mm:
+                return [Unit.day, Unit.hour, Unit.minute]
+            case .dd_HH_mm_ss:
+                return [Unit.day, Unit.hour, Unit.minute, Unit.second]
+                
+            case .HH:
+                return [Unit.hour]
+            case .HH_mm:
+                return [Unit.hour, Unit.minute]
+            case .HH_mm_ss:
+                return [Unit.hour, Unit.minute, Unit.second]
+                
+            case .mm:
+                return [Unit.minute]
+            case .mm_ss:
+                return [Unit.minute, Unit.second]
+                
+            case .ss:
+                return [Unit.second]
+            }
+        }
+        
+        var columns: Int {
+            switch self {
+            case .yyyy, .MM, .dd, .HH, .mm, .ss:
+                return 1
+            case .yyyy_MM, .MM_dd, .dd_HH, .HH_mm, .mm_ss:
+                return 2
+            case .yyyy_MM_dd, .MM_dd_HH, .dd_HH_mm, .HH_mm_ss:
+                return 3
+            case .yyyy_MM_dd_HH, .MM_dd_HH_mm, .dd_HH_mm_ss:
+                return 4
+            case .yyyy_MM_dd_HH_mm, .MM_dd_HH_mm_ss:
+                return 5
+            case .yyyy_MM_dd_HH_mm_ss:
+                return 6
+            }
+        }
+        
+        struct Unit: OptionSet {
+            let rawValue: Int
+            
+            static let year = Unit(rawValue: 1 << 0)
+            static let month = Unit(rawValue: 1 << 1)
+            static let day = Unit(rawValue: 1 << 2)
+            static let hour = Unit(rawValue: 1 << 3)
+            static let minute = Unit(rawValue: 1 << 4)
+            static let second = Unit(rawValue: 1 << 5)
+        }
     }
 }
 
 extension ZZDatePicker.Config {
-    fileprivate var validateOK: Bool {
-        let minInterval = selectDate.timeIntervalSince1970
-        let startInterval = selectDate.timeIntervalSince1970
-        let maxInterval = selectDate.timeIntervalSince1970
-        
-        guard minInterval <= startInterval && startInterval <= maxInterval else {
-            return false
-        }
-        return true
-    }
-    
     fileprivate var minDateYear: Int { minDate.zz_year }
     fileprivate var minDateMonth: Int { minDate.zz_month }
     fileprivate var minDateDay: Int { minDate.zz_day }
@@ -999,4 +958,18 @@ extension ZZDatePicker.Config {
     fileprivate var maxDateHour: Int { maxDate.zz_hour }
     fileprivate var maxDateMinute: Int { maxDate.zz_minute }
     fileprivate var maxDateSecond: Int { maxDate.zz_second }
+}
+
+private func maxDaysFor(_ year: Int, month: Int) -> Int {
+    switch month {
+    case 1, 3, 5, 7, 8, 10, 12:
+        return 31
+    case 4, 6, 9, 11:
+        return 30
+    case 2:
+        let isLeap = (year % 400 == 0) || (year % 100 != 0 && year % 4 == 0)
+        return isLeap ? 29 : 28
+    default:
+        return 0
+    }
 }

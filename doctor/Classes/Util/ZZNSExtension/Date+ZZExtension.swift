@@ -211,6 +211,16 @@ public extension Date {
 // MARK: - 设置时间
 public extension Date {
     fileprivate static let WeakSeconds: Double = 604800
+    
+    init?(year: Int, month: Int = 1, day: Int = 1, hour: Int = 0, minute: Int = 0, second: Int = 0) {
+        let components = DateComponents(calendar: Calendar.current, timeZone: .current, year: year, month: month, day: day, hour: hour, minute: minute, second: second)
+        if let date = components.date {
+            self.init(timeIntervalSince1970: date.timeIntervalSince1970)
+        } else {
+            return nil
+        }
+    }
+    
     /// 在当前时间基础上添加一定时间
     ///
     /// - parameter component: 时间组件
