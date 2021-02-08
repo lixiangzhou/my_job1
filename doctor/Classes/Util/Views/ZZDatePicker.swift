@@ -26,10 +26,7 @@ class ZZDatePicker: UIView {
     let pickerView = UIPickerView()
     var config: Config = Config() {
         didSet {
-            processMinMaxDate()
-            prepareMinMaxAndColumn()
-            refreshDataSource()
-            showSelectDate()
+            reloadData()
         }
     }
     
@@ -87,10 +84,7 @@ extension ZZDatePicker {
         pickerView.backgroundColor = .orange
         addSubview(pickerView)
         
-        processMinMaxDate()
-        prepareMinMaxAndColumn()
-        refreshDataSource()
-        showSelectDate()
+        reloadData()
     }
     
     override func layoutSubviews() {
@@ -242,7 +236,7 @@ extension ZZDatePicker: UIPickerViewDataSource, UIPickerViewDelegate {
     }
 }
 
-// MARK: - prepareMinMaxAndColumn
+// MARK: - PrepareMinMaxAndColumn
 extension ZZDatePicker {
     
     /// 准备初始化最大最小值及列数
@@ -420,33 +414,6 @@ extension ZZDatePicker {
         }
     }
     
-    private func getDayBoundary() -> (start: Int, end: Int) {
-        let startDay: Int
-        let endDay: Int
-        
-        if config.minDateYear == config.maxDateYear &&
-            config.minDateMonth == config.maxDateMonth { // 最小日期和最大日期是同年同月的情况
-            
-            startDay = config.minDateDay
-            endDay = config.maxDateDay
-        } else if config.selectDateYear == config.minDateYear &&
-            config.selectDateMonth == config.minDateMonth { // 选择的日期与最小日期同年同月的情况
-            
-            startDay = config.minDateDay
-            endDay = maxDaysFor(config.selectDateYear, month: config.selectDateMonth)
-        } else if config.selectDateYear == config.maxDateYear &&
-                    config.selectDateMonth == config.maxDateMonth { // 选择的日期与最大日期同年同月的情况
-            
-            startDay = 1
-            endDay = config.maxDateDay
-        } else {    // 其他情况
-            startDay = 1
-            endDay = maxDaysFor(config.selectDateYear, month: config.selectDateMonth)
-        }
-        
-        return (startDay, endDay)
-    }
-    
     private func refreshHourData() {
         if config.selectDateYear == config.minDateYear &&
             config.selectDateMonth == config.minDateMonth &&
@@ -498,6 +465,60 @@ extension ZZDatePicker {
             seconds = maxDateSeconds
         } else {
             seconds = defaultSeconds
+        }
+    }
+}
+
+// MARK: - ReloadData
+extension ZZDatePicker {
+    func reloadData() {
+        processMinMaxDate()
+        prepareMinMaxAndColumn()
+        refreshDataSource()
+        showSelectDate()
+    }
+    
+    private func processMinMaxDate() {
+        let units = config.dateStyle.units
+        if units.contains(.year) {
+            let minInterval = config.selectDate.timeIntervalSince1970
+            let selectInterval = config.selectDate.timeIntervalSince1970
+            let maxInterval = config.selectDate.timeIntervalSince1970
+            
+            if minInterval > selectInterval {
+                config.minDate = Date(year: 1900, month: 1, day: 1, hour: 0, minute: 0, second: 0)!
+            }
+            
+            if maxInterval < selectInterval {
+                config.maxDate = Date(year: 2099, month: 12, day: 31, hour: 23, minute: 59, second: 59)!
+            }
+            
+        } else if units.contains(.month) {
+            if config.minDateYear != config.maxDateYear {
+                config.minDate = Date(year: config.selectDateYear)!
+                config.maxDate = Date(year: config.selectDateYear, month: 12, day: 31, hour: 23, minute: 59, second: 59)!
+            }
+        } else if units.contains(.day) {
+            if !(config.minDateYear == config.maxDateYear && config.minDateMonth == config.maxDateMonth) {
+                let day = maxDaysFor(config.selectDateYear, month: config.selectDateMonth)
+                config.minDate = Date(year: config.selectDateYear, month: config.selectDateMonth)!
+                config.maxDate = Date(year: config.selectDateYear, month: config.selectDateMonth, day: day, hour: 23, minute: 59, second: 59)!
+            }
+        } else if units.contains(.hour) {
+            if !(config.minDateYear == config.maxDateYear && config.minDateMonth == config.maxDateMonth && config.minDateDay == config.maxDateDay) {
+                config.minDate = Date(year: config.selectDateYear, month: config.selectDateMonth, day: config.selectDateDay)!
+                config.maxDate = Date(year: config.selectDateYear, month: config.selectDateMonth, day: config.selectDateDay, hour: 23, minute: 59, second: 59)!
+            }
+        } else if units.contains(.minute) {
+            if !(config.minDateYear == config.maxDateYear && config.minDateMonth == config.maxDateMonth && config.minDateDay == config.maxDateDay && config.minDateHour == config.maxDateHour) {
+                config.minDate = Date(year: config.selectDateYear, month: config.selectDateMonth, day: config.selectDateDay, hour: config.selectDateHour)!
+                config.maxDate = Date(year: config.selectDateYear, month: config.selectDateMonth, day: config.selectDateDay, hour: config.selectDateHour, minute: 59, second: 59)!
+            }
+        } else if units.contains(.second) {
+            if !(config.minDateYear == config.maxDateYear && config.minDateMonth == config.maxDateMonth && config.minDateDay == config.maxDateDay && config.minDateHour == config.maxDateHour && config.minDateMinute != config.maxDateMinute) {
+                config.minDate = Date(year: config.selectDateYear, month: config.selectDateMonth, day: config.selectDateDay, hour: config.selectDateHour, minute: config.selectDateMinute)!
+                config.maxDate = Date(year: config.selectDateYear, month: config.selectDateMonth, day: config.selectDateDay, hour: config.selectDateHour, minute: config.selectDateMinute, second: 59)!
+            }
         }
     }
     
@@ -614,7 +635,10 @@ extension ZZDatePicker {
             selectDateClosure?(config.selectDate)
         }
     }
-    
+}
+
+// MARK: - Helper
+extension ZZDatePicker {
     private func fixSelectDate() {
         func fixSelectMonth() {
             var delta: Int?
@@ -743,6 +767,33 @@ extension ZZDatePicker {
         config.selectDate = config.selectDate.zz_date(byAdding: component, value: value)!
     }
     
+    private func getDayBoundary() -> (start: Int, end: Int) {
+        let startDay: Int
+        let endDay: Int
+        
+        if config.minDateYear == config.maxDateYear &&
+            config.minDateMonth == config.maxDateMonth { // 最小日期和最大日期是同年同月的情况
+            
+            startDay = config.minDateDay
+            endDay = config.maxDateDay
+        } else if config.selectDateYear == config.minDateYear &&
+            config.selectDateMonth == config.minDateMonth { // 选择的日期与最小日期同年同月的情况
+            
+            startDay = config.minDateDay
+            endDay = maxDaysFor(config.selectDateYear, month: config.selectDateMonth)
+        } else if config.selectDateYear == config.maxDateYear &&
+                    config.selectDateMonth == config.maxDateMonth { // 选择的日期与最大日期同年同月的情况
+            
+            startDay = 1
+            endDay = config.maxDateDay
+        } else {    // 其他情况
+            startDay = 1
+            endDay = maxDaysFor(config.selectDateYear, month: config.selectDateMonth)
+        }
+        
+        return (startDay, endDay)
+    }
+    
     private func isScrollIngInView(_ view: UIView) -> Bool {
         if let scrollView = view as? UIScrollView {
             return scrollView.isDragging || scrollView.isDecelerating
@@ -754,50 +805,6 @@ extension ZZDatePicker {
             }
         }
         return false
-    }
-    
-    private func processMinMaxDate() {
-        let units = config.dateStyle.units
-        if units.contains(.year) {
-            let minInterval = config.selectDate.timeIntervalSince1970
-            let selectInterval = config.selectDate.timeIntervalSince1970
-            let maxInterval = config.selectDate.timeIntervalSince1970
-            
-            if minInterval > selectInterval {
-                config.minDate = Date(year: 1900, month: 1, day: 1, hour: 0, minute: 0, second: 0)!
-            }
-            
-            if maxInterval < selectInterval {
-                config.maxDate = Date(year: 2099, month: 12, day: 31, hour: 23, minute: 59, second: 59)!
-            }
-            
-        } else if units.contains(.month) {
-            if config.minDateYear != config.maxDateYear {
-                config.minDate = Date(year: config.selectDateYear)!
-                config.maxDate = Date(year: config.selectDateYear, month: 12, day: 31, hour: 23, minute: 59, second: 59)!
-            }
-        } else if units.contains(.day) {
-            if !(config.minDateYear == config.maxDateYear && config.minDateMonth == config.maxDateMonth) {
-                let day = maxDaysFor(config.selectDateYear, month: config.selectDateMonth)
-                config.minDate = Date(year: config.selectDateYear, month: config.selectDateMonth)!
-                config.maxDate = Date(year: config.selectDateYear, month: config.selectDateMonth, day: day, hour: 23, minute: 59, second: 59)!
-            }
-        } else if units.contains(.hour) {
-            if !(config.minDateYear == config.maxDateYear && config.minDateMonth == config.maxDateMonth && config.minDateDay == config.maxDateDay) {
-                config.minDate = Date(year: config.selectDateYear, month: config.selectDateMonth, day: config.selectDateDay)!
-                config.maxDate = Date(year: config.selectDateYear, month: config.selectDateMonth, day: config.selectDateDay, hour: 23, minute: 59, second: 59)!
-            }
-        } else if units.contains(.minute) {
-            if !(config.minDateYear == config.maxDateYear && config.minDateMonth == config.maxDateMonth && config.minDateDay == config.maxDateDay && config.minDateHour == config.maxDateHour) {
-                config.minDate = Date(year: config.selectDateYear, month: config.selectDateMonth, day: config.selectDateDay, hour: config.selectDateHour)!
-                config.maxDate = Date(year: config.selectDateYear, month: config.selectDateMonth, day: config.selectDateDay, hour: config.selectDateHour, minute: 59, second: 59)!
-            }
-        } else if units.contains(.second) {
-            if !(config.minDateYear == config.maxDateYear && config.minDateMonth == config.maxDateMonth && config.minDateDay == config.maxDateDay && config.minDateHour == config.maxDateHour && config.minDateMinute != config.maxDateMinute) {
-                config.minDate = Date(year: config.selectDateYear, month: config.selectDateMonth, day: config.selectDateDay, hour: config.selectDateHour, minute: config.selectDateMinute)!
-                config.maxDate = Date(year: config.selectDateYear, month: config.selectDateMonth, day: config.selectDateDay, hour: config.selectDateHour, minute: config.selectDateMinute, second: 59)!
-            }
-        }
     }
 }
 
@@ -844,7 +851,6 @@ extension ZZDatePicker {
         case dd_HH
         case dd_HH_mm
         case dd_HH_mm_ss
-        
         
         case HH
         case HH_mm
