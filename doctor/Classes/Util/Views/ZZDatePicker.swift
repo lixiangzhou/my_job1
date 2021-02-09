@@ -73,16 +73,18 @@ class ZZDatePicker: UIView {
                                   40, 41, 42, 43, 44, 45, 46, 47, 48, 49,
                                   50, 51, 52, 53, 54, 55, 56, 57, 58, 59]
     
+    let selectBgView = UIView()
 }
 
 // MARK: - UI
 extension ZZDatePicker {
     private func setUI() {
+        addSubview(selectBgView)
         pickerView.dataSource = self
         pickerView.delegate = self
-        pickerView.showsSelectionIndicator = false
-        pickerView.backgroundColor = .orange
         addSubview(pickerView)
+        
+        pickerView.setValue(UIColor.clear, forKey: "magnifierLineColor")
         
         reloadData()
     }
@@ -90,6 +92,8 @@ extension ZZDatePicker {
     override func layoutSubviews() {
         super.layoutSubviews()
         
+        
+        selectBgView.frame = CGRect(x: 0, y: (bounds.height - config.rowHeight) * 0.5, width: bounds.width, height: config.rowHeight)
         pickerView.frame = bounds
     }
 }
@@ -471,7 +475,7 @@ extension ZZDatePicker {
 
 // MARK: - ReloadData
 extension ZZDatePicker {
-    func reloadData() {
+    private func reloadData() {
         processMinMaxDate()
         prepareMinMaxAndColumn()
         refreshDataSource()
@@ -864,70 +868,63 @@ extension ZZDatePicker {
         var units: Unit {
             switch self {
             case .yyyy:
-                return [Unit.year]
+                return [.year]
             case .yyyy_MM:
-                return [Unit.year, Unit.month]
+                return [.year, .month]
             case .yyyy_MM_dd:
-                return [Unit.year, Unit.month, Unit.day]
+                return [.year, .month, .day]
             case .yyyy_MM_dd_HH:
-                return [Unit.year, Unit.month, Unit.day, Unit.hour]
+                return [.year, .month, .day, .hour]
             case .yyyy_MM_dd_HH_mm:
-                return [Unit.year, Unit.month, Unit.day, Unit.hour, Unit.minute]
+                return [.year, .month, .day, .hour, .minute]
             case .yyyy_MM_dd_HH_mm_ss:
-                return [Unit.year, Unit.month, Unit.day, Unit.hour, Unit.minute, Unit.second]
+                return [.year, .month, .day, .hour, .minute, .second]
                 
             case .MM:
-                return [Unit.month]
+                return [.month]
             case .MM_dd:
-                return [Unit.month, Unit.day]
+                return [.month, .day]
             case .MM_dd_HH:
-                return [Unit.month, Unit.day, Unit.hour]
+                return [.month, .day, .hour]
             case .MM_dd_HH_mm:
-                return [Unit.month, Unit.day, Unit.hour, Unit.minute]
+                return [.month, .day, .hour, .minute]
             case .MM_dd_HH_mm_ss:
-                return [Unit.month, Unit.day, Unit.hour, Unit.minute, Unit.second]
+                return [.month, .day, .hour, .minute, .second]
                 
             case .dd:
-                return [Unit.day]
+                return [.day]
             case .dd_HH:
-                return [Unit.day, Unit.hour]
+                return [.day, .hour]
             case .dd_HH_mm:
-                return [Unit.day, Unit.hour, Unit.minute]
+                return [.day, .hour, .minute]
             case .dd_HH_mm_ss:
-                return [Unit.day, Unit.hour, Unit.minute, Unit.second]
+                return [.day, .hour, .minute, .second]
                 
             case .HH:
-                return [Unit.hour]
+                return [.hour]
             case .HH_mm:
-                return [Unit.hour, Unit.minute]
+                return [.hour, .minute]
             case .HH_mm_ss:
-                return [Unit.hour, Unit.minute, Unit.second]
+                return [.hour, .minute, .second]
                 
             case .mm:
-                return [Unit.minute]
+                return [.minute]
             case .mm_ss:
-                return [Unit.minute, Unit.second]
+                return [.minute, .second]
                 
             case .ss:
-                return [Unit.second]
+                return [.second]
             }
         }
         
         var columns: Int {
-            switch self {
-            case .yyyy, .MM, .dd, .HH, .mm, .ss:
-                return 1
-            case .yyyy_MM, .MM_dd, .dd_HH, .HH_mm, .mm_ss:
-                return 2
-            case .yyyy_MM_dd, .MM_dd_HH, .dd_HH_mm, .HH_mm_ss:
-                return 3
-            case .yyyy_MM_dd_HH, .MM_dd_HH_mm, .dd_HH_mm_ss:
-                return 4
-            case .yyyy_MM_dd_HH_mm, .MM_dd_HH_mm_ss:
-                return 5
-            case .yyyy_MM_dd_HH_mm_ss:
-                return 6
+            var count = 0
+            var value = units.rawValue
+            while value > 0 {
+                value &= (value - 1)
+                count += 1
             }
+            return count
         }
         
         struct Unit: OptionSet {

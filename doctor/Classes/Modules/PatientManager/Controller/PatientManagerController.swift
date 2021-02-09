@@ -27,10 +27,6 @@ class PatientManagerController: BaseController {
 // MARK: - UI
 extension PatientManagerController {
     override func setUI() {
-        
-        print(Date())
-        print(Date(year: 2000, month: 10, day: 20, hour: 20))
-        
         picker.selectDateClosure = { date in
             print(date.zz_shortDateString)
         }
