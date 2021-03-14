@@ -69,6 +69,7 @@ extension MineController: UITableViewDataSource, UITableViewDelegate {
         let model = viewModel.dataSource[indexPath.row]
         cell.config = model.config
         cell.leftLabel.text = model.type.rawValue
+        cell.imageView?.image = UIImage(named: model.icon)
         return cell
     }
     
@@ -79,7 +80,7 @@ extension MineController: UITableViewDataSource, UITableViewDelegate {
         case .myCard:
             push(MyCardController())
         case .feedback:
-            break
+            push(FeedBackController())
         case .setting:
             break
         }

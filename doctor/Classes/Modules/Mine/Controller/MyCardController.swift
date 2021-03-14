@@ -18,31 +18,25 @@ class MyCardController: BaseController {
         title = "我的名片"
         setUI()
      
-//        hospitalLabel.text = "青海省人民医院"
-//        hospitalIconView.backgroundColor = .red
         nameLabel.text = "王一"
         titleLabel.text = "主治医生"
         
         mobileLabel.text = "138 8888 8888"
         emailLabel.text = "13888888888@qq.com"
         locLabel.text = "青海省西宁市XX路"
-        
-        
     }
 
     // MARK: - Public Property
     
     // MARK: - Private Property
-//    let hospitalLabel = UILabel(text: " ", font: .size(16), textColor: .c3)
-//    let hospitalIconView = UIImageView()
-    let cardView = UIImageView()
+    let cardView = UIView()
     let nameLabel = UILabel(text: " ", font: .boldSize(20), textColor: .c211e59)
     let titleLabel = UILabel(text: " ", font: .size(12), textColor: .c3)
     let deptLabel = UILabel(text: " ", font: .size(12), textColor: .c6)
     
-    let mobileLabel = UILabel(text: " ", font: UIFont.PingFangSC.light.size(10), textColor: .c9)
-    let emailLabel = UILabel(text: " ", font: UIFont.PingFangSC.light.size(10), textColor: .c9)
-    let locLabel = UILabel(text: " ", font: UIFont.PingFangSC.light.size(10), textColor: .c9)
+    let mobileLabel = UILabel(text: " ", font: UIFont.PingFangSC.regular.size(10), textColor: .c9)
+    let emailLabel = UILabel(text: " ", font: UIFont.PingFangSC.regular.size(10), textColor: .c9)
+    let locLabel = UILabel(text: " ", font: UIFont.PingFangSC.regular.size(10), textColor: .c9)
 }
 
 // MARK: - UI
@@ -54,6 +48,9 @@ extension MyCardController {
         cardView.addSubview(nameLabel)
         cardView.addSubview(titleLabel)
         cardView.addSubview(deptLabel)
+        
+        let bg1 = cardView.zz_add(subview: UIImageView(image: UIImage(named: "mine_card_icon1")))
+        let bg2 = cardView.zz_add(subview: UIImageView(image: UIImage(named: "mine_card_icon2")))
         
         let mobileView = add(subview: mobileLabel, icon: "mine_card_mobile", to: cardView)
         let emailView = add(subview: emailLabel, icon: "mine_card_email", to: cardView)
@@ -67,6 +64,18 @@ extension MyCardController {
             make.left.equalTo(16)
             make.right.equalTo(-16)
             make.height.equalTo(228)
+        }
+        
+        bg1.snp.makeConstraints { (make) in
+            make.top.equalTo(32)
+            make.right.equalTo(-20)
+            make.width.height.equalTo(54)
+        }
+        
+        bg2.snp.makeConstraints { (make) in
+            make.top.equalTo(92)
+            make.left.right.equalToSuperview()
+            make.height.equalTo(86)
         }
         
         nameLabel.snp.makeConstraints { (make) in

@@ -10,9 +10,9 @@ import UIKit
 class MineViewModel: BaseViewModel {
     lazy var dataSource: [RowModel] = {
         [
-            .init(type: .myCard, icon: "", config: commonIconCellConfig()),
-            .init(type: .feedback, icon: "", config: commonIconCellConfig()),
-            .init(type: .setting, icon: "", config: lastIconCellConfig())
+            .init(type: .myCard, icon: "mine_card", config: commonIconCellConfig()),
+            .init(type: .feedback, icon: "mine_feedback", config: commonIconCellConfig()),
+            .init(type: .setting, icon: "mine_setting", config: lastIconCellConfig())
         ]
     }()
     

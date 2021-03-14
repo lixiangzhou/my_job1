@@ -25,7 +25,6 @@ class MineTopView: BaseView {
     // MARK: - Public Property
     let titleLabel = UILabel(text: "我的", font: .boldSize(20), textColor: .white, textAlignment: .center)
     var pannelView = UIView()
-    let loginView = LoginView()
     let infoView = InfoView()
     
     let favView = ImageTitleView()
@@ -67,20 +66,20 @@ extension MineTopView {
         addSubview(pannelView)
         pannelView.addShadow(topOffset: 86)
         
-        loginView.frame = CGRect(x: 0, y: 0, width: pannelView.zz_width, height: 92)
-        infoView.frame = loginView.frame
-        pannelView.addSubview(loginView)
+        infoView.frame = CGRect(x: 0, y: 0, width: pannelView.zz_width, height: 92)
         pannelView.addSubview(infoView)
     }
     
     func setBottomView() {
-        let sepView = pannelView.zz_add(subview: UIView(frame: CGRect(x: padding, y: loginView.zz_maxY, width: pannelView.zz_width - padding * 2, height: 1), bgColor: .cf5f5f5))
+        let sepView = pannelView.zz_add(subview: UIView(frame: CGRect(x: padding, y: infoView.zz_maxY, width: pannelView.zz_width - padding * 2, height: 1), bgColor: .cf5f5f5))
         
         let config = ImageTitleView.Config(imageSize: CGSize(width: 24, height: 24), verticalHeight1: 0, verticalHeight2: 8, titleLeft: 0, titleRight: 0, titleFont: .size(12), titleColor: .c3)
         favView.config = config
         consultView.config = config
         
+        favView.imgView.image = UIImage(named: "mine_fav")
         favView.titleLabel.text = "我的收藏"
+        consultView.imgView.image = UIImage(named: "mine_txt")
         consultView.titleLabel.text = "知识资讯"
         
         let bottomView = pannelView.zz_add(subview: UIView(frame: CGRect(x: 0, y: sepView.zz_maxY, width: pannelView.zz_width, height: pannelHeight - sepView.zz_maxY)))
@@ -115,23 +114,6 @@ extension MineTopView {
 
 // MARK: - Helper
 extension MineTopView {
-    class LoginView: BaseView {
-        override init(frame: CGRect) {
-            super.init(frame: frame)
-            backgroundColor = .white
-            
-            let iconView = RoundOptionView(frame: CGRect(x: 16, y: 16, width: 60, height: 60), radius: 30, roundColor: .cf4f5f6, roundingCorners: .allCorners)
-            addSubview(iconView)
-            iconView.addShadow(color: UIColor.c4167f3.withAlphaComponent(0.3), cornerRadius: 30)
-            
-            zz_add(subview: UILabel(text: "点击登录/注册", font: .boldSize(16), textColor: .c3), frame: CGRect(x: iconView.zz_maxX + 16, y: 35, width: 150, height: 22))
-        }
-        
-        required init?(coder aDecoder: NSCoder) {
-            fatalError("init(coder:) has not been implemented")
-        }
-    }
-    
     class InfoView: BaseView {
         let iconView = UIImageView(frame: CGRect(x: 16, y: 16, width: 60, height: 60))
         let nameLabel = UILabel(text: "金小小", font: .boldSize(16), textColor: .c3)
@@ -146,6 +128,9 @@ extension MineTopView {
             addSubview(iconView)
             iconView.addShadow(color: UIColor.c4167f3.withAlphaComponent(0.3), cornerRadius: 30)
             
+            let editIcon = UIImageView(image: UIImage(named: "mine_info_edit"))
+            addSubview(editIcon)
+            
             addSubview(nameLabel)
             addSubview(titleLabel)
             
@@ -153,6 +138,12 @@ extension MineTopView {
             applyBtn.zz_setCorner(radius: 8, masksToBounds: true)
             
             addSubview(applyBtn)
+            
+            editIcon.snp.makeConstraints { (make) in
+                make.right.equalTo(iconView)
+                make.bottom.equalTo(iconView).offset(-2)
+                make.width.height.equalTo(16)
+            }
             
             nameLabel.snp.makeConstraints { (make) in
                 make.top.equalTo(26)
