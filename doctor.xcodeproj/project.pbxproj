@@ -134,7 +134,7 @@
 		97BB0E5525CC103400EB13F6 /* PersonInfoEditCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97BB0E5425CC103400EB13F6 /* PersonInfoEditCell.swift */; };
 		97BB0E5825CC104D00EB13F6 /* PersonInfoEditAvatorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97BB0E5725CC104D00EB13F6 /* PersonInfoEditAvatorCell.swift */; };
 		97BB0E5B25CCE1E100EB13F6 /* DateSelectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97BB0E5A25CCE1E100EB13F6 /* DateSelectView.swift */; };
-		97BB0ED325CD21E700EB13F6 /* ZZDatePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97BB0ED225CD21E700EB13F6 /* ZZDatePicker.swift */; };
+		97C0BD1225FDAFFD0016DA47 /* PersonInfoFieldCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97C0BD1125FDAFFD0016DA47 /* PersonInfoFieldCell.swift */; };
 		D4A23EDE166A3A4F2CFA2A3E /* Pods_doctor.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA0FABE064C1CCC8ACB68F0B /* Pods_doctor.framework */; };
 /* End PBXBuildFile section */
 
@@ -272,7 +272,7 @@
 		97BB0E5425CC103400EB13F6 /* PersonInfoEditCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonInfoEditCell.swift; sourceTree = "<group>"; };
 		97BB0E5725CC104D00EB13F6 /* PersonInfoEditAvatorCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonInfoEditAvatorCell.swift; sourceTree = "<group>"; };
 		97BB0E5A25CCE1E100EB13F6 /* DateSelectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateSelectView.swift; sourceTree = "<group>"; };
-		97BB0ED225CD21E700EB13F6 /* ZZDatePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZZDatePicker.swift; sourceTree = "<group>"; };
+		97C0BD1125FDAFFD0016DA47 /* PersonInfoFieldCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonInfoFieldCell.swift; sourceTree = "<group>"; };
 		A88C2482ECF59EB9BCC7A9C5 /* Pods-doctor.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-doctor.release.xcconfig"; path = "Target Support Files/Pods-doctor/Pods-doctor.release.xcconfig"; sourceTree = "<group>"; };
 		B1EB1DC690E702987D845D06 /* Pods-doctor.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-doctor.debug.xcconfig"; path = "Target Support Files/Pods-doctor/Pods-doctor.debug.xcconfig"; sourceTree = "<group>"; };
 		DA0FABE064C1CCC8ACB68F0B /* Pods_doctor.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_doctor.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -586,7 +586,6 @@
 				9752224A25CA67E100C85D12 /* InputFieldView.swift */,
 				9752224B25CA67E100C85D12 /* ZZHud.swift */,
 				9752224C25CA67E100C85D12 /* PhotoBrowserView.swift */,
-				97BB0ED225CD21E700EB13F6 /* ZZDatePicker.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -806,6 +805,7 @@
 				97BB0E3F25CBBCE200EB13F6 /* MineTopView.swift */,
 				97BB0E4525CBDDD900EB13F6 /* MineCell.swift */,
 				97BB0E5425CC103400EB13F6 /* PersonInfoEditCell.swift */,
+				97C0BD1125FDAFFD0016DA47 /* PersonInfoFieldCell.swift */,
 				97BB0E5725CC104D00EB13F6 /* PersonInfoEditAvatorCell.swift */,
 				97BB0E5A25CCE1E100EB13F6 /* DateSelectView.swift */,
 			);
@@ -1017,6 +1017,7 @@
 				9752226525CA67E100C85D12 /* String+ZZExtension.swift in Sources */,
 				97BB0E5525CC103400EB13F6 /* PersonInfoEditCell.swift in Sources */,
 				975222B025CA688400C85D12 /* TextLeftRightView.swift in Sources */,
+				97C0BD1225FDAFFD0016DA47 /* PersonInfoFieldCell.swift in Sources */,
 				9752228525CA67E100C85D12 /* EmptyDataView.swift in Sources */,
 				9752211B25CA44F700C85D12 /* LLSegmentedControl.swift in Sources */,
 				9752228D25CA67E200C85D12 /* JPushManager.swift in Sources */,
@@ -1027,7 +1028,6 @@
 				975222BA25CA688500C85D12 /* TextLeftGrowTextRightCell.swift in Sources */,
 				9752229525CA67E200C85D12 /* UIImageViewExtension.swift in Sources */,
 				9752226E25CA67E100C85D12 /* UIColor+ZZExtension.swift in Sources */,
-				97BB0ED325CD21E700EB13F6 /* ZZDatePicker.swift in Sources */,
 				97BB0E5225CC09FD00EB13F6 /* UploadApi.swift in Sources */,
 				9752226425CA67E100C85D12 /* DispatchQueue+ZZExtension.swift in Sources */,
 				9752228425CA67E100C85D12 /* RefreshFooter.swift in Sources */,

@@ -18,8 +18,8 @@ class MyCardController: BaseController {
         title = "我的名片"
         setUI()
      
-        hospitalLabel.text = "青海省人民医院"
-        hospitalIconView.backgroundColor = .red
+//        hospitalLabel.text = "青海省人民医院"
+//        hospitalIconView.backgroundColor = .red
         nameLabel.text = "王一"
         titleLabel.text = "主治医生"
         
@@ -33,79 +33,81 @@ class MyCardController: BaseController {
     // MARK: - Public Property
     
     // MARK: - Private Property
-    let hospitalLabel = UILabel(text: " ", font: .size(16), textColor: .c3)
-    let hospitalIconView = UIImageView()
-    let nameLabel = UILabel(text: " ", font: .boldSize(20), textColor: .c3)
+//    let hospitalLabel = UILabel(text: " ", font: .size(16), textColor: .c3)
+//    let hospitalIconView = UIImageView()
+    let cardView = UIImageView()
+    let nameLabel = UILabel(text: " ", font: .boldSize(20), textColor: .c211e59)
     let titleLabel = UILabel(text: " ", font: .size(12), textColor: .c3)
+    let deptLabel = UILabel(text: " ", font: .size(12), textColor: .c6)
     
-    let mobileLabel = UILabel(text: " ", font: UIFont.PingFangSC.light.size(12), textColor: .c6)
-    let emailLabel = UILabel(text: " ", font: UIFont.PingFangSC.light.size(12), textColor: .c6)
-    let locLabel = UILabel(text: " ", font: UIFont.PingFangSC.light.size(12), textColor: .c6)
+    let mobileLabel = UILabel(text: " ", font: UIFont.PingFangSC.light.size(10), textColor: .c9)
+    let emailLabel = UILabel(text: " ", font: UIFont.PingFangSC.light.size(10), textColor: .c9)
+    let locLabel = UILabel(text: " ", font: UIFont.PingFangSC.light.size(10), textColor: .c9)
 }
 
 // MARK: - UI
 extension MyCardController {
     override func setUI() {
-        navigationItem.rightBarButtonItem = UIBarButtonItem(imageName: "", target: self, action: #selector(shareAction))
-        
-        let cardView = view.zz_add(subview: UIView(), bgColor: .white)
+        view.addSubview(cardView)
+        cardView.backgroundColor = .white
         cardView.zz_setCorner(radius: 4, masksToBounds: true)
-        cardView.zz_setBorder(color: .cf5f5f5, width: 1)
-        cardView.addShadow(color: UIColor(white: 0, alpha: 0.05))
-        
-        cardView.addSubview(hospitalIconView)
-        cardView.addSubview(hospitalLabel)
         cardView.addSubview(nameLabel)
         cardView.addSubview(titleLabel)
+        cardView.addSubview(deptLabel)
         
-        let mobileView = add(subview: mobileLabel, icon: "", to: cardView)
-        let emailView = add(subview: emailLabel, icon: "", to: cardView)
-        let locView = add(subview: locLabel, icon: "", to: cardView)
+        let mobileView = add(subview: mobileLabel, icon: "mine_card_mobile", to: cardView)
+        let emailView = add(subview: emailLabel, icon: "mine_card_email", to: cardView)
+        let locView = add(subview: locLabel, icon: "mine_card_loc", to: cardView)
+        
+        let btn = view.zz_add(subview: UIButton(title: "保存到相册", font: UIFont.PingFangSC.regular.size(14), titleColor: .white, backgroundColor: .c4167f3, target: self, action: #selector(save)))
+        btn.zz_setCorner(radius: 4, masksToBounds: true)
         
         cardView.snp.makeConstraints { (make) in
             make.top.equalTo(8)
             make.left.equalTo(16)
             make.right.equalTo(-16)
-        }
-        
-        hospitalIconView.snp.makeConstraints { (make) in
-            make.top.equalTo(hospitalLabel)
-            make.right.equalTo(-16)
-            make.size.equalTo(CGSize(width: 70, height: 90))
-        }
-        
-        hospitalLabel.snp.makeConstraints { (make) in
-            make.top.equalTo(12)
-            make.left.equalTo(24)
-            make.right.equalTo(hospitalIconView.snp.left).offset(-16)
+            make.height.equalTo(228)
         }
         
         nameLabel.snp.makeConstraints { (make) in
-            make.top.equalTo(hospitalLabel.snp.bottom).offset(16)
-            make.left.right.equalTo(hospitalLabel)
+            make.top.equalTo(32)
+            make.left.equalTo(24)
+            make.height.equalTo(28)
         }
         
         titleLabel.snp.makeConstraints { (make) in
             make.top.equalTo(nameLabel.snp.bottom).offset(6)
-            make.left.right.equalTo(hospitalLabel)
+            make.left.equalTo(nameLabel)
+            make.height.equalTo(17)
+        }
+        
+        deptLabel.snp.makeConstraints { (make) in
+            make.top.height.equalTo(nameLabel)
+            make.left.equalTo(nameLabel.snp.right).offset(8)
         }
         
         mobileView.snp.makeConstraints { (make) in
-            make.top.equalTo(titleLabel.snp.bottom).offset(16)
-            make.left.right.equalTo(hospitalLabel)
+            make.top.equalTo(160)
+            make.left.equalTo(nameLabel)
         }
         
         emailView.snp.makeConstraints { (make) in
-            make.top.equalTo(mobileView.snp.bottom).offset(8)
-            make.left.equalTo(hospitalLabel)
-            make.right.equalTo(-16)
+            make.left.equalTo(150)
+            make.top.equalTo(mobileView)
+            make.right.equalTo(-24)
         }
         
         locView.snp.makeConstraints { (make) in
+            make.left.equalTo(nameLabel)
             make.top.equalTo(emailView.snp.bottom).offset(8)
-            make.left.equalTo(hospitalLabel)
-            make.right.equalTo(-16)
-            make.bottom.equalTo(-24)
+            make.right.equalTo(-24)
+        }
+        
+        btn.snp.makeConstraints { (make) in
+            make.top.equalTo(cardView.snp.bottom).offset(40)
+            make.left.equalTo(42)
+            make.height.equalTo(42)
+            make.right.equalTo(-42)
         }
     }
     
@@ -115,15 +117,13 @@ extension MyCardController {
         tempView.addSubview(subview)
         
         icon.snp.makeConstraints { (make) in
-            make.top.left.equalToSuperview()
-            make.size.equalTo(CGSize(width: 14, height: 14))
-            make.bottom.greaterThanOrEqualToSuperview()
+            make.top.left.bottom.equalToSuperview()
+            make.size.equalTo(CGSize(width: 12, height: 12))
         }
         
         subview.snp.makeConstraints { (make) in
-            make.left.equalTo(icon.snp.right).offset(10)
-            make.top.right.equalTo(1)
-            make.bottom.equalToSuperview()
+            make.left.equalTo(icon.snp.right).offset(5)
+            make.top.equalTo(icon)
         }
         
         return tempView
@@ -132,8 +132,14 @@ extension MyCardController {
 
 // MARK: - Action
 extension MyCardController {
-    @objc func shareAction() {
-        print(#function)
+    @objc func save() {
+        UIImageWriteToSavedPhotosAlbum(cardView.zz_snapshotImage(), self, #selector(savedPhotosAlbum(image:didFinishSavingWithError:contextInfo:)), nil)
+    }
+    
+    @objc func savedPhotosAlbum(image: UIImage, didFinishSavingWithError error: NSError?, contextInfo: AnyObject) {
+        if error == nil {
+            HUD.show(toast: "保存成功")
+        }
     }
 }
 

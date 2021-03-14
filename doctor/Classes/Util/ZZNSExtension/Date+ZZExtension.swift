@@ -122,6 +122,16 @@ public extension Date {
         return zz_calendar.component(.weekOfYear, from: self)
     }
     
+    /// 当年有几天
+    var zz_daysInYear: Int {
+        return zz_calendar.range(of: .day, in: .year, for: self)!.count
+    }
+    
+    /// 当月有几天
+    var zz_daysInMonth: Int {
+        return zz_calendar.range(of: .day, in: .year, for: self)!.count
+    }
+    
     /// 是否是同一周
     var zz_isThisWeek: Bool {
         zz_isSameWeek(asDate: Date())

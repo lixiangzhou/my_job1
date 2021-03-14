@@ -16,6 +16,15 @@ extension UIColor {
         return UIColor(stringHexValue: "#333333")!
     }
     
+    static var c211e59: UIColor {
+        return UIColor(stringHexValue: "#211E59")!
+    }
+    
+    static var cf7f6f8: UIColor {
+        return UIColor(stringHexValue: "#F7F6F8")!
+    }
+    
+    
     /// 用于次级文本
     static var c6: UIColor {
         return UIColor(stringHexValue: "#666666")!

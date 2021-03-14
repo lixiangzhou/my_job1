@@ -16,27 +16,30 @@ class PatientManagerController: BaseController {
         super.viewDidLoad()
 
         setUI()
+        
     }
 
     // MARK: - Public Property
     
     // MARK: - Private Property
-    let picker = ZZDatePicker()
 }
 
 // MARK: - UI
 extension PatientManagerController {
     override func setUI() {
-        picker.selectDateClosure = { date in
-            print(date.zz_shortDateString)
-        }
-        picker.frame = CGRect(x: 0, y: 0, width: UIScreen.zz_width, height: 300)
-        view.addSubview(picker)
+        
+        view.backgroundColor = .yellow
+        
+        
     }
 }
 
 // MARK: - Action
 extension PatientManagerController {
+    @objc func keyboardWillChangeFrameNotification(_ note: Notification) {
+        
+    }
+    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         print(#function)
         
@@ -71,4 +74,3 @@ extension PatientManagerController {
 extension PatientManagerController {
     
 }
-

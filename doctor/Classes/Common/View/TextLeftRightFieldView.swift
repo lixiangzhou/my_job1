@@ -195,17 +195,17 @@ struct TextLeftRightFieldViewConfig {
     var bottomLineRightPadding: CGFloat
     var bottomLineHeight: CGFloat
     
-    init(leftPadding: CGFloat = 15,
-         rightPadding: CGFloat = 15,
-         leftFont: UIFont = UIFont.size(16),
-         leftTextColor: UIColor = UIColor.gray,
-         rightFont: UIFont = UIFont.size(15),
-         rightTextColor: UIColor = UIColor.gray,
+    init(leftPadding: CGFloat = 16,
+         rightPadding: CGFloat = 16,
+         leftFont: UIFont = UIFont.size(14),
+         leftTextColor: UIColor = UIColor.c3,
+         rightFont: UIFont = UIFont.size(14),
+         rightTextColor: UIColor = UIColor.c3,
          rightWidth: CGFloat = 150,
          rightLimit: Int = 0,
          clearWhenFirstDelete: Bool = false,
          hasBottomLine: Bool = true,
-         bottomLineColor: UIColor = UIColor.lightGray,
+         bottomLineColor: UIColor = UIColor.cf5f5f5,
          bottomLineLeftPadding: CGFloat = 0,
          bottomLineRightPadding: CGFloat = 0,
          bottomLineHeight: CGFloat = 0.5) {
