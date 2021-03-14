@@ -89,12 +89,12 @@ extension UIView {
     }
 }
 
-extension UIView {
+extension UILabel {
     /// 更新 sizeToFit 之后的宽度，之前的约束必须先设置了宽度约束
     func snpUpdateWidth(addition: CGFloat = 0) {
-        sizeToFit()
+        let width = (text ?? "").zz_size(withLimitSize: CGSize(width: 1000, height: 1000), fontSize: ceil(font.pointSize)).width
         snp.updateConstraints { (make) in
-            make.width.equalTo(zz_width + addition)
+            make.width.equalTo(width + addition)
         }
     }
 }

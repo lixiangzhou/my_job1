@@ -146,6 +146,10 @@
 		97C0BD2D25FE1D830016DA47 /* MyFavoriteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97C0BD2C25FE1D830016DA47 /* MyFavoriteViewModel.swift */; };
 		97C0BD3125FE1DA30016DA47 /* MyFavoriteController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97C0BD3025FE1DA30016DA47 /* MyFavoriteController.swift */; };
 		97C0BD3425FE20320016DA47 /* MyFavoriteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97C0BD3325FE20320016DA47 /* MyFavoriteCell.swift */; };
+		97C0BD3725FE43E00016DA47 /* ConsultListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97C0BD3625FE43E00016DA47 /* ConsultListCell.swift */; };
+		97C0BD3A25FE43FB0016DA47 /* ConsultController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97C0BD3925FE43FB0016DA47 /* ConsultController.swift */; };
+		97C0BD3D25FE44080016DA47 /* ConsultListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97C0BD3C25FE44080016DA47 /* ConsultListController.swift */; };
+		97C0BD4025FE45020016DA47 /* ConsultListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97C0BD3F25FE45020016DA47 /* ConsultListViewModel.swift */; };
 		D4A23EDE166A3A4F2CFA2A3E /* Pods_doctor.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA0FABE064C1CCC8ACB68F0B /* Pods_doctor.framework */; };
 /* End PBXBuildFile section */
 
@@ -295,6 +299,10 @@
 		97C0BD2C25FE1D830016DA47 /* MyFavoriteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFavoriteViewModel.swift; sourceTree = "<group>"; };
 		97C0BD3025FE1DA30016DA47 /* MyFavoriteController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFavoriteController.swift; sourceTree = "<group>"; };
 		97C0BD3325FE20320016DA47 /* MyFavoriteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFavoriteCell.swift; sourceTree = "<group>"; };
+		97C0BD3625FE43E00016DA47 /* ConsultListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsultListCell.swift; sourceTree = "<group>"; };
+		97C0BD3925FE43FB0016DA47 /* ConsultController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsultController.swift; sourceTree = "<group>"; };
+		97C0BD3C25FE44080016DA47 /* ConsultListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsultListController.swift; sourceTree = "<group>"; };
+		97C0BD3F25FE45020016DA47 /* ConsultListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsultListViewModel.swift; sourceTree = "<group>"; };
 		A88C2482ECF59EB9BCC7A9C5 /* Pods-doctor.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-doctor.release.xcconfig"; path = "Target Support Files/Pods-doctor/Pods-doctor.release.xcconfig"; sourceTree = "<group>"; };
 		B1EB1DC690E702987D845D06 /* Pods-doctor.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-doctor.debug.xcconfig"; path = "Target Support Files/Pods-doctor/Pods-doctor.debug.xcconfig"; sourceTree = "<group>"; };
 		DA0FABE064C1CCC8ACB68F0B /* Pods_doctor.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_doctor.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -804,6 +812,7 @@
 				97C0BD1D25FDC6F60016DA47 /* FeedBackViewModel.swift */,
 				97C0BD2925FE19950016DA47 /* SettingViewModel.swift */,
 				97C0BD2C25FE1D830016DA47 /* MyFavoriteViewModel.swift */,
+				97C0BD3F25FE45020016DA47 /* ConsultListViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -817,6 +826,8 @@
 				97C0BD1425FDBF240016DA47 /* FeedBackController.swift */,
 				97C0BD2625FE19590016DA47 /* SettingController.swift */,
 				97C0BD3025FE1DA30016DA47 /* MyFavoriteController.swift */,
+				97C0BD3925FE43FB0016DA47 /* ConsultController.swift */,
+				97C0BD3C25FE44080016DA47 /* ConsultListController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -841,6 +852,7 @@
 				97C0BD2025FDC8780016DA47 /* FeedBackPicCell.swift */,
 				97C0BD2325FDC88C0016DA47 /* FeedBackContactCell.swift */,
 				97C0BD3325FE20320016DA47 /* MyFavoriteCell.swift */,
+				97C0BD3625FE43E00016DA47 /* ConsultListCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -992,11 +1004,13 @@
 				9752211925CA44F700C85D12 /* LLSegmentItemTitleView.swift in Sources */,
 				97C0BD1825FDC00F0016DA47 /* ZZGrowTextView.swift in Sources */,
 				9752235D25CAB08400C85D12 /* TodoListViewModel.swift in Sources */,
+				97C0BD4025FE45020016DA47 /* ConsultListViewModel.swift in Sources */,
 				9752211F25CA44F700C85D12 /* LLCtlPageView.swift in Sources */,
 				9752214525CA463F00C85D12 /* MainTabBarController.swift in Sources */,
 				9752226125CA67E100C85D12 /* DateFormatter+ZZExtension.swift in Sources */,
 				9752228C25CA67E200C85D12 /* LoginManager.swift in Sources */,
 				9752214325CA463F00C85D12 /* BaseModel.swift in Sources */,
+				97C0BD3725FE43E00016DA47 /* ConsultListCell.swift in Sources */,
 				97BB0E2525CB893800EB13F6 /* RoundOptionView.swift in Sources */,
 				9752211825CA44F700C85D12 /* LLSegmentItemTabbarView.swift in Sources */,
 				9752227625CA67E100C85D12 /* UIDevice+ZZExtension.swift in Sources */,
@@ -1032,6 +1046,7 @@
 				9752229925CA67E200C85D12 /* StringExtension.swift in Sources */,
 				9752214225CA463F00C85D12 /* GroupModel.swift in Sources */,
 				9752226F25CA67E100C85D12 /* UIApplication+ZZExtension.swift in Sources */,
+				97C0BD3D25FE44080016DA47 /* ConsultListController.swift in Sources */,
 				9752214125CA463F00C85D12 /* BaseNavigationController.swift in Sources */,
 				9752226D25CA67E100C85D12 /* UIView+ZZExtension.swift in Sources */,
 				975222D325CA6B7D00C85D12 /* Network.swift in Sources */,
@@ -1058,6 +1073,7 @@
 				97C0BD2125FDC8780016DA47 /* FeedBackPicCell.swift in Sources */,
 				97C0BD2A25FE19950016DA47 /* SettingViewModel.swift in Sources */,
 				9752228525CA67E100C85D12 /* EmptyDataView.swift in Sources */,
+				97C0BD3A25FE43FB0016DA47 /* ConsultController.swift in Sources */,
 				9752211B25CA44F700C85D12 /* LLSegmentedControl.swift in Sources */,
 				9752228D25CA67E200C85D12 /* JPushManager.swift in Sources */,
 				97C0BD1525FDBF240016DA47 /* FeedBackController.swift in Sources */,

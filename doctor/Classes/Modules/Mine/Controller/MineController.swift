@@ -62,7 +62,7 @@ extension MineController {
     }
     
     @objc func consultAction() {
-        push(MyFavoriteController())
+        push(ConsultController())
     }
 }
 

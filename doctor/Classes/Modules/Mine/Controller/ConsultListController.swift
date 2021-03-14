@@ -1,14 +1,14 @@
 //
-//  TodoListController.swift
+//  ConsultListController.swift
 //  doctor
 //
-//  Created by 李向洲 on 2021/2/3.
+//  Created by 李向洲 on 2021/3/14.
 //  
 //
 
 import UIKit
 
-class TodoListController: BaseController {
+class ConsultListController: BaseController {
 
     // MARK: - Life Cycle
     
@@ -27,20 +27,17 @@ class TodoListController: BaseController {
     }
 
     // MARK: - Public Property
-    let viewModel = TodoListViewModel()
+    let viewModel = ConsultListViewModel()
     
     // MARK: - Private Property
-    let searchView = TodoSearchView()
     let tableView = UITableView()
 }
 
 // MARK: - UI
-extension TodoListController {
+extension ConsultListController {
     override func setUI() {
-        view.addSubview(searchView)
-        
         tableView.set(dataSource: self, delegate: self)
-        tableView.register(cell: TodoListCell.self)
+        tableView.register(cell: ConsultListCell.self)
         
         tableView.headerRefreshClosure = { [weak self] in
             self?.viewModel.getData()
@@ -48,15 +45,8 @@ extension TodoListController {
         
         view.addSubview(tableView)
         
-        searchView.snp.makeConstraints { (make) in
-            make.top.left.right.equalToSuperview()
-            make.height.equalTo(40)
-        }
-        
         tableView.snp.makeConstraints { (make) in
-            make.top.equalTo(searchView.snp.bottom)
-            make.left.right.equalToSuperview()
-            make.bottom.equalTo(-UIScreen.zz_tabBarHeight)
+            make.edges.equalToSuperview()
         }
     }
     
@@ -73,19 +63,23 @@ extension TodoListController {
 
 // MARK: -
 // MARK: - UITableViewDataSource, UITableViewDelegate
-extension TodoListController: UITableViewDataSource, UITableViewDelegate {
+extension ConsultListController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.dataSourceProperty.value.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let model = viewModel.dataSourceProperty.value[indexPath.row]
-        let cell = tableView.dequeue(cell: TodoListCell.self, for: indexPath)
-//        cell.iconView.image =
-        cell.nameLabel.text = "李先生"
-        cell.timeLabel.text = "今天"
-        cell.contentLabel.text = "处理内容：" + "待完成化验检测"
-        cell.finishTimeLabel.text = "完成时间：" + "2021-01-15 18:00 前"
+        let cell = tableView.dequeue(cell: ConsultListCell.self, for: indexPath)
+        cell.iconView.backgroundColor = .orange
+        cell.titleLabel.text = "来了！中国新冠病毒疫苗上市全民免费"
+        cell.midLabel.text = "新闻 2021.01.16"
+        cell.dzLabel.text = "点赞100"
+        cell.readLabel.text = "阅读100"
+        
+        cell.dzLabel.snpUpdateWidth(addition: 2)
+        cell.readLabel.snpUpdateWidth(addition: 2)
+        
         cell.bottomLine.isHidden = indexPath.row == viewModel.dataSourceProperty.value.count - 1
         return cell
     }

@@ -60,32 +60,3 @@ extension TodoController {
         push(vc)
     }
 }
-
-// MARK: - Network
-extension TodoController {
-    
-}
-
-// MARK: - Delegate Internal
-
-// MARK: -
-
-// MARK: - Delegate External
-
-// MARK: -
-
-// MARK: - Helper
-extension TodoController {
-    
-}
-
-// MARK: - Other
-extension TodoController {
-    
-}
-
-// MARK: - Public
-extension TodoController {
-    
-}
-
