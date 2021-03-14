@@ -141,6 +141,11 @@
 		97C0BD1E25FDC6F60016DA47 /* FeedBackViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97C0BD1D25FDC6F60016DA47 /* FeedBackViewModel.swift */; };
 		97C0BD2125FDC8780016DA47 /* FeedBackPicCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97C0BD2025FDC8780016DA47 /* FeedBackPicCell.swift */; };
 		97C0BD2425FDC88C0016DA47 /* FeedBackContactCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97C0BD2325FDC88C0016DA47 /* FeedBackContactCell.swift */; };
+		97C0BD2725FE19590016DA47 /* SettingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97C0BD2625FE19590016DA47 /* SettingController.swift */; };
+		97C0BD2A25FE19950016DA47 /* SettingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97C0BD2925FE19950016DA47 /* SettingViewModel.swift */; };
+		97C0BD2D25FE1D830016DA47 /* MyFavoriteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97C0BD2C25FE1D830016DA47 /* MyFavoriteViewModel.swift */; };
+		97C0BD3125FE1DA30016DA47 /* MyFavoriteController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97C0BD3025FE1DA30016DA47 /* MyFavoriteController.swift */; };
+		97C0BD3425FE20320016DA47 /* MyFavoriteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97C0BD3325FE20320016DA47 /* MyFavoriteCell.swift */; };
 		D4A23EDE166A3A4F2CFA2A3E /* Pods_doctor.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA0FABE064C1CCC8ACB68F0B /* Pods_doctor.framework */; };
 /* End PBXBuildFile section */
 
@@ -285,6 +290,11 @@
 		97C0BD1D25FDC6F60016DA47 /* FeedBackViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedBackViewModel.swift; sourceTree = "<group>"; };
 		97C0BD2025FDC8780016DA47 /* FeedBackPicCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedBackPicCell.swift; sourceTree = "<group>"; };
 		97C0BD2325FDC88C0016DA47 /* FeedBackContactCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedBackContactCell.swift; sourceTree = "<group>"; };
+		97C0BD2625FE19590016DA47 /* SettingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingController.swift; sourceTree = "<group>"; };
+		97C0BD2925FE19950016DA47 /* SettingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewModel.swift; sourceTree = "<group>"; };
+		97C0BD2C25FE1D830016DA47 /* MyFavoriteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFavoriteViewModel.swift; sourceTree = "<group>"; };
+		97C0BD3025FE1DA30016DA47 /* MyFavoriteController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFavoriteController.swift; sourceTree = "<group>"; };
+		97C0BD3325FE20320016DA47 /* MyFavoriteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFavoriteCell.swift; sourceTree = "<group>"; };
 		A88C2482ECF59EB9BCC7A9C5 /* Pods-doctor.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-doctor.release.xcconfig"; path = "Target Support Files/Pods-doctor/Pods-doctor.release.xcconfig"; sourceTree = "<group>"; };
 		B1EB1DC690E702987D845D06 /* Pods-doctor.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-doctor.debug.xcconfig"; path = "Target Support Files/Pods-doctor/Pods-doctor.debug.xcconfig"; sourceTree = "<group>"; };
 		DA0FABE064C1CCC8ACB68F0B /* Pods_doctor.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_doctor.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -792,6 +802,8 @@
 				97BB0E4225CBC27C00EB13F6 /* MineViewModel.swift */,
 				97BB0E4E25CC091B00EB13F6 /* PersonInfoEditViewModel.swift */,
 				97C0BD1D25FDC6F60016DA47 /* FeedBackViewModel.swift */,
+				97C0BD2925FE19950016DA47 /* SettingViewModel.swift */,
+				97C0BD2C25FE1D830016DA47 /* MyFavoriteViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -803,6 +815,8 @@
 				97BB0E4825CBEA7100EB13F6 /* MyCardController.swift */,
 				97BB0E4B25CC08F000EB13F6 /* PersonInfoEditController.swift */,
 				97C0BD1425FDBF240016DA47 /* FeedBackController.swift */,
+				97C0BD2625FE19590016DA47 /* SettingController.swift */,
+				97C0BD3025FE1DA30016DA47 /* MyFavoriteController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -826,6 +840,7 @@
 				97C0BD1A25FDC6450016DA47 /* FeedBackDescCell.swift */,
 				97C0BD2025FDC8780016DA47 /* FeedBackPicCell.swift */,
 				97C0BD2325FDC88C0016DA47 /* FeedBackContactCell.swift */,
+				97C0BD3325FE20320016DA47 /* MyFavoriteCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -973,6 +988,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9752226925CA67E100C85D12 /* Date+ZZExtension.swift in Sources */,
+				97C0BD3425FE20320016DA47 /* MyFavoriteCell.swift in Sources */,
 				9752211925CA44F700C85D12 /* LLSegmentItemTitleView.swift in Sources */,
 				97C0BD1825FDC00F0016DA47 /* ZZGrowTextView.swift in Sources */,
 				9752235D25CAB08400C85D12 /* TodoListViewModel.swift in Sources */,
@@ -1020,6 +1036,7 @@
 				9752226D25CA67E100C85D12 /* UIView+ZZExtension.swift in Sources */,
 				975222D325CA6B7D00C85D12 /* Network.swift in Sources */,
 				9752212225CA44F700C85D12 /* NSDictionary+HYBUnicodeReadable.m in Sources */,
+				97C0BD2D25FE1D830016DA47 /* MyFavoriteViewModel.swift in Sources */,
 				9752235425CAA6A800C85D12 /* TodoSearchView.swift in Sources */,
 				97BB0E1225CABBA100EB13F6 /* TodoMsgSearchController.swift in Sources */,
 				9752211C25CA44F700C85D12 /* LLIndicatorView.swift in Sources */,
@@ -1039,6 +1056,7 @@
 				975222B025CA688400C85D12 /* TextLeftRightView.swift in Sources */,
 				97C0BD1225FDAFFD0016DA47 /* PersonInfoFieldCell.swift in Sources */,
 				97C0BD2125FDC8780016DA47 /* FeedBackPicCell.swift in Sources */,
+				97C0BD2A25FE19950016DA47 /* SettingViewModel.swift in Sources */,
 				9752228525CA67E100C85D12 /* EmptyDataView.swift in Sources */,
 				9752211B25CA44F700C85D12 /* LLSegmentedControl.swift in Sources */,
 				9752228D25CA67E200C85D12 /* JPushManager.swift in Sources */,
@@ -1055,6 +1073,7 @@
 				9752228425CA67E100C85D12 /* RefreshFooter.swift in Sources */,
 				97BB0E1925CAC39400EB13F6 /* TodoMsgSearchViewModel.swift in Sources */,
 				9752214025CA463F00C85D12 /* WebController.swift in Sources */,
+				97C0BD2725FE19590016DA47 /* SettingController.swift in Sources */,
 				9752212325CA44F700C85D12 /* NSSet+HYBUnicodeReadable.m in Sources */,
 				975222BB25CA688500C85D12 /* ImageTitleView.swift in Sources */,
 				9752229825CA67E200C85D12 /* ColorExtension.swift in Sources */,
@@ -1080,6 +1099,7 @@
 				975222B325CA688500C85D12 /* LeftRightConfigView.swift in Sources */,
 				975222CD25CA6B1600C85D12 /* AppearanceConfig.swift in Sources */,
 				9752213E25CA463F00C85D12 /* BaseTabBarController.swift in Sources */,
+				97C0BD3125FE1DA30016DA47 /* MyFavoriteController.swift in Sources */,
 				975222B725CA688500C85D12 /* TextLeftRightFieldView.swift in Sources */,
 				9752228925CA67E200C85D12 /* PhotoBrowserView.swift in Sources */,
 				9752235125CA988000C85D12 /* MsgListController.swift in Sources */,

@@ -125,6 +125,7 @@ extension MineTopView {
             backgroundColor = .white
             
             iconView.zz_setCircle()
+            iconView.image = UIImage(named: "mine_avator")
             addSubview(iconView)
             iconView.addShadow(color: UIColor.c4167f3.withAlphaComponent(0.3), cornerRadius: 30)
             

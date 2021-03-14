@@ -33,6 +33,8 @@ extension MineController {
         
         topView.infoView.iconView.isUserInteractionEnabled = true
         topView.infoView.iconView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(personInfoAction)))
+        topView.favView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(favAction)))
+        topView.consultView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(consultAction)))
         
         view.addSubview(topView)
         
@@ -53,6 +55,14 @@ extension MineController {
 extension MineController {
     @objc func personInfoAction() {
         push(PersonInfoEditController())
+    }
+    
+    @objc func favAction() {
+        push(MyFavoriteController())
+    }
+    
+    @objc func consultAction() {
+        push(MyFavoriteController())
     }
 }
 
@@ -82,7 +92,7 @@ extension MineController: UITableViewDataSource, UITableViewDelegate {
         case .feedback:
             push(FeedBackController())
         case .setting:
-            break
+            push(SettingController())
         }
     }
 }

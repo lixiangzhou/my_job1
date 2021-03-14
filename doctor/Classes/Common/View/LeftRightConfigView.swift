@@ -257,7 +257,7 @@ struct LeftRightConfigViewConfig {
          bottomLineColor: UIColor = UIColor.cf5f5f5,
          bottomLineLeftPadding: CGFloat = 0,
          bottomLineRightPadding: CGFloat = 0,
-         bottomLineHeight: CGFloat = 0.5) {
+         bottomLineHeight: CGFloat = 1) {
         self.effectStyle = effectStyle
         
         self.cellBackgroundColor = cellBackgroundColor

@@ -28,6 +28,9 @@ extension UIColor {
         return UIColor(stringHexValue: "#F6F8FF")!
     }
     
+    static var cf94336: UIColor {
+        return UIColor(stringHexValue: "#F94336")!
+    }
     
     /// 用于次级文本
     static var c6: UIColor {
