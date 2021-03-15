@@ -55,45 +55,6 @@ extension PersonInfoEditController {
 
 // MARK: - Action
 extension PersonInfoEditController {
-    
-    @objc private func nameAction() {
-        view.endEditing(true)
-        
-    }
-    
-    @objc private func sexAction() {
-        view.endEditing(true)
-    }
-    
-    @objc private func hospitalAction() {
-        view.endEditing(true)
-        
-    }
-    
-    @objc private func departmentAction() {
-        view.endEditing(true)
-        
-    }
-    
-    @objc private func titleAction() {
-        view.endEditing(true)
-        
-    }
-    
-    @objc private func specialtiesAction() {
-        view.endEditing(true)
-        
-    }
-    
-    @objc private func careerPortfolioAction() {
-        view.endEditing(true)
-    }
-    
-    @objc private func emailAction() {
-        view.endEditing(true)
-        
-    }
-
     @objc private func finishAction(_ sender: UIButton) {
         
     }
@@ -135,9 +96,9 @@ extension PersonInfoEditController: UITableViewDataSource, UITableViewDelegate {
         case .identity:
             break
         case .trainingExperience:
-            break
+            push(PersonInfoTrainExpListController())
         case .workExperience:
-            break
+            push(PersonInfoWorkExpListController())
         default:
             break
         }

@@ -153,6 +153,14 @@
 		97C0BD4325FEF43C0016DA47 /* ConsultDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97C0BD4225FEF43B0016DA47 /* ConsultDetailViewModel.swift */; };
 		97C0BD4625FEF4510016DA47 /* ConsultDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97C0BD4525FEF4510016DA47 /* ConsultDetailController.swift */; };
 		97C0BD4925FF0BC80016DA47 /* PersonInfoSexCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97C0BD4825FF0BC80016DA47 /* PersonInfoSexCell.swift */; };
+		97C0BD4C25FF2E870016DA47 /* PersonInfoWorkExpAddController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97C0BD4B25FF2E870016DA47 /* PersonInfoWorkExpAddController.swift */; };
+		97C0BD4F25FF2E9F0016DA47 /* PersonInfoTrainExpAddController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97C0BD4E25FF2E9F0016DA47 /* PersonInfoTrainExpAddController.swift */; };
+		97C0BD5225FF2EBF0016DA47 /* PersonInfoWorkExpListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97C0BD5125FF2EBF0016DA47 /* PersonInfoWorkExpListController.swift */; };
+		97C0BD5525FF2EDE0016DA47 /* PersonInfoTrainExpListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97C0BD5425FF2EDE0016DA47 /* PersonInfoTrainExpListController.swift */; };
+		97C0BD5825FF3A8F0016DA47 /* PersonInfoWorkExpListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97C0BD5725FF3A8F0016DA47 /* PersonInfoWorkExpListViewModel.swift */; };
+		97C0BD5B25FF3AD90016DA47 /* PersonInfoWorkExpListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97C0BD5A25FF3AD90016DA47 /* PersonInfoWorkExpListCell.swift */; };
+		97C0BD5E25FF41DD0016DA47 /* PersonInfoTrainExpListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97C0BD5D25FF41DD0016DA47 /* PersonInfoTrainExpListCell.swift */; };
+		97C0BD6125FF42180016DA47 /* PersonInfoTrainExpListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97C0BD6025FF42180016DA47 /* PersonInfoTrainExpListViewModel.swift */; };
 		D4A23EDE166A3A4F2CFA2A3E /* Pods_doctor.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA0FABE064C1CCC8ACB68F0B /* Pods_doctor.framework */; };
 /* End PBXBuildFile section */
 
@@ -309,6 +317,14 @@
 		97C0BD4225FEF43B0016DA47 /* ConsultDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsultDetailViewModel.swift; sourceTree = "<group>"; };
 		97C0BD4525FEF4510016DA47 /* ConsultDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsultDetailController.swift; sourceTree = "<group>"; };
 		97C0BD4825FF0BC80016DA47 /* PersonInfoSexCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonInfoSexCell.swift; sourceTree = "<group>"; };
+		97C0BD4B25FF2E870016DA47 /* PersonInfoWorkExpAddController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonInfoWorkExpAddController.swift; sourceTree = "<group>"; };
+		97C0BD4E25FF2E9F0016DA47 /* PersonInfoTrainExpAddController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonInfoTrainExpAddController.swift; sourceTree = "<group>"; };
+		97C0BD5125FF2EBF0016DA47 /* PersonInfoWorkExpListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonInfoWorkExpListController.swift; sourceTree = "<group>"; };
+		97C0BD5425FF2EDE0016DA47 /* PersonInfoTrainExpListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonInfoTrainExpListController.swift; sourceTree = "<group>"; };
+		97C0BD5725FF3A8F0016DA47 /* PersonInfoWorkExpListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonInfoWorkExpListViewModel.swift; sourceTree = "<group>"; };
+		97C0BD5A25FF3AD90016DA47 /* PersonInfoWorkExpListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonInfoWorkExpListCell.swift; sourceTree = "<group>"; };
+		97C0BD5D25FF41DD0016DA47 /* PersonInfoTrainExpListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonInfoTrainExpListCell.swift; sourceTree = "<group>"; };
+		97C0BD6025FF42180016DA47 /* PersonInfoTrainExpListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonInfoTrainExpListViewModel.swift; sourceTree = "<group>"; };
 		A88C2482ECF59EB9BCC7A9C5 /* Pods-doctor.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-doctor.release.xcconfig"; path = "Target Support Files/Pods-doctor/Pods-doctor.release.xcconfig"; sourceTree = "<group>"; };
 		B1EB1DC690E702987D845D06 /* Pods-doctor.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-doctor.debug.xcconfig"; path = "Target Support Files/Pods-doctor/Pods-doctor.debug.xcconfig"; sourceTree = "<group>"; };
 		DA0FABE064C1CCC8ACB68F0B /* Pods_doctor.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_doctor.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -820,6 +836,8 @@
 				97C0BD2C25FE1D830016DA47 /* MyFavoriteViewModel.swift */,
 				97C0BD3F25FE45020016DA47 /* ConsultListViewModel.swift */,
 				97C0BD4225FEF43B0016DA47 /* ConsultDetailViewModel.swift */,
+				97C0BD5725FF3A8F0016DA47 /* PersonInfoWorkExpListViewModel.swift */,
+				97C0BD6025FF42180016DA47 /* PersonInfoTrainExpListViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -836,6 +854,10 @@
 				97C0BD3925FE43FB0016DA47 /* ConsultController.swift */,
 				97C0BD3C25FE44080016DA47 /* ConsultListController.swift */,
 				97C0BD4525FEF4510016DA47 /* ConsultDetailController.swift */,
+				97C0BD4B25FF2E870016DA47 /* PersonInfoWorkExpAddController.swift */,
+				97C0BD4E25FF2E9F0016DA47 /* PersonInfoTrainExpAddController.swift */,
+				97C0BD5125FF2EBF0016DA47 /* PersonInfoWorkExpListController.swift */,
+				97C0BD5425FF2EDE0016DA47 /* PersonInfoTrainExpListController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -862,6 +884,8 @@
 				97C0BD2325FDC88C0016DA47 /* FeedBackContactCell.swift */,
 				97C0BD3325FE20320016DA47 /* MyFavoriteCell.swift */,
 				97C0BD3625FE43E00016DA47 /* ConsultListCell.swift */,
+				97C0BD5A25FF3AD90016DA47 /* PersonInfoWorkExpListCell.swift */,
+				97C0BD5D25FF41DD0016DA47 /* PersonInfoTrainExpListCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1010,6 +1034,7 @@
 			files = (
 				9752226925CA67E100C85D12 /* Date+ZZExtension.swift in Sources */,
 				97C0BD3425FE20320016DA47 /* MyFavoriteCell.swift in Sources */,
+				97C0BD5225FF2EBF0016DA47 /* PersonInfoWorkExpListController.swift in Sources */,
 				9752211925CA44F700C85D12 /* LLSegmentItemTitleView.swift in Sources */,
 				97C0BD1825FDC00F0016DA47 /* ZZGrowTextView.swift in Sources */,
 				9752235D25CAB08400C85D12 /* TodoListViewModel.swift in Sources */,
@@ -1033,6 +1058,7 @@
 				9752227C25CA67E100C85D12 /* ZZButton.swift in Sources */,
 				9752226725CA67E100C85D12 /* Data+ZZExtension.swift in Sources */,
 				9752229125CA67E200C85D12 /* AuthorizationManager.swift in Sources */,
+				97C0BD5E25FF41DD0016DA47 /* PersonInfoTrainExpListCell.swift in Sources */,
 				975222C225CA6A8700C85D12 /* LoginController.swift in Sources */,
 				9752229225CA67E200C85D12 /* BasicExtension.swift in Sources */,
 				975222B925CA688500C85D12 /* CommonPicker.swift in Sources */,
@@ -1049,8 +1075,10 @@
 				9752229425CA67E200C85D12 /* ConstraintExtension.swift in Sources */,
 				97BB0E5825CC104D00EB13F6 /* PersonInfoEditAvatorCell.swift in Sources */,
 				9752227525CA67E100C85D12 /* UITextField+ZZExtension.swift in Sources */,
+				97C0BD5825FF3A8F0016DA47 /* PersonInfoWorkExpListViewModel.swift in Sources */,
 				9752226A25CA67E100C85D12 /* NSObject+ZZExtension.swift in Sources */,
 				9752227325CA67E100C85D12 /* UIImageView+ZZExtension.swift in Sources */,
+				97C0BD6125FF42180016DA47 /* PersonInfoTrainExpListViewModel.swift in Sources */,
 				9752229725CA67E200C85D12 /* ViewExtension.swift in Sources */,
 				9752229925CA67E200C85D12 /* StringExtension.swift in Sources */,
 				9752214225CA463F00C85D12 /* GroupModel.swift in Sources */,
@@ -1063,10 +1091,12 @@
 				97C0BD2D25FE1D830016DA47 /* MyFavoriteViewModel.swift in Sources */,
 				97C0BD4925FF0BC80016DA47 /* PersonInfoSexCell.swift in Sources */,
 				9752235425CAA6A800C85D12 /* TodoSearchView.swift in Sources */,
+				97C0BD5B25FF3AD90016DA47 /* PersonInfoWorkExpListCell.swift in Sources */,
 				97BB0E1225CABBA100EB13F6 /* TodoMsgSearchController.swift in Sources */,
 				9752211C25CA44F700C85D12 /* LLIndicatorView.swift in Sources */,
 				975222CE25CA6B1600C85D12 /* HUDConfig.swift in Sources */,
 				975222B425CA688500C85D12 /* LeftRightUpDownLabelView.swift in Sources */,
+				97C0BD4F25FF2E9F0016DA47 /* PersonInfoTrainExpAddController.swift in Sources */,
 				975222B625CA688500C85D12 /* TextTableViewCell.swift in Sources */,
 				9752228025CA67E100C85D12 /* ZZRefresh.swift in Sources */,
 				9752213F25CA463F00C85D12 /* BaseController.swift in Sources */,
@@ -1097,6 +1127,7 @@
 				97BB0E5225CC09FD00EB13F6 /* UploadApi.swift in Sources */,
 				9752226425CA67E100C85D12 /* DispatchQueue+ZZExtension.swift in Sources */,
 				9752228425CA67E100C85D12 /* RefreshFooter.swift in Sources */,
+				97C0BD5525FF2EDE0016DA47 /* PersonInfoTrainExpListController.swift in Sources */,
 				97BB0E1925CAC39400EB13F6 /* TodoMsgSearchViewModel.swift in Sources */,
 				9752214025CA463F00C85D12 /* WebController.swift in Sources */,
 				97C0BD4325FEF43C0016DA47 /* ConsultDetailViewModel.swift in Sources */,
@@ -1116,6 +1147,7 @@
 				9752229B25CA67E200C85D12 /* TableViewExtension.swift in Sources */,
 				9752211D25CA44F700C85D12 /* LLSegmentViewController.swift in Sources */,
 				97C0BD4625FEF4510016DA47 /* ConsultDetailController.swift in Sources */,
+				97C0BD4C25FF2E870016DA47 /* PersonInfoWorkExpAddController.swift in Sources */,
 				9752214425CA463F00C85D12 /* BaseView.swift in Sources */,
 				97BB0E4325CBC27C00EB13F6 /* MineViewModel.swift in Sources */,
 				9752226C25CA67E100C85D12 /* UIViewController+ZZExtension.swift in Sources */,
