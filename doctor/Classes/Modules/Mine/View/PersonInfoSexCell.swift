@@ -1,14 +1,14 @@
 //
-//  PersonInfoEditAvatorCell.swift
+//  PersonInfoSexCell.swift
 //  doctor
 //
-//  Created by 李向洲 on 2021/2/4.
+//  Created by 李向洲 on 2021/3/15.
 //  
 //
 
 import UIKit
 
-class PersonInfoEditAvatorCell: UITableViewCell {
+class PersonInfoSexCell: UITableViewCell {
     
     // MARK: - Life Cycle
     
@@ -26,21 +26,19 @@ class PersonInfoEditAvatorCell: UITableViewCell {
     // MARK: - Public Property
     
     // MARK: - Private Property
-    let titleLabel = UILabel(text: "头像", font: .size(14), textColor: .c3)
-    let iconView = UIImageView(image: UIImage(named: "mine_avator"))
+    let titleLabel = UILabel(text: "性别", font: .size(14), textColor: .c3)
+    let maleBtn = UIButton(title: " 男", imageName: "mine_personinfo_male", selectedImageName: "mine_personinfo_male")
+    let femaleBtn = UIButton(title: " 女", imageName: "mine_personinfo_female", selectedImageName: "mine_personinfo_female")
 }
 
 // MARK: - UI
-extension PersonInfoEditAvatorCell {
+extension PersonInfoSexCell {
     private func setUI() {
         backgroundColor = .white
         
         contentView.addSubview(titleLabel)
-        iconView.backgroundColor = .blue
-        iconView.zz_setCorner(radius: 12, masksToBounds: true)
-        contentView.addSubview(iconView)
-        let arrowView = contentView.zz_add(subview: UIImageView.defaultRightArrow())
-        
+        contentView.addSubview(maleBtn)
+        contentView.addSubview(femaleBtn)
         contentView.addBottomLine(color: .cf5f5f5, left: 16, right: 16, height: 1)
         
         titleLabel.snp.makeConstraints { (make) in
@@ -48,16 +46,14 @@ extension PersonInfoEditAvatorCell {
             make.centerY.equalToSuperview()
         }
         
-        iconView.snp.makeConstraints { (make) in
+        maleBtn.snp.makeConstraints { (make) in
             make.centerY.equalToSuperview()
-            make.width.height.equalTo(24)
+            make.right.equalTo(femaleBtn.snp.left).offset(-16)
         }
         
-        arrowView.snp.makeConstraints { (make) in
-            make.right.equalTo(-16)
+        femaleBtn.snp.makeConstraints { (make) in
             make.centerY.equalToSuperview()
-            make.size.equalTo(arrowView.zz_size)
-            make.left.equalTo(iconView.snp.right).offset(8)
+            make.right.equalTo(-16)
         }
     }
 }

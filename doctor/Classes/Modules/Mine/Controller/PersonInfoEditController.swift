@@ -38,6 +38,8 @@ extension PersonInfoEditController {
         tableView.set(dataSource: self, delegate: self, rowHeight: 52)
         tableView.register(cell: PersonInfoEditCell.self)
         tableView.register(cell: PersonInfoEditAvatorCell.self)
+        tableView.register(cell: PersonInfoFieldCell.self)
+        tableView.register(cell: PersonInfoSexCell.self)
         tableView.backgroundColor = .white
         view.addSubview(tableView)
         
@@ -53,11 +55,6 @@ extension PersonInfoEditController {
 
 // MARK: - Action
 extension PersonInfoEditController {
-    
-    @objc private func avatorAction() {
-        view.endEditing(true)
-//        TZImagePickerController.singleCropPresent(from: self, delegate: self)
-    }
     
     @objc private func nameAction() {
         view.endEditing(true)
@@ -109,18 +106,24 @@ extension PersonInfoEditController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let model = viewModel.dataSource[indexPath.row]
-        if model.row == .avator {
+        switch model.row {
+        case .avator:
             let cell = tableView.dequeue(cell: PersonInfoEditAvatorCell.self, for: indexPath)
+            cell.titleLabel.text = model.row.rawValue
             return cell
-        } else {
+        case .sex:
+            let cell = tableView.dequeue(cell: PersonInfoSexCell.self, for: indexPath)
+            cell.titleLabel.text = model.row.rawValue
+            return cell
+        case .userName, .realName, .hospital, .dept, .title, .contractNumber, .email, .address, .major, .degree:
+            let cell = tableView.dequeue(cell: PersonInfoFieldCell.self, for: indexPath)
+            setFieldCell(cell, model: model)
+            return cell
+        case .workExperience, .trainingExperience, .identity:
             let cell = tableView.dequeue(cell: PersonInfoEditCell.self, for: indexPath)
-            cell.config = model.config
-            cell.leftLabel.text = model.row.rawValue
-            cell.rightLabel.text = model.showText
-            cell.rightLabel.textColor = model.textColor
+            setArrowCell(cell, model: model)
             return cell
         }
-        
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -128,10 +131,15 @@ extension PersonInfoEditController: UITableViewDataSource, UITableViewDelegate {
         
         switch model.row {
         case .avator:
-            UIAlertController.showCameraPhotoSheet(from: self, delegate: self)
+            UIImagePickerController.showPicker(sourceType: .photoLibrary, from: self, delegate: self)
+        case .identity:
+            break
+        case .trainingExperience:
+            break
+        case .workExperience:
             break
         default:
-            DateSelectView().show()
+            break
         }
     }
 }
@@ -155,5 +163,24 @@ extension PersonInfoEditController: UIImagePickerControllerDelegate, UINavigatio
 
 // MARK: - Helper
 extension PersonInfoEditController {
+    func setFieldCell(_ cell: PersonInfoFieldCell, model: PersonInfoEditViewModel.RowModel) {
+        cell.innerView.leftLabel.text = model.row.rawValue
+        if !model.text.string.isEmpty {
+            cell.innerView.rightField.text = model.text.string
+            cell.innerView.rightField.font = .size(14)
+        } else {
+            cell.innerView.rightField.text = nil
+            cell.innerView.rightField.font = .size(12)
+            cell.innerView.rightField.placeHolderString = model.placeholder
+        }
+    }
     
+    func setArrowCell(_ cell: PersonInfoEditCell, model: PersonInfoEditViewModel.RowModel) {
+        cell.leftLabel.text = model.row.rawValue
+        if !model.text.string.isEmpty {
+            cell.rightLabel.text = nil
+        } else {
+            cell.rightLabel.text = model.placeholder
+        }
+    }
 }

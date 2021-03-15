@@ -122,4 +122,12 @@ extension MyFavoriteController: UITableViewDataSource, UITableViewDelegate {
         
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if viewModel.modeProperty.value == .normal {
+            push(ConsultDetailController())
+        } else {
+            
+        }
+    }
 }

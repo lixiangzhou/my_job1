@@ -11,22 +11,21 @@ import ReactiveSwift
 class PersonInfoEditViewModel: BaseViewModel {
     lazy var dataSource: [RowModel] = {
         [
-            RowModel.init(text: nil, row: .avator, config: commonCellConfig()),
-            RowModel.init(text: nil, row: .userName, config: commonCellConfig()),
-            RowModel.init(text: nil, row: .realName, config: commonCellConfig()),
-            RowModel.init(text: nil, row: .sex, config: commonCellConfig()),
-            RowModel.init(text: nil, row: .identity, config: commonCellConfig()),
-            RowModel.init(text: nil, row: .hospital, config: commonCellConfig()),
-            RowModel.init(text: nil, row: .dept, config: commonCellConfig()),
-            RowModel.init(text: nil, row: .title, config: commonCellConfig()),
-            RowModel.init(text: nil, row: .contractNumber, config: commonCellConfig()),
-            RowModel.init(text: nil, row: .email, config: commonCellConfig()),
-            RowModel.init(text: nil, row: .address, config: commonCellConfig()),
-            RowModel.init(text: nil, row: .major, config: commonCellConfig()),
-            RowModel.init(text: nil, row: .degree, config: commonCellConfig()),
-            RowModel.init(text: nil, row: .remark, config: commonCellConfig()),
-            RowModel.init(text: nil, row: .workExperience, config: commonCellConfig()),
-            RowModel.init(text: nil, row: .trainingExperience, config: commonCellConfig())
+            RowModel(text: Text(), row: .avator),
+            RowModel(text: Text(), row: .userName),
+            RowModel(text: Text(), row: .realName),
+            RowModel(text: Text(), row: .sex),
+            RowModel(text: Text(), row: .identity),
+            RowModel(text: Text(), row: .hospital),
+            RowModel(text: Text(), row: .dept),
+            RowModel(text: Text(), row: .title),
+            RowModel(text: Text(), row: .contractNumber),
+            RowModel(text: Text(), row: .email),
+            RowModel(text: Text(), row: .address),
+            RowModel(text: Text(), row: .major),
+            RowModel(text: Text(), row: .degree),
+            RowModel(text: Text(), row: .workExperience),
+            RowModel(text: Text(), row: .trainingExperience)
         ]
     }()
     
@@ -36,17 +35,37 @@ class PersonInfoEditViewModel: BaseViewModel {
 }
 
 extension PersonInfoEditViewModel {
-    struct RowModel {
-        var text: String?
-        var row: Row
-        var config: LeftRightConfigViewConfig
-        
-        var showText: String {
-            text ?? "待完善"
+    
+    class Text {
+        var string: String
+        init(_ string: String = "") {
+            self.string = string
         }
+    }
+    
+    struct RowModel {
+        var text: Text
+        var row: Row
         
-        var textColor: UIColor {
-            text != nil ? UIColor.c3 : UIColor.c26d765
+        var placeholder: String {
+            func input(_ string: String, sufix: String? = nil) -> String {
+                "请输入\(string)\(sufix ?? "")"
+            }
+            
+            switch row {
+            case .avator, .sex:
+                return ""
+            case .userName, .realName, .address:
+                return input(row.rawValue)
+            case .hospital, .dept, .title, .major, .degree:
+                return input(row.rawValue, sufix: "名称")
+            case .email:
+                return input("邮箱地址")
+            case .contractNumber:
+                return input("电话号码")
+            case .identity, .workExperience, .trainingExperience:
+                return "待完善"
+            }
         }
     }
     
@@ -64,7 +83,6 @@ extension PersonInfoEditViewModel {
         case address = "地址"
         case major = "专业"
         case degree = "学位"
-        case remark = "备注"
         case workExperience = "工作经历"
         case trainingExperience = "教育培训经历"
     }

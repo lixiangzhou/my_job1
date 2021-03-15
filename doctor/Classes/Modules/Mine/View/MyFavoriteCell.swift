@@ -109,10 +109,3 @@ extension MyFavoriteCell {
         layoutIfNeeded()
     }
 }
-
-// MARK: - Action
-extension MyFavoriteCell {
-    @objc private func selectAction() {
-        selectClosure?()
-    }
-}

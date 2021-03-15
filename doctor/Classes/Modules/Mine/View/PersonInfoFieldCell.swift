@@ -34,7 +34,8 @@ extension PersonInfoFieldCell {
     private func setUI() {
         contentView.backgroundColor = .white
         contentView.addSubview(innerView)
-        innerView.config = TextLeftRightFieldViewConfig(bottomLineLeftPadding: 16, bottomLineRightPadding: 16)
+        innerView.config = TextLeftRightFieldViewConfig(bottomLineLeftPadding: 16, bottomLineRightPadding: 16, bottomLineHeight: 1)
+        innerView.rightField.textAlignment = .right
         
         innerView.snp.makeConstraints { (make) in
             make.edges.equalToSuperview()

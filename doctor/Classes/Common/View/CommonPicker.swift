@@ -40,9 +40,9 @@ class CommonPicker: BaseView {
     
     // MARK: - Public Property
     let commmonPicker = UIPickerView()
-    let titleLabel = UILabel(font: .size(18), textColor: .gray, textAlignment: .center)
-    let cancelBtn = UIButton(title: "取消", font: .size(17), titleColor: .gray, target: self, action: #selector(cancelAction))
-    let finishBtn = UIButton(title: "完成", font: .size(17), titleColor: .blue, target: self, action: #selector(finishAction))
+    let titleLabel = UILabel(font: .size(12), textColor: .c9, textAlignment: .center)
+    let cancelBtn = UIButton(title: "取消", font: .size(14), titleColor: .c6, target: self, action: #selector(cancelAction))
+    let finishBtn = UIButton(title: "确定", font: .size(14), titleColor: .c4167f3, target: self, action: #selector(finishAction))
     
     var dataSource: CommonPickerDataSouce<CommonPickerString>? {
         didSet {
@@ -85,15 +85,13 @@ class CommonPicker: BaseView {
     
     var finishClosure: ((CommonPicker) -> Void)?
     var cancelClosure: ((CommonPicker) -> Void)?
-    
-//    var oldData: GroupModel?
 }
 
 // MARK: - UI
 extension CommonPicker {
     private func setUI() {
         let bgView = UIView()
-        bgView.backgroundColor = UIColor(white: 0, alpha: 0.5)
+        bgView.backgroundColor = UIColor(white: 0, alpha: 0.4)
         addSubview(bgView)
         
         bgView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(hide)))
@@ -118,16 +116,16 @@ extension CommonPicker {
         
         toolBar.snp.makeConstraints { (make) in
             make.left.right.equalToSuperview()
-            make.height.equalTo(50)
+            make.height.equalTo(44)
         }
         
         cancelBtn.snp.makeConstraints { (make) in
-            make.left.equalTo(15)
+            make.left.equalTo(16)
             make.top.bottom.equalToSuperview()
         }
         
         finishBtn.snp.makeConstraints { (make) in
-            make.right.equalTo(-15)
+            make.right.equalTo(-16)
             make.top.bottom.equalToSuperview()
         }
         
@@ -174,22 +172,6 @@ extension CommonPicker: UIPickerViewDataSource, UIPickerViewDelegate {
         }
     }
     
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        guard let dataSource = dataSource else { return nil }
-        
-        switch dataSource {
-        case let .one(ds):
-            return ds[row].string
-        case let .two(ds):
-            if component == 0 {
-                return ds[row].title
-            } else {
-                let row0 = pickerView.selectedRow(inComponent: 0)
-                return ds[row0].list[row].string
-            }
-        }
-    }
-    
     func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
         guard let dataSource = dataSource else { return UIView() }
         
@@ -206,7 +188,11 @@ extension CommonPicker: UIPickerViewDataSource, UIPickerViewDelegate {
             }
         }
         
-        return UILabel(text: txt, font: .size(18), textColor: .gray, numOfLines: 1, textAlignment: .center)
+        return UILabel(text: txt, font: .size(14), textColor: .c3, numOfLines: 1, textAlignment: .center)
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, rowHeightForComponent component: Int) -> CGFloat {
+        40
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
