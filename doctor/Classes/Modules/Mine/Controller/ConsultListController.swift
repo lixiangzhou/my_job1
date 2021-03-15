@@ -83,4 +83,8 @@ extension ConsultListController: UITableViewDataSource, UITableViewDelegate {
         cell.bottomLine.isHidden = indexPath.row == viewModel.dataSourceProperty.value.count - 1
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        push(ConsultDetailController())
+    }
 }

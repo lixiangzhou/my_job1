@@ -47,7 +47,7 @@ extension ConsultListCell {
         contentView.addSubview(midLabel)
         
         let dzIcon = UIImageView(image: UIImage(named: "mine_consult_dz"))
-        let readIcon = UIImageView(image: UIImage(named: "mine_consult_dz"))
+        let readIcon = UIImageView(image: UIImage(named: "mine_consult_read"))
         
         dzIcon.contentMode = .center
         readIcon.contentMode = .center

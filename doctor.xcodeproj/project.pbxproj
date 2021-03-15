@@ -150,6 +150,8 @@
 		97C0BD3A25FE43FB0016DA47 /* ConsultController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97C0BD3925FE43FB0016DA47 /* ConsultController.swift */; };
 		97C0BD3D25FE44080016DA47 /* ConsultListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97C0BD3C25FE44080016DA47 /* ConsultListController.swift */; };
 		97C0BD4025FE45020016DA47 /* ConsultListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97C0BD3F25FE45020016DA47 /* ConsultListViewModel.swift */; };
+		97C0BD4325FEF43C0016DA47 /* ConsultDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97C0BD4225FEF43B0016DA47 /* ConsultDetailViewModel.swift */; };
+		97C0BD4625FEF4510016DA47 /* ConsultDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97C0BD4525FEF4510016DA47 /* ConsultDetailController.swift */; };
 		D4A23EDE166A3A4F2CFA2A3E /* Pods_doctor.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA0FABE064C1CCC8ACB68F0B /* Pods_doctor.framework */; };
 /* End PBXBuildFile section */
 
@@ -303,6 +305,8 @@
 		97C0BD3925FE43FB0016DA47 /* ConsultController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsultController.swift; sourceTree = "<group>"; };
 		97C0BD3C25FE44080016DA47 /* ConsultListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsultListController.swift; sourceTree = "<group>"; };
 		97C0BD3F25FE45020016DA47 /* ConsultListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsultListViewModel.swift; sourceTree = "<group>"; };
+		97C0BD4225FEF43B0016DA47 /* ConsultDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsultDetailViewModel.swift; sourceTree = "<group>"; };
+		97C0BD4525FEF4510016DA47 /* ConsultDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsultDetailController.swift; sourceTree = "<group>"; };
 		A88C2482ECF59EB9BCC7A9C5 /* Pods-doctor.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-doctor.release.xcconfig"; path = "Target Support Files/Pods-doctor/Pods-doctor.release.xcconfig"; sourceTree = "<group>"; };
 		B1EB1DC690E702987D845D06 /* Pods-doctor.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-doctor.debug.xcconfig"; path = "Target Support Files/Pods-doctor/Pods-doctor.debug.xcconfig"; sourceTree = "<group>"; };
 		DA0FABE064C1CCC8ACB68F0B /* Pods_doctor.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_doctor.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -813,6 +817,7 @@
 				97C0BD2925FE19950016DA47 /* SettingViewModel.swift */,
 				97C0BD2C25FE1D830016DA47 /* MyFavoriteViewModel.swift */,
 				97C0BD3F25FE45020016DA47 /* ConsultListViewModel.swift */,
+				97C0BD4225FEF43B0016DA47 /* ConsultDetailViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -828,6 +833,7 @@
 				97C0BD3025FE1DA30016DA47 /* MyFavoriteController.swift */,
 				97C0BD3925FE43FB0016DA47 /* ConsultController.swift */,
 				97C0BD3C25FE44080016DA47 /* ConsultListController.swift */,
+				97C0BD4525FEF4510016DA47 /* ConsultDetailController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1089,6 +1095,7 @@
 				9752228425CA67E100C85D12 /* RefreshFooter.swift in Sources */,
 				97BB0E1925CAC39400EB13F6 /* TodoMsgSearchViewModel.swift in Sources */,
 				9752214025CA463F00C85D12 /* WebController.swift in Sources */,
+				97C0BD4325FEF43C0016DA47 /* ConsultDetailViewModel.swift in Sources */,
 				97C0BD2725FE19590016DA47 /* SettingController.swift in Sources */,
 				9752212325CA44F700C85D12 /* NSSet+HYBUnicodeReadable.m in Sources */,
 				975222BB25CA688500C85D12 /* ImageTitleView.swift in Sources */,
@@ -1104,6 +1111,7 @@
 				975222B825CA688500C85D12 /* TextLeftGrowTextRightView.swift in Sources */,
 				9752229B25CA67E200C85D12 /* TableViewExtension.swift in Sources */,
 				9752211D25CA44F700C85D12 /* LLSegmentViewController.swift in Sources */,
+				97C0BD4625FEF4510016DA47 /* ConsultDetailController.swift in Sources */,
 				9752214425CA463F00C85D12 /* BaseView.swift in Sources */,
 				97BB0E4325CBC27C00EB13F6 /* MineViewModel.swift in Sources */,
 				9752226C25CA67E100C85D12 /* UIViewController+ZZExtension.swift in Sources */,

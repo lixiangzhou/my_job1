@@ -14,6 +14,8 @@ class ConsultController: TopTabController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        title = "知识资讯"
     }
     
     override func getTabControllers() -> [UIViewController] {
