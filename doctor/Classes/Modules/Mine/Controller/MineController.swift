@@ -33,6 +33,7 @@ extension MineController {
         
         topView.infoView.iconView.isUserInteractionEnabled = true
         topView.infoView.iconView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(personInfoAction)))
+        topView.infoView.applyBtn.addTarget(self, action: #selector(authAction), for: .touchUpInside)
         topView.favView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(favAction)))
         topView.consultView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(consultAction)))
         
@@ -63,6 +64,10 @@ extension MineController {
     
     @objc func consultAction() {
         push(ConsultController())
+    }
+    
+    @objc func authAction() {
+        push(AuthInfoController())
     }
 }
 

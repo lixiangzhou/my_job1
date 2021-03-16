@@ -102,7 +102,7 @@ public extension Date {
         return zz_calendar.component(.nanosecond, from: self)
     }
     
-    /// 获取一周第几天，周日为0
+    /// 获取一周第几天，周日为1
     var zz_weekday: Int {
         return zz_calendar.component(.weekday, from: self)
     }
@@ -129,7 +129,7 @@ public extension Date {
     
     /// 当月有几天
     var zz_daysInMonth: Int {
-        return zz_calendar.range(of: .day, in: .year, for: self)!.count
+        return zz_calendar.range(of: .day, in: .month, for: self)!.count
     }
     
     /// 是否是同一周
@@ -223,7 +223,7 @@ public extension Date {
     fileprivate static let WeakSeconds: Double = 604800
     
     init?(year: Int, month: Int = 1, day: Int = 1, hour: Int = 0, minute: Int = 0, second: Int = 0) {
-        let components = DateComponents(calendar: Calendar.current, timeZone: .current, year: year, month: month, day: day, hour: hour, minute: minute, second: second)
+        let components = DateComponents(calendar: Calendar(identifier: .gregorian), timeZone: .current, year: year, month: month, day: day, hour: hour, minute: minute, second: second)
         if let date = components.date {
             self.init(timeIntervalSince1970: date.timeIntervalSince1970)
         } else {

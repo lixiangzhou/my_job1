@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		972EEBA4260088750025D4BD /* AuthInfoPicItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 972EEBA3260088750025D4BD /* AuthInfoPicItemView.swift */; };
 		975220E025CA439200C85D12 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 975220DF25CA439200C85D12 /* AppDelegate.swift */; };
 		975220E925CA439500C85D12 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 975220E825CA439500C85D12 /* Assets.xcassets */; };
 		975220EC25CA439500C85D12 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 975220EA25CA439500C85D12 /* LaunchScreen.storyboard */; };
@@ -161,10 +162,19 @@
 		97C0BD5B25FF3AD90016DA47 /* PersonInfoWorkExpListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97C0BD5A25FF3AD90016DA47 /* PersonInfoWorkExpListCell.swift */; };
 		97C0BD5E25FF41DD0016DA47 /* PersonInfoTrainExpListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97C0BD5D25FF41DD0016DA47 /* PersonInfoTrainExpListCell.swift */; };
 		97C0BD6125FF42180016DA47 /* PersonInfoTrainExpListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97C0BD6025FF42180016DA47 /* PersonInfoTrainExpListViewModel.swift */; };
+		97C0BD6425FF47510016DA47 /* AuthInfoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97C0BD6325FF47510016DA47 /* AuthInfoController.swift */; };
+		97C0BD6725FF48440016DA47 /* AuthInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97C0BD6625FF48440016DA47 /* AuthInfoViewModel.swift */; };
+		97C0BD6A25FF4A4C0016DA47 /* AuthInfoIDCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97C0BD6925FF4A4C0016DA47 /* AuthInfoIDCell.swift */; };
+		97C0BD6D25FF4A660016DA47 /* AuthInfoPicCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97C0BD6C25FF4A650016DA47 /* AuthInfoPicCell.swift */; };
+		97C0BD8025FF5ED90016DA47 /* ZZCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97C0BD7F25FF5ED90016DA47 /* ZZCalendarView.swift */; };
+		97C0BD8325FF63110016DA47 /* ZZCalendarMonthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97C0BD8225FF63110016DA47 /* ZZCalendarMonthView.swift */; };
+		97C0BD8625FF660C0016DA47 /* ZZCalendarModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97C0BD8525FF660C0016DA47 /* ZZCalendarModel.swift */; };
+		97C0BD8925FF95CE0016DA47 /* ZZCalendarDayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97C0BD8825FF95CE0016DA47 /* ZZCalendarDayView.swift */; };
 		D4A23EDE166A3A4F2CFA2A3E /* Pods_doctor.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA0FABE064C1CCC8ACB68F0B /* Pods_doctor.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		972EEBA3260088750025D4BD /* AuthInfoPicItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthInfoPicItemView.swift; sourceTree = "<group>"; };
 		975220DC25CA439200C85D12 /* doctor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = doctor.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		975220DF25CA439200C85D12 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		975220E825CA439500C85D12 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -325,6 +335,14 @@
 		97C0BD5A25FF3AD90016DA47 /* PersonInfoWorkExpListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonInfoWorkExpListCell.swift; sourceTree = "<group>"; };
 		97C0BD5D25FF41DD0016DA47 /* PersonInfoTrainExpListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonInfoTrainExpListCell.swift; sourceTree = "<group>"; };
 		97C0BD6025FF42180016DA47 /* PersonInfoTrainExpListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonInfoTrainExpListViewModel.swift; sourceTree = "<group>"; };
+		97C0BD6325FF47510016DA47 /* AuthInfoController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthInfoController.swift; sourceTree = "<group>"; };
+		97C0BD6625FF48440016DA47 /* AuthInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthInfoViewModel.swift; sourceTree = "<group>"; };
+		97C0BD6925FF4A4C0016DA47 /* AuthInfoIDCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthInfoIDCell.swift; sourceTree = "<group>"; };
+		97C0BD6C25FF4A650016DA47 /* AuthInfoPicCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthInfoPicCell.swift; sourceTree = "<group>"; };
+		97C0BD7F25FF5ED90016DA47 /* ZZCalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZZCalendarView.swift; sourceTree = "<group>"; };
+		97C0BD8225FF63110016DA47 /* ZZCalendarMonthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZZCalendarMonthView.swift; sourceTree = "<group>"; };
+		97C0BD8525FF660C0016DA47 /* ZZCalendarModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZZCalendarModel.swift; sourceTree = "<group>"; };
+		97C0BD8825FF95CE0016DA47 /* ZZCalendarDayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZZCalendarDayView.swift; sourceTree = "<group>"; };
 		A88C2482ECF59EB9BCC7A9C5 /* Pods-doctor.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-doctor.release.xcconfig"; path = "Target Support Files/Pods-doctor/Pods-doctor.release.xcconfig"; sourceTree = "<group>"; };
 		B1EB1DC690E702987D845D06 /* Pods-doctor.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-doctor.debug.xcconfig"; path = "Target Support Files/Pods-doctor/Pods-doctor.debug.xcconfig"; sourceTree = "<group>"; };
 		DA0FABE064C1CCC8ACB68F0B /* Pods_doctor.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_doctor.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -629,6 +647,7 @@
 		9752223C25CA67E100C85D12 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				975B7E0B26003F3400B79A05 /* ZZCalendarView */,
 				9752223D25CA67E100C85D12 /* ZZCycleView.swift */,
 				9752223E25CA67E100C85D12 /* ZZButton.swift */,
 				9752224025CA67E100C85D12 /* RefreshHeader.swift */,
@@ -838,6 +857,7 @@
 				97C0BD4225FEF43B0016DA47 /* ConsultDetailViewModel.swift */,
 				97C0BD5725FF3A8F0016DA47 /* PersonInfoWorkExpListViewModel.swift */,
 				97C0BD6025FF42180016DA47 /* PersonInfoTrainExpListViewModel.swift */,
+				97C0BD6625FF48440016DA47 /* AuthInfoViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -858,6 +878,7 @@
 				97C0BD4E25FF2E9F0016DA47 /* PersonInfoTrainExpAddController.swift */,
 				97C0BD5125FF2EBF0016DA47 /* PersonInfoWorkExpListController.swift */,
 				97C0BD5425FF2EDE0016DA47 /* PersonInfoTrainExpListController.swift */,
+				97C0BD6325FF47510016DA47 /* AuthInfoController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -886,6 +907,9 @@
 				97C0BD3625FE43E00016DA47 /* ConsultListCell.swift */,
 				97C0BD5A25FF3AD90016DA47 /* PersonInfoWorkExpListCell.swift */,
 				97C0BD5D25FF41DD0016DA47 /* PersonInfoTrainExpListCell.swift */,
+				97C0BD6925FF4A4C0016DA47 /* AuthInfoIDCell.swift */,
+				97C0BD6C25FF4A650016DA47 /* AuthInfoPicCell.swift */,
+				972EEBA3260088750025D4BD /* AuthInfoPicItemView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -909,6 +933,17 @@
 			children = (
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		975B7E0B26003F3400B79A05 /* ZZCalendarView */ = {
+			isa = PBXGroup;
+			children = (
+				97C0BD7F25FF5ED90016DA47 /* ZZCalendarView.swift */,
+				97C0BD8525FF660C0016DA47 /* ZZCalendarModel.swift */,
+				97C0BD8225FF63110016DA47 /* ZZCalendarMonthView.swift */,
+				97C0BD8825FF95CE0016DA47 /* ZZCalendarDayView.swift */,
+			);
+			path = ZZCalendarView;
 			sourceTree = "<group>";
 		};
 		A10D18E62196EE0D8960B4CC /* Frameworks */ = {
@@ -1033,10 +1068,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				9752226925CA67E100C85D12 /* Date+ZZExtension.swift in Sources */,
+				97C0BD6A25FF4A4C0016DA47 /* AuthInfoIDCell.swift in Sources */,
 				97C0BD3425FE20320016DA47 /* MyFavoriteCell.swift in Sources */,
 				97C0BD5225FF2EBF0016DA47 /* PersonInfoWorkExpListController.swift in Sources */,
 				9752211925CA44F700C85D12 /* LLSegmentItemTitleView.swift in Sources */,
 				97C0BD1825FDC00F0016DA47 /* ZZGrowTextView.swift in Sources */,
+				97C0BD6D25FF4A660016DA47 /* AuthInfoPicCell.swift in Sources */,
 				9752235D25CAB08400C85D12 /* TodoListViewModel.swift in Sources */,
 				97C0BD4025FE45020016DA47 /* ConsultListViewModel.swift in Sources */,
 				9752211F25CA44F700C85D12 /* LLCtlPageView.swift in Sources */,
@@ -1055,7 +1092,9 @@
 				9752227425CA67E100C85D12 /* UIFont+ZZExtension.swift in Sources */,
 				9752227225CA67E100C85D12 /* UILabel+ZZExtension.swift in Sources */,
 				975222AE25CA688400C85D12 /* ZZTimer.swift in Sources */,
+				97C0BD8025FF5ED90016DA47 /* ZZCalendarView.swift in Sources */,
 				9752227C25CA67E100C85D12 /* ZZButton.swift in Sources */,
+				97C0BD6725FF48440016DA47 /* AuthInfoViewModel.swift in Sources */,
 				9752226725CA67E100C85D12 /* Data+ZZExtension.swift in Sources */,
 				9752229125CA67E200C85D12 /* AuthorizationManager.swift in Sources */,
 				97C0BD5E25FF41DD0016DA47 /* PersonInfoTrainExpListCell.swift in Sources */,
@@ -1068,6 +1107,7 @@
 				9752236025CAB3F900C85D12 /* MsgListViewModel.swift in Sources */,
 				9752211625CA44F700C85D12 /* LLSegmentItemTitleImageView.swift in Sources */,
 				9752226B25CA67E100C85D12 /* Calendar+ZZExtension.swift in Sources */,
+				97C0BD6425FF47510016DA47 /* AuthInfoController.swift in Sources */,
 				97BB0E4C25CC08F000EB13F6 /* PersonInfoEditController.swift in Sources */,
 				9752229625CA67E200C85D12 /* FontExtension.swift in Sources */,
 				9752228E25CA67E200C85D12 /* RootControllerManager.swift in Sources */,
@@ -1084,6 +1124,7 @@
 				9752214225CA463F00C85D12 /* GroupModel.swift in Sources */,
 				9752226F25CA67E100C85D12 /* UIApplication+ZZExtension.swift in Sources */,
 				97C0BD3D25FE44080016DA47 /* ConsultListController.swift in Sources */,
+				97C0BD8925FF95CE0016DA47 /* ZZCalendarDayView.swift in Sources */,
 				9752214125CA463F00C85D12 /* BaseNavigationController.swift in Sources */,
 				9752226D25CA67E100C85D12 /* UIView+ZZExtension.swift in Sources */,
 				975222D325CA6B7D00C85D12 /* Network.swift in Sources */,
@@ -1126,6 +1167,7 @@
 				9752226E25CA67E100C85D12 /* UIColor+ZZExtension.swift in Sources */,
 				97BB0E5225CC09FD00EB13F6 /* UploadApi.swift in Sources */,
 				9752226425CA67E100C85D12 /* DispatchQueue+ZZExtension.swift in Sources */,
+				972EEBA4260088750025D4BD /* AuthInfoPicItemView.swift in Sources */,
 				9752228425CA67E100C85D12 /* RefreshFooter.swift in Sources */,
 				97C0BD5525FF2EDE0016DA47 /* PersonInfoTrainExpListController.swift in Sources */,
 				97BB0E1925CAC39400EB13F6 /* TodoMsgSearchViewModel.swift in Sources */,
@@ -1140,6 +1182,7 @@
 				975222B125CA688400C85D12 /* TextLeftRightCell.swift in Sources */,
 				9752228125CA67E100C85D12 /* UIScrollView+ZZRefresh.swift in Sources */,
 				9752226625CA67E100C85D12 /* CGRect+ZZExtension.swift in Sources */,
+				97C0BD8325FF63110016DA47 /* ZZCalendarMonthView.swift in Sources */,
 				97C0BD1B25FDC6450016DA47 /* FeedBackDescCell.swift in Sources */,
 				97BB0E4925CBEA7100EB13F6 /* MyCardController.swift in Sources */,
 				9752229A25CA67E200C85D12 /* TZImagePickerControllerExtension.swift in Sources */,
@@ -1149,6 +1192,7 @@
 				97C0BD4625FEF4510016DA47 /* ConsultDetailController.swift in Sources */,
 				97C0BD4C25FF2E870016DA47 /* PersonInfoWorkExpAddController.swift in Sources */,
 				9752214425CA463F00C85D12 /* BaseView.swift in Sources */,
+				97C0BD8625FF660C0016DA47 /* ZZCalendarModel.swift in Sources */,
 				97BB0E4325CBC27C00EB13F6 /* MineViewModel.swift in Sources */,
 				9752226C25CA67E100C85D12 /* UIViewController+ZZExtension.swift in Sources */,
 				9752227025CA67E100C85D12 /* UIBarButtonItem+ZZExtension.swift in Sources */,

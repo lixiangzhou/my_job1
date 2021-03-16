@@ -41,11 +41,28 @@ extension PersonInfoEditController {
         tableView.register(cell: PersonInfoFieldCell.self)
         tableView.register(cell: PersonInfoSexCell.self)
         tableView.backgroundColor = .white
+        tableView.tableFooterView = getFooterView()
         view.addSubview(tableView)
         
         tableView.snp.makeConstraints { (make) in
             make.edges.equalToSuperview()
         }
+    }
+    
+    func getFooterView() -> UIView {
+        let footer = UIView(frame: CGRect(x: 0, y: 0, width: UIScreen.zz_width, height: 120))
+        let btn = UIButton(title: "成为认证用户，获得慢痛患者管理服务", font: .size(14), titleColor: .white, backgroundColor: .c4167f3, target: self, action: #selector(submitAction))
+        btn.zz_setCorner(radius: 4, masksToBounds: true)
+        footer.addSubview(btn)
+        
+        btn.snp.makeConstraints { (make) in
+            make.top.equalTo(40)
+            make.left.equalTo(42)
+            make.right.equalTo(-42)
+            make.height.equalTo(42)
+        }
+        
+        return footer
     }
     
     override func setBinding() {
@@ -55,7 +72,7 @@ extension PersonInfoEditController {
 
 // MARK: - Action
 extension PersonInfoEditController {
-    @objc private func finishAction(_ sender: UIButton) {
+    @objc private func submitAction() {
         
     }
 }
