@@ -369,6 +369,60 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		972EEBCC2605D1A80025D4BD /* PersonInfo */ = {
+			isa = PBXGroup;
+			children = (
+				972EEBD02605D1D00025D4BD /* View */,
+				972EEBCF2605D1CD0025D4BD /* Model */,
+				972EEBCE2605D1C80025D4BD /* Controller */,
+				972EEBCD2605D1C10025D4BD /* ViewModel */,
+			);
+			path = PersonInfo;
+			sourceTree = "<group>";
+		};
+		972EEBCD2605D1C10025D4BD /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				97C0BD5725FF3A8F0016DA47 /* PersonInfoWorkExpListViewModel.swift */,
+				97C0BD6025FF42180016DA47 /* PersonInfoTrainExpListViewModel.swift */,
+				97BB0E4E25CC091B00EB13F6 /* PersonInfoEditViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		972EEBCE2605D1C80025D4BD /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				97BB0E4B25CC08F000EB13F6 /* PersonInfoEditController.swift */,
+				97C0BD4B25FF2E870016DA47 /* PersonInfoWorkExpAddController.swift */,
+				97C0BD4E25FF2E9F0016DA47 /* PersonInfoTrainExpAddController.swift */,
+				97C0BD5125FF2EBF0016DA47 /* PersonInfoWorkExpListController.swift */,
+				97C0BD5425FF2EDE0016DA47 /* PersonInfoTrainExpListController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		972EEBCF2605D1CD0025D4BD /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		972EEBD02605D1D00025D4BD /* View */ = {
+			isa = PBXGroup;
+			children = (
+				97BB0E5425CC103400EB13F6 /* PersonInfoEditCell.swift */,
+				97C0BD1125FDAFFD0016DA47 /* PersonInfoFieldCell.swift */,
+				97BB0E5725CC104D00EB13F6 /* PersonInfoEditAvatorCell.swift */,
+				97C0BD4825FF0BC80016DA47 /* PersonInfoSexCell.swift */,
+				97BB0E5A25CCE1E100EB13F6 /* DateSelectView.swift */,
+				97C0BD5A25FF3AD90016DA47 /* PersonInfoWorkExpListCell.swift */,
+				97C0BD5D25FF41DD0016DA47 /* PersonInfoTrainExpListCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		975220D325CA439200C85D12 = {
 			isa = PBXGroup;
 			children = (
@@ -466,6 +520,7 @@
 		975220FE25CA446600C85D12 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				972EEBCC2605D1A80025D4BD /* PersonInfo */,
 				975222FE25CA7CD000C85D12 /* Mine */,
 				975222F925CA7CAA00C85D12 /* PatientManager */,
 				975222F425CA7CA900C85D12 /* Todo */,
@@ -849,14 +904,11 @@
 			isa = PBXGroup;
 			children = (
 				97BB0E4225CBC27C00EB13F6 /* MineViewModel.swift */,
-				97BB0E4E25CC091B00EB13F6 /* PersonInfoEditViewModel.swift */,
 				97C0BD1D25FDC6F60016DA47 /* FeedBackViewModel.swift */,
 				97C0BD2925FE19950016DA47 /* SettingViewModel.swift */,
 				97C0BD2C25FE1D830016DA47 /* MyFavoriteViewModel.swift */,
 				97C0BD3F25FE45020016DA47 /* ConsultListViewModel.swift */,
 				97C0BD4225FEF43B0016DA47 /* ConsultDetailViewModel.swift */,
-				97C0BD5725FF3A8F0016DA47 /* PersonInfoWorkExpListViewModel.swift */,
-				97C0BD6025FF42180016DA47 /* PersonInfoTrainExpListViewModel.swift */,
 				97C0BD6625FF48440016DA47 /* AuthInfoViewModel.swift */,
 			);
 			path = ViewModel;
@@ -867,17 +919,12 @@
 			children = (
 				9752230825CA7D9B00C85D12 /* MineController.swift */,
 				97BB0E4825CBEA7100EB13F6 /* MyCardController.swift */,
-				97BB0E4B25CC08F000EB13F6 /* PersonInfoEditController.swift */,
 				97C0BD1425FDBF240016DA47 /* FeedBackController.swift */,
 				97C0BD2625FE19590016DA47 /* SettingController.swift */,
 				97C0BD3025FE1DA30016DA47 /* MyFavoriteController.swift */,
 				97C0BD3925FE43FB0016DA47 /* ConsultController.swift */,
 				97C0BD3C25FE44080016DA47 /* ConsultListController.swift */,
 				97C0BD4525FEF4510016DA47 /* ConsultDetailController.swift */,
-				97C0BD4B25FF2E870016DA47 /* PersonInfoWorkExpAddController.swift */,
-				97C0BD4E25FF2E9F0016DA47 /* PersonInfoTrainExpAddController.swift */,
-				97C0BD5125FF2EBF0016DA47 /* PersonInfoWorkExpListController.swift */,
-				97C0BD5425FF2EDE0016DA47 /* PersonInfoTrainExpListController.swift */,
 				97C0BD6325FF47510016DA47 /* AuthInfoController.swift */,
 			);
 			path = Controller;
@@ -895,18 +942,11 @@
 			children = (
 				97BB0E3F25CBBCE200EB13F6 /* MineTopView.swift */,
 				97BB0E4525CBDDD900EB13F6 /* MineCell.swift */,
-				97BB0E5425CC103400EB13F6 /* PersonInfoEditCell.swift */,
-				97C0BD1125FDAFFD0016DA47 /* PersonInfoFieldCell.swift */,
-				97BB0E5725CC104D00EB13F6 /* PersonInfoEditAvatorCell.swift */,
-				97C0BD4825FF0BC80016DA47 /* PersonInfoSexCell.swift */,
-				97BB0E5A25CCE1E100EB13F6 /* DateSelectView.swift */,
 				97C0BD1A25FDC6450016DA47 /* FeedBackDescCell.swift */,
 				97C0BD2025FDC8780016DA47 /* FeedBackPicCell.swift */,
 				97C0BD2325FDC88C0016DA47 /* FeedBackContactCell.swift */,
 				97C0BD3325FE20320016DA47 /* MyFavoriteCell.swift */,
 				97C0BD3625FE43E00016DA47 /* ConsultListCell.swift */,
-				97C0BD5A25FF3AD90016DA47 /* PersonInfoWorkExpListCell.swift */,
-				97C0BD5D25FF41DD0016DA47 /* PersonInfoTrainExpListCell.swift */,
 				97C0BD6925FF4A4C0016DA47 /* AuthInfoIDCell.swift */,
 				97C0BD6C25FF4A650016DA47 /* AuthInfoPicCell.swift */,
 				972EEBA3260088750025D4BD /* AuthInfoPicItemView.swift */,
