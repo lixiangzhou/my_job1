@@ -1,29 +1,28 @@
 //
-//  LoginController.swift
+//  BindMobileController.swift
 //  doctor
 //
-//  Created by 李向洲 on 2021/2/3.
+//  Created by 李向洲 on 2021/3/20.
+//  
 //
 
 import UIKit
 import ReactiveSwift
 
-class LoginController: BaseController {
-    
+class BindMobileController: BaseController {
+
     // MARK: - Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         setUI()
-        setBinding()
     }
-    
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         setNavigationStyle(.transparency)
     }
-    
     // MARK: - Public Property
     
     // MARK: - Private Property
@@ -31,18 +30,22 @@ class LoginController: BaseController {
     
     private var (codeView, codeBtn, timeLabel) = InputFieldView.codeFieldView(placeholder: "", bottomLineColor: .cf5f5f5)
     
-    private let loginBtn = UIButton(title: "登录", font: .size(14), titleColor: .white, target: self, action: #selector(loginAction))
+    private let confirmBtn = UIButton(title: "确定绑定", font: .size(14), titleColor: .white, target: self, action: #selector(confirmAction))
     
     private let viewModel = LoginViewModel()
 }
 
 // MARK: - UI
-extension LoginController {
+extension BindMobileController {
     override func setUI() {
         view.backgroundColor = .white
         hideNavigation = true
         
-        let loginTitleLabel = UILabel(text: "登录", font: .boldSize(24), textColor: .c3)
+        let closeBtn = UIButton(imageName: "", target: self, action: #selector(closeAction))
+        closeBtn.backgroundColor = .blue
+        view.addSubview(closeBtn)
+        
+        let loginTitleLabel = UILabel(text: "绑定手机号", font: .boldSize(24), textColor: .c3)
         view.addSubview(loginTitleLabel)
         
         let loginDescLabel = UILabel(text: "您好，欢迎来到宝霖医生！", font: .size(18), textColor: .c6)
@@ -76,16 +79,15 @@ extension LoginController {
         view.addSubview(mobileView)
         view.addSubview(codeView)
         
-        loginBtn.zz_setCorner(radius: 4, masksToBounds: true)
-        loginBtn.isEnabled = false
-        loginBtn.backgroundColor = UIColor.c4167f3.withAlphaComponent(0.4)
-        view.addSubview(loginBtn)
+        confirmBtn.zz_setCorner(radius: 4, masksToBounds: true)
+        confirmBtn.isEnabled = false
+        confirmBtn.backgroundColor = UIColor.c4167f3.withAlphaComponent(0.4)
+        view.addSubview(confirmBtn)
         
-        let wxLoginTitle = UILabel(text: "第三方账号登录", font: .size(14), textColor: .c9)
-        let wxLoginBtn = UIButton(imageName: "", target: self, action: #selector(wxLoginAction))
-        wxLoginBtn.backgroundColor = .blue
-        view.addSubview(wxLoginTitle)
-        view.addSubview(wxLoginBtn)
+        closeBtn.snp.makeConstraints { (make) in
+            make.top.equalTo(64)
+            make.left.equalTo(32)
+        }
         
         loginTitleLabel.snp.makeConstraints { (make) in
             make.top.equalTo(128)
@@ -109,23 +111,13 @@ extension LoginController {
             make.left.right.height.equalTo(mobileView)
         }
         
-        loginBtn.snp.makeConstraints { (make) in
+        confirmBtn.snp.makeConstraints { (make) in
             make.top.equalTo(codeView.snp.bottom).offset(60)
             make.left.equalTo(15)
             make.right.equalTo(-15)
             make.height.equalTo(42)
         }
         
-        wxLoginTitle.snp.makeConstraints { (make) in
-            make.top.equalTo(loginBtn.snp.bottom).offset(60)
-            make.centerX.equalToSuperview()
-        }
-
-        wxLoginBtn.snp.makeConstraints { (make) in
-            make.top.equalTo(wxLoginTitle.snp.bottom).offset(32)
-            make.width.height.equalTo(36)
-            make.centerX.equalToSuperview()
-        }
     }
     
     override func setBinding() {
@@ -136,8 +128,8 @@ extension LoginController {
        
         let codeLoginEnabledSignal = mobileEnabledSignal.and(codeEnabledSignal)
         
-        loginBtn.reactive.isEnabled <~ codeLoginEnabledSignal
-        loginBtn.reactive.backgroundColor <~ codeLoginEnabledSignal.map { UIColor.c4167f3.withAlphaComponent($0 ? 1 : 0.4) }
+        confirmBtn.reactive.isEnabled <~ codeLoginEnabledSignal
+        confirmBtn.reactive.backgroundColor <~ codeLoginEnabledSignal.map { UIColor.c4167f3.withAlphaComponent($0 ? 1 : 0.4) }
         
         codeBtn.reactive.controlEvents(.touchUpInside).observeValues { [weak self] _ in
             guard let self = self else { return }
@@ -161,8 +153,8 @@ extension LoginController {
 }
 
 // MARK: - Action
-extension LoginController {
-    @objc private func loginAction(_ sender: UIButton) {
+extension BindMobileController {
+    @objc private func confirmAction(_ sender: UIButton) {
         view.endEditing(true)
         let mobile = mobileView.text!
         
@@ -170,16 +162,7 @@ extension LoginController {
         
     }
     
-    @objc private func wxLoginAction(_ sender: UIButton) {
-        
+    @objc private func closeAction() {
+        pop()
     }
-    
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        push(BindMobileController())
-    }
-}
-
-// MARK: - Help
-extension LoginController {
-    
 }

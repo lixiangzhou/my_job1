@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		972EEBA4260088750025D4BD /* AuthInfoPicItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 972EEBA3260088750025D4BD /* AuthInfoPicItemView.swift */; };
+		972EEBDD2605D2AA0025D4BD /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 972EEBDC2605D2AA0025D4BD /* LoginViewModel.swift */; };
+		9741444A2605E45700ADB5FE /* BindMobileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 974144492605E45700ADB5FE /* BindMobileController.swift */; };
 		975220E025CA439200C85D12 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 975220DF25CA439200C85D12 /* AppDelegate.swift */; };
 		975220E925CA439500C85D12 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 975220E825CA439500C85D12 /* Assets.xcassets */; };
 		975220EC25CA439500C85D12 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 975220EA25CA439500C85D12 /* LaunchScreen.storyboard */; };
@@ -175,6 +177,8 @@
 
 /* Begin PBXFileReference section */
 		972EEBA3260088750025D4BD /* AuthInfoPicItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthInfoPicItemView.swift; sourceTree = "<group>"; };
+		972EEBDC2605D2AA0025D4BD /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		974144492605E45700ADB5FE /* BindMobileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BindMobileController.swift; sourceTree = "<group>"; };
 		975220DC25CA439200C85D12 /* doctor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = doctor.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		975220DF25CA439200C85D12 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		975220E825CA439500C85D12 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -794,6 +798,7 @@
 			isa = PBXGroup;
 			children = (
 				975222C125CA6A8700C85D12 /* LoginController.swift */,
+				974144492605E45700ADB5FE /* BindMobileController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -957,6 +962,7 @@
 		9752230B25CA7DA400C85D12 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				972EEBDC2605D2AA0025D4BD /* LoginViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -1155,6 +1161,7 @@
 				9752229425CA67E200C85D12 /* ConstraintExtension.swift in Sources */,
 				97BB0E5825CC104D00EB13F6 /* PersonInfoEditAvatorCell.swift in Sources */,
 				9752227525CA67E100C85D12 /* UITextField+ZZExtension.swift in Sources */,
+				9741444A2605E45700ADB5FE /* BindMobileController.swift in Sources */,
 				97C0BD5825FF3A8F0016DA47 /* PersonInfoWorkExpListViewModel.swift in Sources */,
 				9752226A25CA67E100C85D12 /* NSObject+ZZExtension.swift in Sources */,
 				9752227325CA67E100C85D12 /* UIImageView+ZZExtension.swift in Sources */,
@@ -1169,6 +1176,7 @@
 				9752226D25CA67E100C85D12 /* UIView+ZZExtension.swift in Sources */,
 				975222D325CA6B7D00C85D12 /* Network.swift in Sources */,
 				9752212225CA44F700C85D12 /* NSDictionary+HYBUnicodeReadable.m in Sources */,
+				972EEBDD2605D2AA0025D4BD /* LoginViewModel.swift in Sources */,
 				97C0BD2D25FE1D830016DA47 /* MyFavoriteViewModel.swift in Sources */,
 				97C0BD4925FF0BC80016DA47 /* PersonInfoSexCell.swift in Sources */,
 				9752235425CAA6A800C85D12 /* TodoSearchView.swift in Sources */,

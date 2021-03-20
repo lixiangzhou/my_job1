@@ -305,7 +305,7 @@ extension InputFieldView {
         
         bottomLine.snp.makeConstraints { (maker) in
             maker.left.bottom.right.equalToSuperview()
-            maker.height.equalTo(0.5)
+            maker.height.equalTo(1)
         }
     }
 }
@@ -518,12 +518,12 @@ extension InputFieldView {
     }
     
     static func codeFieldView(leftImage: UIImage? = nil, text: String? = nil, placeholder: String?, leftSpacing: CGFloat = 0, rightSpacing: CGFloat = 0, bottomLineColor: UIColor = .lightGray) -> (InputFieldView, UIButton, UILabel) {
-        let btn = UIButton(title: "获取验证码", font: UIFont.size(16), titleColor: UIColor.blue)
+        let btn = UIButton(title: "发送验证码", font: UIFont.boldSize(14), titleColor: UIColor.c4167f3)
         
         let size = btn.currentTitle!.zz_size(withLimitWidth: 100, fontSize: btn.titleLabel!.font.pointSize)
         btn.frame = CGRect(origin: .zero, size: CGSize(width: size.width, height: 30))
         
-        let timeLabel = UILabel(text: "60S", font: btn.titleLabel!.font, textColor: .darkGray, textAlignment: .right)
+        let timeLabel = UILabel(text: "60S", font: btn.titleLabel!.font, textColor: .c4167f3, textAlignment: .right)
         timeLabel.isHidden = true
         
         let fieldView = InputFieldView.rightClickViewFieldView(leftImage: leftImage, text: text, placeholder: placeholder, clickView: btn, leftSpacing: leftSpacing, rightSpacing: rightSpacing, bottomLineColor: bottomLineColor)
