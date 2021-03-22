@@ -475,10 +475,11 @@ extension ZZDatePicker {
 
 // MARK: - ReloadData
 extension ZZDatePicker {
-    private func reloadData() {
+    func reloadData() {
         processMinMaxDate()
         prepareMinMaxAndColumn()
         refreshDataSource()
+        pickerView.reloadAllComponents()
         showSelectDate()
     }
     

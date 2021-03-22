@@ -48,25 +48,38 @@ extension DateSelectView {
         toolBar.addSubview(cancelBtn)
         toolBar.addSubview(finishBtn)
         
-//        picker.backgroundColor = .white
-//        picker.maximumDate = Date()
-//        picker.locale = Locale(identifier: "zh")
-//        picker.datePickerMode = .dateAndTime
-//        picker.setValue(UIColor.red, forKey: "textColor")
-//        picker.setValue(UIColor.blue, forKey: "highlightColor")
-//        picker.setValue(UIColor.green, forKey: "magnifierLineColor")
-        datePicker.config.dateStyle = .yyyy_MM_dd
-//        datePicker.viewForRowInComponentClosure = { _, _, unit, value in
-//            let view = UIView()
-//            let label = UILabel(text: "\(value)", font: UIFont.AvenirNext.demibold.size(14), textColor: .c3)
-//            view.addSubview(label)
-//            label.snp.makeConstraints { (make) in
-//                make.center.equalToSuperview()
-//                make.width.equalTo(48)
-//                make.height.equalTo(24)
-//            }
-//            return view
-//        }
+        let bgView = UIView()
+        bgView.backgroundColor = .white
+        addSubview(bgView)
+        
+        let cfg = ZZDatePicker.Config()
+        cfg.dateStyle = .yyyy_MM_dd
+        datePicker.config = cfg
+        datePicker.backgroundColor = .white
+        
+        let arr = ["年", "月", "日"]
+        
+        let itemW: CGFloat = 73
+        
+        for (idx, unit) in arr.enumerated() {
+            let label = UILabel(text: unit, font: UIFont.AvenirNext.demibold.size(13), textColor: UIColor(stringHexValue: "#989DB3"), textAlignment: .right)
+            label.frame = CGRect(x: CGFloat(idx) * itemW, y: 0, width: itemW, height: cfg.rowHeight)
+            datePicker.selectBgView.addSubview(label)
+        }
+        
+        datePicker.viewForRowInComponentClosure = { _, _, unit, value in
+            let view = UIView()
+            let label = UILabel(text: "\(value)", font: UIFont.AvenirNext.demibold.size(14), textColor: .c3, textAlignment: .center)
+            view.addSubview(label)
+            label.zz_setCorner(radius: 4, masksToBounds: true)
+            label.backgroundColor = .cfbfbfb
+            label.snp.makeConstraints { (make) in
+                make.center.equalToSuperview()
+                make.width.equalTo(48)
+                make.height.equalTo(24)
+            }
+            return view
+        }
         addSubview(datePicker)
         
         toolBar.snp.makeConstraints { (make) in
@@ -90,8 +103,15 @@ extension DateSelectView {
         
         datePicker.snp.makeConstraints { (make) in
             make.top.equalTo(toolBar.snp.bottom)
-            make.height.equalTo(250)
-            make.bottom.left.right.equalToSuperview()
+            make.height.equalTo(240)
+            make.width.equalTo(itemW * 3)
+            make.centerX.bottom.equalToSuperview()
+//            make.bottom.left.right.equalToSuperview()
+        }
+        
+        bgView.snp.makeConstraints { (make) in
+            make.top.equalTo(datePicker)
+            make.left.right.bottom.equalToSuperview()
         }
     }
 }
