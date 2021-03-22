@@ -26,19 +26,19 @@ class TodoMsgSelectSearchTimeView: BaseView {
     var dataSource = ["排序推荐", "最新日期"]
     var interactiveViews: [UIView]? = nil
     
+    var selectClosure: ((String) -> Void)?
+    
     // MARK: - Private Property
     let tableView = UITableView()
-    let bgView = UIView(bgColor: UIColor(white: 0, alpha: 0.6))
+    let bgView = UIView(bgColor: UIColor(white: 0, alpha: 0.4))
+    let snapView = UIImageView()
 }
 
 // MARK: - UI
 extension TodoMsgSelectSearchTimeView {
     private func setUI() {
         frame = UIScreen.main.bounds
-        let snapView = UIImageView()
         snapView.isUserInteractionEnabled = true
-        snapView.image = UIApplication.shared.keyWindow?.zz_snapshotImage()
-        
         let tap = UITapGestureRecognizer(target: self, action: #selector(hide))
         snapView.addGestureRecognizer(tap)
         
@@ -67,45 +67,39 @@ extension TodoMsgSelectSearchTimeView {
     }
 }
 
-// MARK: - Action
-extension TodoMsgSelectSearchTimeView {
-    
-}
-
-// MARK: - Helper
-extension TodoMsgSelectSearchTimeView {
-    
-}
-
 // MARK: - Other
 extension TodoMsgSelectSearchTimeView {
-    override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
-        guard let superView = superview else { return nil }
-        let views = (interactiveViews ?? []) + tableView.visibleCells
-        for view in views {
-            let p = view.convert(point, from: superView)
-            if let result = view.hitTest(p, with: event) {
-                return result
-            }
-        }
-        
-        return super.hitTest(point, with: event)
-    }
+//    override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
+//        guard let superView = superview else { return nil }
+//        let views = (interactiveViews ?? []) + tableView.visibleCells
+//        for view in views {
+//            let p = view.convert(point, from: superView)
+//            if let result = view.hitTest(p, with: event) {
+//                return result
+//            }
+//        }
+//        
+//        return super.hitTest(point, with: event)
+//    }
 }
 
 // MARK: - Public
 extension TodoMsgSelectSearchTimeView {
     /// 调用之前要先设置DataSource
-    func show(from view: UIView) {
+    func show(from view: UIView, size: CGSize) {
         let window = UIApplication.shared.keyWindow!
         let rect = view.convert(view.bounds, to: window)
         
+        snapView.image = UIApplication.shared.keyWindow?.zz_snapshotImage()
+        
         window.addSubview(self)
+        tableView.backgroundColor = .clear
+//        tableView.zz_setCorner(radius: 8, masksToBounds: true)
         
         tableView.snp.makeConstraints { (make) in
             make.top.equalTo(rect.maxY)
-            make.left.right.equalToSuperview()
-            make.height.equalTo(dataSource.count * 33 + 16)
+            make.left.equalTo(rect.minX)
+            make.size.equalTo(size)
         }
     }
     
@@ -129,7 +123,8 @@ extension TodoMsgSelectSearchTimeView: UITableViewDataSource, UITableViewDelegat
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print(#function)
+        selectClosure?(dataSource[indexPath.row])
+        hide()
     }
 }
 

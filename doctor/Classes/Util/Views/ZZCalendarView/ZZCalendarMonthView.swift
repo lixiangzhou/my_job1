@@ -50,6 +50,7 @@ extension ZZCalendarMonthView {
         collectionView.isScrollEnabled = false
         collectionView.dataSource = self
         collectionView.delegate = self
+        collectionView.register(cell: ZZCalendarDurationDayView.self)
         collectionView.register(cell: ZZCalendarDayView.self)
         collectionView.register(cell: UICollectionViewCell.self)
         collectionView.backgroundColor = .white
@@ -78,12 +79,26 @@ extension ZZCalendarMonthView: UICollectionViewDataSource, UICollectionViewDeleg
             return collectionView.dequeue(cell: UICollectionViewCell.self, for: indexPath)
         }
         
-        let cell = collectionView.dequeue(cell: ZZCalendarDayView.self, for: indexPath)
-        let model = monthModel.days[indexPath.row - monthModel.weekday + 1]
-        cell.dayModel = model
-        
         switch config.mode {
+        case .day:
+            let cell = collectionView.dequeue(cell: ZZCalendarDayView.self, for: indexPath)
+            let model = monthModel.days[indexPath.row - monthModel.weekday + 1]
+            cell.dayModel = model
+            let date = config.selectDate
+            if date.zz_year == model.year && date.zz_month == model.month && date.zz_day == model.day {
+                cell.textLabel.textColor = .white
+                cell.textLabel.backgroundColor = .c4167f3
+            } else {
+                cell.textLabel.textColor = .c3
+                cell.textLabel.backgroundColor = .white
+            }
+            
+            return cell
         case .duration:
+            let cell = collectionView.dequeue(cell: ZZCalendarDurationDayView.self, for: indexPath)
+            let model = monthModel.days[indexPath.row - monthModel.weekday + 1]
+            cell.dayModel = model
+            
             if let start = config.start {
                 if let end = config.end {
                     if isEqual(day1: model, day2: start) {
@@ -105,22 +120,10 @@ extension ZZCalendarMonthView: UICollectionViewDataSource, UICollectionViewDeleg
             } else {
                 setCell(cell, state: .normal)
             }
-        case .day:
-            cell.bgColorLeftView.backgroundColor = .white
-            cell.bgColorRightView.backgroundColor = .white
-            cell.stateLabel.isHidden = true
             
-            let date = config.selectDate
-            if date.zz_year == model.year && date.zz_month == model.month && date.zz_day == model.day {
-                cell.textLabel.textColor = .white
-                cell.pannelView.backgroundColor = .c4167f3
-            } else {
-                cell.textLabel.textColor = .c3
-                cell.pannelView.backgroundColor = .white
-            }
+            return cell
         }
         
-        return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -132,7 +135,7 @@ extension ZZCalendarMonthView: UICollectionViewDataSource, UICollectionViewDeleg
         day1.year == day2.year && day1.month == day2.month && day1.day == day2.day
     }
     
-    func setCell(_ cell: ZZCalendarDayView, state: DayState) {
+    func setCell(_ cell: ZZCalendarDurationDayView, state: DayState) {
         switch state {
         case .normal:
             cell.bgColorLeftView.backgroundColor = .white

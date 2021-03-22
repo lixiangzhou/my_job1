@@ -127,6 +127,8 @@
 		97A4402B260892DA00864328 /* PersonInfoTitleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97A4402A260892DA00864328 /* PersonInfoTitleViewModel.swift */; };
 		97A4402E2608939300864328 /* PersonInfoTitleTxtCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97A4402D2608939300864328 /* PersonInfoTitleTxtCell.swift */; };
 		97A440312608939E00864328 /* PersonInfoTitleFieldCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97A440302608939E00864328 /* PersonInfoTitleFieldCell.swift */; };
+		97A44036260899B700864328 /* ZZCalendarDayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97A44035260899B700864328 /* ZZCalendarDayView.swift */; };
+		97A4403926089D5200864328 /* SearchField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97A4403826089D5200864328 /* SearchField.swift */; };
 		97BB0E1225CABBA100EB13F6 /* TodoMsgSearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97BB0E1125CABBA100EB13F6 /* TodoMsgSearchController.swift */; };
 		97BB0E1925CAC39400EB13F6 /* TodoMsgSearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97BB0E1825CAC39400EB13F6 /* TodoMsgSearchViewModel.swift */; };
 		97BB0E1C25CAC3BC00EB13F6 /* TodoMsgSearchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97BB0E1B25CAC3BC00EB13F6 /* TodoMsgSearchCell.swift */; };
@@ -176,7 +178,7 @@
 		97C0BD8025FF5ED90016DA47 /* ZZCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97C0BD7F25FF5ED90016DA47 /* ZZCalendarView.swift */; };
 		97C0BD8325FF63110016DA47 /* ZZCalendarMonthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97C0BD8225FF63110016DA47 /* ZZCalendarMonthView.swift */; };
 		97C0BD8625FF660C0016DA47 /* ZZCalendarModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97C0BD8525FF660C0016DA47 /* ZZCalendarModel.swift */; };
-		97C0BD8925FF95CE0016DA47 /* ZZCalendarDayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97C0BD8825FF95CE0016DA47 /* ZZCalendarDayView.swift */; };
+		97C0BD8925FF95CE0016DA47 /* ZZCalendarDurationDayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97C0BD8825FF95CE0016DA47 /* ZZCalendarDurationDayView.swift */; };
 		D4A23EDE166A3A4F2CFA2A3E /* Pods_doctor.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA0FABE064C1CCC8ACB68F0B /* Pods_doctor.framework */; };
 /* End PBXBuildFile section */
 
@@ -307,6 +309,8 @@
 		97A4402A260892DA00864328 /* PersonInfoTitleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonInfoTitleViewModel.swift; sourceTree = "<group>"; };
 		97A4402D2608939300864328 /* PersonInfoTitleTxtCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonInfoTitleTxtCell.swift; sourceTree = "<group>"; };
 		97A440302608939E00864328 /* PersonInfoTitleFieldCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonInfoTitleFieldCell.swift; sourceTree = "<group>"; };
+		97A44035260899B700864328 /* ZZCalendarDayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZZCalendarDayView.swift; sourceTree = "<group>"; };
+		97A4403826089D5200864328 /* SearchField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchField.swift; sourceTree = "<group>"; };
 		97BB0E1125CABBA100EB13F6 /* TodoMsgSearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoMsgSearchController.swift; sourceTree = "<group>"; };
 		97BB0E1825CAC39400EB13F6 /* TodoMsgSearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoMsgSearchViewModel.swift; sourceTree = "<group>"; };
 		97BB0E1B25CAC3BC00EB13F6 /* TodoMsgSearchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoMsgSearchCell.swift; sourceTree = "<group>"; };
@@ -356,7 +360,7 @@
 		97C0BD7F25FF5ED90016DA47 /* ZZCalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZZCalendarView.swift; sourceTree = "<group>"; };
 		97C0BD8225FF63110016DA47 /* ZZCalendarMonthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZZCalendarMonthView.swift; sourceTree = "<group>"; };
 		97C0BD8525FF660C0016DA47 /* ZZCalendarModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZZCalendarModel.swift; sourceTree = "<group>"; };
-		97C0BD8825FF95CE0016DA47 /* ZZCalendarDayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZZCalendarDayView.swift; sourceTree = "<group>"; };
+		97C0BD8825FF95CE0016DA47 /* ZZCalendarDurationDayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZZCalendarDurationDayView.swift; sourceTree = "<group>"; };
 		A88C2482ECF59EB9BCC7A9C5 /* Pods-doctor.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-doctor.release.xcconfig"; path = "Target Support Files/Pods-doctor/Pods-doctor.release.xcconfig"; sourceTree = "<group>"; };
 		B1EB1DC690E702987D845D06 /* Pods-doctor.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-doctor.debug.xcconfig"; path = "Target Support Files/Pods-doctor/Pods-doctor.debug.xcconfig"; sourceTree = "<group>"; };
 		DA0FABE064C1CCC8ACB68F0B /* Pods_doctor.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_doctor.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -732,6 +736,7 @@
 				9752224C25CA67E100C85D12 /* PhotoBrowserView.swift */,
 				97C0BD1725FDC00F0016DA47 /* ZZGrowTextView.swift */,
 				97A4400D2608349E00864328 /* CalendarView.swift */,
+				97A4403826089D5200864328 /* SearchField.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1002,7 +1007,8 @@
 				97C0BD7F25FF5ED90016DA47 /* ZZCalendarView.swift */,
 				97C0BD8525FF660C0016DA47 /* ZZCalendarModel.swift */,
 				97C0BD8225FF63110016DA47 /* ZZCalendarMonthView.swift */,
-				97C0BD8825FF95CE0016DA47 /* ZZCalendarDayView.swift */,
+				97C0BD8825FF95CE0016DA47 /* ZZCalendarDurationDayView.swift */,
+				97A44035260899B700864328 /* ZZCalendarDayView.swift */,
 			);
 			path = ZZCalendarView;
 			sourceTree = "<group>";
@@ -1131,6 +1137,7 @@
 				9752226925CA67E100C85D12 /* Date+ZZExtension.swift in Sources */,
 				97C0BD6A25FF4A4C0016DA47 /* AuthInfoIDCell.swift in Sources */,
 				97C0BD3425FE20320016DA47 /* MyFavoriteCell.swift in Sources */,
+				97A44036260899B700864328 /* ZZCalendarDayView.swift in Sources */,
 				97C0BD5225FF2EBF0016DA47 /* PersonInfoWorkExpListController.swift in Sources */,
 				9752211925CA44F700C85D12 /* LLSegmentItemTitleView.swift in Sources */,
 				97C0BD1825FDC00F0016DA47 /* ZZGrowTextView.swift in Sources */,
@@ -1188,7 +1195,7 @@
 				9752214225CA463F00C85D12 /* GroupModel.swift in Sources */,
 				9752226F25CA67E100C85D12 /* UIApplication+ZZExtension.swift in Sources */,
 				97C0BD3D25FE44080016DA47 /* ConsultListController.swift in Sources */,
-				97C0BD8925FF95CE0016DA47 /* ZZCalendarDayView.swift in Sources */,
+				97C0BD8925FF95CE0016DA47 /* ZZCalendarDurationDayView.swift in Sources */,
 				9752214125CA463F00C85D12 /* BaseNavigationController.swift in Sources */,
 				9752226D25CA67E100C85D12 /* UIView+ZZExtension.swift in Sources */,
 				975222D325CA6B7D00C85D12 /* Network.swift in Sources */,
@@ -1253,6 +1260,7 @@
 				97BB0E4925CBEA7100EB13F6 /* MyCardController.swift in Sources */,
 				9752229A25CA67E200C85D12 /* TZImagePickerControllerExtension.swift in Sources */,
 				975222B825CA688500C85D12 /* TextLeftGrowTextRightView.swift in Sources */,
+				97A4403926089D5200864328 /* SearchField.swift in Sources */,
 				9752229B25CA67E200C85D12 /* TableViewExtension.swift in Sources */,
 				9752211D25CA44F700C85D12 /* LLSegmentViewController.swift in Sources */,
 				97C0BD4625FEF4510016DA47 /* ConsultDetailController.swift in Sources */,

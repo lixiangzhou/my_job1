@@ -23,30 +23,23 @@ class TodoSearchView: BaseView {
     }
 
     // MARK: - Public Property
-    var searchClosure: (() -> Void)?
-    var timeClosure: (() -> Void)?
+    
+    var durationClosure: ((Date, Date) -> Void)?
     // MARK: - Private Property
-    let searchField = UITextField()
+    let searchView = SearchField()
     
     let selView = TodoMsgSelectSearchTimeView()
     var timeSelectView: ZZImagePositionButton!
     var timeTypeView: ZZImagePositionButton!
+    
+    let calendar = CalendarView()
 }
 
 // MARK: - UI
 extension TodoSearchView {
     private func setUI() {
         backgroundColor = .white
-        let leftView = UIView(frame: CGRect(origin: .zero, size: CGSize(width: 40, height: 32)))
-        leftView.addSubview(UIImageView(frame: CGRect(x: 16, y: 8, width: 16, height: 16), image: UIImage(named: "todo_top_search")))
-        searchField.leftView = leftView
-        searchField.leftViewMode = .always
-        searchField.backgroundColor = .cf6f6f6
-        searchField.attributedPlaceholder = NSAttributedString(string: "搜索患者姓名", attributes: [NSAttributedString.Key.foregroundColor: UIColor.c6])
-        searchField.font = .size(12)
-        searchField.textColor = .c3
-        searchField.zz_setCorner(radius: 16, masksToBounds: true)
-        addSubview(searchField)
+        addSubview(searchView)
         
         timeSelectView = ZZImagePositionButton(title: "时间区间", font: .size(12), titleColor: .c6, imageName: "todo_top_calendar", backgroundColor: .cf6f6f6, target: self, action: #selector(timeAction), imgPosition: .right, leftPadding: 6, middlePadding: 6, rightPadding: 6)
         timeSelectView.frame = CGRect(x: 0, y: 0, width: 80, height: 32)
@@ -57,7 +50,11 @@ extension TodoSearchView {
         timeTypeView.frame = CGRect(x: 0, y: 0, width: 80, height: 32)
         timeTypeView.zz_setCorner(radius: 8, masksToBounds: true)
         
-        searchField.snp.makeConstraints { (make) in
+        selView.selectClosure = { txt in
+            print(txt)
+        }
+        
+        searchView.snp.makeConstraints { (make) in
             make.top.equalTo(8)
             make.left.equalTo(16)
             make.height.equalTo(32)
@@ -69,19 +66,27 @@ extension TodoSearchView {
 // MARK: - Action
 extension TodoSearchView {
     @objc private func timeAction() {
+        endEditing(true)
         
-    }
-    
-    @objc private func searchAction() {
-        print(#function)
+        calendar.titleLabel.text = ""
+        calendar.calendar.config.mode = .duration
+        calendar.finishClosure = { [weak self] _ in
+            guard let self = self else { return }
+            let config = self.calendar.calendar.config
+            if let start = config.start, let end = config.end {
+                self.durationClosure?(start.date, end.date)
+            }
+        }
+        calendar.show()
     }
     
     @objc private func typeAction() {
+        endEditing(true)
         if selView.superview != nil {
             return
         }
         selView.interactiveViews = [self]
-        selView.show(from: self)
+        selView.show(from: timeTypeView, size: CGSize(width: timeTypeView.zz_width, height: 33 * 3))
     }
 }
 
@@ -102,21 +107,21 @@ extension TodoSearchView {
             addSubview(timeTypeView)
             
             timeSelectView.snp.makeConstraints { (make) in
-                make.top.height.equalTo(searchField)
-                make.left.equalTo(searchField.snp.right).offset(8)
+                make.top.height.equalTo(searchView)
+                make.left.equalTo(searchView.snp.right).offset(8)
                 make.width.equalTo(timeSelectView.zz_width)
             }
             
             timeTypeView.snp.makeConstraints { (make) in
-                make.top.height.equalTo(searchField)
+                make.top.height.equalTo(searchView)
                 make.left.equalTo(timeSelectView.snp.right).offset(8)
                 make.width.equalTo(timeTypeView.zz_width)
                 make.right.equalTo(-16)
             }
         } else {
             timeSelectView.snp.makeConstraints { (make) in
-                make.top.height.equalTo(searchField)
-                make.left.equalTo(searchField.snp.right).offset(8)
+                make.top.height.equalTo(searchView)
+                make.left.equalTo(searchView.snp.right).offset(8)
                 make.width.equalTo(timeSelectView.zz_width)
                 make.right.equalTo(-16)
             }
