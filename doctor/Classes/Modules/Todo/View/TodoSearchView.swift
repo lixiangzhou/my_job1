@@ -25,6 +25,9 @@ class TodoSearchView: BaseView {
     // MARK: - Public Property
     
     var durationClosure: ((Date, Date) -> Void)?
+    var searchClosure: ((String) -> Void)?
+    var typeClosure: ((String) -> Void)?
+    
     // MARK: - Private Property
     let searchView = SearchField()
     

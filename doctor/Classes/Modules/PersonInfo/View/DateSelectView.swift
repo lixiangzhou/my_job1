@@ -25,7 +25,8 @@ class DateSelectView: BaseShowView {
 
     // MARK: - Public Property
     let titleLabel = UILabel(text: "", font: .size(12), textColor: .c9)
-    let picker = UIDatePicker()
+//    let picker = UIDatePicker()
+    let datePicker = ZZDatePicker()
     var finishClosure: ((Date) -> Void)?
     // MARK: - Private Property
     
@@ -47,14 +48,26 @@ extension DateSelectView {
         toolBar.addSubview(cancelBtn)
         toolBar.addSubview(finishBtn)
         
-        picker.backgroundColor = .white
-        picker.maximumDate = Date()
-        picker.locale = Locale(identifier: "zh")
-        picker.datePickerMode = .dateAndTime
-        picker.setValue(UIColor.red, forKey: "textColor")
+//        picker.backgroundColor = .white
+//        picker.maximumDate = Date()
+//        picker.locale = Locale(identifier: "zh")
+//        picker.datePickerMode = .dateAndTime
+//        picker.setValue(UIColor.red, forKey: "textColor")
 //        picker.setValue(UIColor.blue, forKey: "highlightColor")
 //        picker.setValue(UIColor.green, forKey: "magnifierLineColor")
-        addSubview(picker)
+        datePicker.config.dateStyle = .yyyy_MM_dd
+//        datePicker.viewForRowInComponentClosure = { _, _, unit, value in
+//            let view = UIView()
+//            let label = UILabel(text: "\(value)", font: UIFont.AvenirNext.demibold.size(14), textColor: .c3)
+//            view.addSubview(label)
+//            label.snp.makeConstraints { (make) in
+//                make.center.equalToSuperview()
+//                make.width.equalTo(48)
+//                make.height.equalTo(24)
+//            }
+//            return view
+//        }
+        addSubview(datePicker)
         
         toolBar.snp.makeConstraints { (make) in
             make.left.right.equalToSuperview()
@@ -75,8 +88,9 @@ extension DateSelectView {
             make.center.equalToSuperview()
         }
         
-        picker.snp.makeConstraints { (make) in
+        datePicker.snp.makeConstraints { (make) in
             make.top.equalTo(toolBar.snp.bottom)
+            make.height.equalTo(250)
             make.bottom.left.right.equalToSuperview()
         }
     }
@@ -86,6 +100,6 @@ extension DateSelectView {
 extension DateSelectView {
     @objc private func finishAction() {
         hide()
-        finishClosure?(picker.date)
+        finishClosure?(datePicker.config.selectDate)
     }
 }

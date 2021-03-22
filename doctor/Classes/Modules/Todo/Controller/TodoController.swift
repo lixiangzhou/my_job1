@@ -20,16 +20,16 @@ class TodoController: TopTabController {
         todoListVC.title = "代办"
         msgListVC.title = "消息"
         
-        todoListVC.searchView.searchClosure = { [weak self] in
+        todoListVC.searchView.searchClosure = { [weak self] txt in
             self?.searchAction()
         }
         
-        msgListVC.searchView.searchClosure = { [weak self] in
+        msgListVC.searchView.durationClosure = { [weak self] from, to in
             self?.searchAction()
         }
         
-        msgListVC.searchView.timeClosure = { [weak self] in
-            
+        msgListVC.searchView.typeClosure = { [weak self] type in
+            self?.searchAction()
         }
         
         return [todoListVC, msgListVC]

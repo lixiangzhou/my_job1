@@ -21,12 +21,17 @@ class PatientManagerController: BaseController {
 
     // MARK: - Public Property
     let calendar = CalendarView(frame: CGRect(x: 0, y: 0, width: UIScreen.zz_height, height: 310))
+    let datePicker = DateSelectView()
     // MARK: - Private Property
 }
 
 // MARK: - UI
 extension PatientManagerController {
     override func setUI() {
+        
+        datePicker.finishClosure = { date in
+            print(date)
+        }
         
 //        let v1 = UIView()
         
@@ -35,6 +40,7 @@ extension PatientManagerController {
 //        view.addSubview(calendar)
 
 //        view.addSubview(calendar)
+        
     }
 }
 
@@ -45,10 +51,10 @@ extension PatientManagerController {
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        
+        datePicker.show()
 //        let model = calendarView.currentMonthModel
 //        print(model.year, model.month)
-        calendar.show()
+//        calendar.show()
     }
 }
 
