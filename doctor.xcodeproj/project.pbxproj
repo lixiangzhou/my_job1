@@ -123,6 +123,10 @@
 		9752235D25CAB08400C85D12 /* TodoListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9752235C25CAB08400C85D12 /* TodoListViewModel.swift */; };
 		9752236025CAB3F900C85D12 /* MsgListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9752235F25CAB3F900C85D12 /* MsgListViewModel.swift */; };
 		97A4400E2608349E00864328 /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97A4400D2608349E00864328 /* CalendarView.swift */; };
+		97A440282608925D00864328 /* PersonInfoTitleController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97A440272608925D00864328 /* PersonInfoTitleController.swift */; };
+		97A4402B260892DA00864328 /* PersonInfoTitleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97A4402A260892DA00864328 /* PersonInfoTitleViewModel.swift */; };
+		97A4402E2608939300864328 /* PersonInfoTitleTxtCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97A4402D2608939300864328 /* PersonInfoTitleTxtCell.swift */; };
+		97A440312608939E00864328 /* PersonInfoTitleFieldCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97A440302608939E00864328 /* PersonInfoTitleFieldCell.swift */; };
 		97BB0E1225CABBA100EB13F6 /* TodoMsgSearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97BB0E1125CABBA100EB13F6 /* TodoMsgSearchController.swift */; };
 		97BB0E1925CAC39400EB13F6 /* TodoMsgSearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97BB0E1825CAC39400EB13F6 /* TodoMsgSearchViewModel.swift */; };
 		97BB0E1C25CAC3BC00EB13F6 /* TodoMsgSearchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97BB0E1B25CAC3BC00EB13F6 /* TodoMsgSearchCell.swift */; };
@@ -135,7 +139,7 @@
 		97BB0E4C25CC08F000EB13F6 /* PersonInfoEditController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97BB0E4B25CC08F000EB13F6 /* PersonInfoEditController.swift */; };
 		97BB0E4F25CC091B00EB13F6 /* PersonInfoEditViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97BB0E4E25CC091B00EB13F6 /* PersonInfoEditViewModel.swift */; };
 		97BB0E5225CC09FD00EB13F6 /* UploadApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97BB0E5125CC09FD00EB13F6 /* UploadApi.swift */; };
-		97BB0E5525CC103400EB13F6 /* PersonInfoEditCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97BB0E5425CC103400EB13F6 /* PersonInfoEditCell.swift */; };
+		97BB0E5525CC103400EB13F6 /* PersonInfoArrowCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97BB0E5425CC103400EB13F6 /* PersonInfoArrowCell.swift */; };
 		97BB0E5825CC104D00EB13F6 /* PersonInfoEditAvatorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97BB0E5725CC104D00EB13F6 /* PersonInfoEditAvatorCell.swift */; };
 		97BB0E5B25CCE1E100EB13F6 /* DateSelectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97BB0E5A25CCE1E100EB13F6 /* DateSelectView.swift */; };
 		97C0BD1225FDAFFD0016DA47 /* PersonInfoFieldCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97C0BD1125FDAFFD0016DA47 /* PersonInfoFieldCell.swift */; };
@@ -299,6 +303,10 @@
 		9752235C25CAB08400C85D12 /* TodoListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoListViewModel.swift; sourceTree = "<group>"; };
 		9752235F25CAB3F900C85D12 /* MsgListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MsgListViewModel.swift; sourceTree = "<group>"; };
 		97A4400D2608349E00864328 /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
+		97A440272608925D00864328 /* PersonInfoTitleController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonInfoTitleController.swift; sourceTree = "<group>"; };
+		97A4402A260892DA00864328 /* PersonInfoTitleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonInfoTitleViewModel.swift; sourceTree = "<group>"; };
+		97A4402D2608939300864328 /* PersonInfoTitleTxtCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonInfoTitleTxtCell.swift; sourceTree = "<group>"; };
+		97A440302608939E00864328 /* PersonInfoTitleFieldCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonInfoTitleFieldCell.swift; sourceTree = "<group>"; };
 		97BB0E1125CABBA100EB13F6 /* TodoMsgSearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoMsgSearchController.swift; sourceTree = "<group>"; };
 		97BB0E1825CAC39400EB13F6 /* TodoMsgSearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoMsgSearchViewModel.swift; sourceTree = "<group>"; };
 		97BB0E1B25CAC3BC00EB13F6 /* TodoMsgSearchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoMsgSearchCell.swift; sourceTree = "<group>"; };
@@ -311,7 +319,7 @@
 		97BB0E4B25CC08F000EB13F6 /* PersonInfoEditController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonInfoEditController.swift; sourceTree = "<group>"; };
 		97BB0E4E25CC091B00EB13F6 /* PersonInfoEditViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonInfoEditViewModel.swift; sourceTree = "<group>"; };
 		97BB0E5125CC09FD00EB13F6 /* UploadApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadApi.swift; sourceTree = "<group>"; };
-		97BB0E5425CC103400EB13F6 /* PersonInfoEditCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonInfoEditCell.swift; sourceTree = "<group>"; };
+		97BB0E5425CC103400EB13F6 /* PersonInfoArrowCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonInfoArrowCell.swift; sourceTree = "<group>"; };
 		97BB0E5725CC104D00EB13F6 /* PersonInfoEditAvatorCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonInfoEditAvatorCell.swift; sourceTree = "<group>"; };
 		97BB0E5A25CCE1E100EB13F6 /* DateSelectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateSelectView.swift; sourceTree = "<group>"; };
 		97C0BD1125FDAFFD0016DA47 /* PersonInfoFieldCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonInfoFieldCell.swift; sourceTree = "<group>"; };
@@ -392,6 +400,7 @@
 				97C0BD5725FF3A8F0016DA47 /* PersonInfoWorkExpListViewModel.swift */,
 				97C0BD6025FF42180016DA47 /* PersonInfoTrainExpListViewModel.swift */,
 				97BB0E4E25CC091B00EB13F6 /* PersonInfoEditViewModel.swift */,
+				97A4402A260892DA00864328 /* PersonInfoTitleViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -404,6 +413,7 @@
 				97C0BD4E25FF2E9F0016DA47 /* PersonInfoTrainExpAddController.swift */,
 				97C0BD5125FF2EBF0016DA47 /* PersonInfoWorkExpListController.swift */,
 				97C0BD5425FF2EDE0016DA47 /* PersonInfoTrainExpListController.swift */,
+				97A440272608925D00864328 /* PersonInfoTitleController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -418,13 +428,15 @@
 		972EEBD02605D1D00025D4BD /* View */ = {
 			isa = PBXGroup;
 			children = (
-				97BB0E5425CC103400EB13F6 /* PersonInfoEditCell.swift */,
+				97BB0E5425CC103400EB13F6 /* PersonInfoArrowCell.swift */,
 				97C0BD1125FDAFFD0016DA47 /* PersonInfoFieldCell.swift */,
 				97BB0E5725CC104D00EB13F6 /* PersonInfoEditAvatorCell.swift */,
 				97C0BD4825FF0BC80016DA47 /* PersonInfoSexCell.swift */,
 				97BB0E5A25CCE1E100EB13F6 /* DateSelectView.swift */,
 				97C0BD5A25FF3AD90016DA47 /* PersonInfoWorkExpListCell.swift */,
 				97C0BD5D25FF41DD0016DA47 /* PersonInfoTrainExpListCell.swift */,
+				97A4402D2608939300864328 /* PersonInfoTitleTxtCell.swift */,
+				97A440302608939E00864328 /* PersonInfoTitleFieldCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1128,6 +1140,7 @@
 				9752211F25CA44F700C85D12 /* LLCtlPageView.swift in Sources */,
 				9752214525CA463F00C85D12 /* MainTabBarController.swift in Sources */,
 				9752226125CA67E100C85D12 /* DateFormatter+ZZExtension.swift in Sources */,
+				97A4402B260892DA00864328 /* PersonInfoTitleViewModel.swift in Sources */,
 				9752228C25CA67E200C85D12 /* LoginManager.swift in Sources */,
 				9752214325CA463F00C85D12 /* BaseModel.swift in Sources */,
 				97C0BD3725FE43E00016DA47 /* ConsultListCell.swift in Sources */,
@@ -1160,6 +1173,7 @@
 				97BB0E4C25CC08F000EB13F6 /* PersonInfoEditController.swift in Sources */,
 				9752229625CA67E200C85D12 /* FontExtension.swift in Sources */,
 				9752228E25CA67E200C85D12 /* RootControllerManager.swift in Sources */,
+				97A440282608925D00864328 /* PersonInfoTitleController.swift in Sources */,
 				9752212025CA44F700C85D12 /* LLToolFunc.swift in Sources */,
 				9752229425CA67E200C85D12 /* ConstraintExtension.swift in Sources */,
 				97BB0E5825CC104D00EB13F6 /* PersonInfoEditAvatorCell.swift in Sources */,
@@ -1199,8 +1213,9 @@
 				9752226225CA67E100C85D12 /* NSNumber+ZZExtension.swift in Sources */,
 				9752228725CA67E100C85D12 /* InputFieldView.swift in Sources */,
 				9752226525CA67E100C85D12 /* String+ZZExtension.swift in Sources */,
-				97BB0E5525CC103400EB13F6 /* PersonInfoEditCell.swift in Sources */,
+				97BB0E5525CC103400EB13F6 /* PersonInfoArrowCell.swift in Sources */,
 				975222B025CA688400C85D12 /* TextLeftRightView.swift in Sources */,
+				97A4402E2608939300864328 /* PersonInfoTitleTxtCell.swift in Sources */,
 				97C0BD1225FDAFFD0016DA47 /* PersonInfoFieldCell.swift in Sources */,
 				97C0BD2125FDC8780016DA47 /* FeedBackPicCell.swift in Sources */,
 				97C0BD2A25FE19950016DA47 /* SettingViewModel.swift in Sources */,
@@ -1259,6 +1274,7 @@
 				975222B725CA688500C85D12 /* TextLeftRightFieldView.swift in Sources */,
 				9752228925CA67E200C85D12 /* PhotoBrowserView.swift in Sources */,
 				9752235125CA988000C85D12 /* MsgListController.swift in Sources */,
+				97A440312608939E00864328 /* PersonInfoTitleFieldCell.swift in Sources */,
 				9752227125CA67E100C85D12 /* UIImage+ZZExtension.swift in Sources */,
 				9752234E25CA986700C85D12 /* TodoListController.swift in Sources */,
 				9752227825CA67E100C85D12 /* UISceen+ZZExtension.swift in Sources */,

@@ -82,26 +82,42 @@ extension ZZCalendarMonthView: UICollectionViewDataSource, UICollectionViewDeleg
         let model = monthModel.days[indexPath.row - monthModel.weekday + 1]
         cell.dayModel = model
         
-        if let start = config.start {
-            if let end = config.end {
-                if isEqual(day1: model, day2: start) {
-                    setCell(cell, state: .start)
-                } else if isEqual(day1: model, day2: end) {
-                    setCell(cell, state: .end)
-                } else if model.date.zz_isLater(than: start.date) && model.date.zz_isEarlier(than: end.date) {
-                    setCell(cell, state: .select)
+        switch config.mode {
+        case .duration:
+            if let start = config.start {
+                if let end = config.end {
+                    if isEqual(day1: model, day2: start) {
+                        setCell(cell, state: .start)
+                    } else if isEqual(day1: model, day2: end) {
+                        setCell(cell, state: .end)
+                    } else if model.date.zz_isLater(than: start.date) && model.date.zz_isEarlier(than: end.date) {
+                        setCell(cell, state: .select)
+                    } else {
+                        setCell(cell, state: .normal)
+                    }
                 } else {
-                    setCell(cell, state: .normal)
+                    if isEqual(day1: model, day2: start) {
+                        setCell(cell, state: .start)
+                    } else {
+                        setCell(cell, state: .normal)
+                    }
                 }
             } else {
-                if isEqual(day1: model, day2: start) {
-                    setCell(cell, state: .start)
-                } else {                
-                    setCell(cell, state: .normal)
-                }
+                setCell(cell, state: .normal)
             }
-        } else {
-            setCell(cell, state: .normal)
+        case .day:
+            cell.bgColorLeftView.backgroundColor = .white
+            cell.bgColorRightView.backgroundColor = .white
+            cell.stateLabel.isHidden = true
+            
+            let date = config.selectDate
+            if date.zz_year == model.year && date.zz_month == model.month && date.zz_day == model.day {
+                cell.textLabel.textColor = .white
+                cell.pannelView.backgroundColor = .c4167f3
+            } else {
+                cell.textLabel.textColor = .c3
+                cell.pannelView.backgroundColor = .white
+            }
         }
         
         return cell

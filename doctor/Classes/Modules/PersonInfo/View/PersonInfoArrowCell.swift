@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PersonInfoEditCell: TextTableViewCell {
+class PersonInfoArrowCell: TextTableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         

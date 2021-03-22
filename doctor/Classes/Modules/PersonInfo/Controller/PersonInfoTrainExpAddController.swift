@@ -26,6 +26,7 @@ class PersonInfoTrainExpAddController: BaseController {
     let inTimeLabel = UILabel(text: "入职时间", font: .size(14), textColor: .c9)
     let outTimeLabel = UILabel(text: "离职时间", font: .size(14), textColor: .c9)
     let descView = ZZGrowTextView()
+    let calendar = CalendarView()
     // MARK: - Private Property
     
 }
@@ -69,7 +70,12 @@ extension PersonInfoTrainExpAddController {
     func addTimeView() -> UIView {
         let timeView = view.zz_add(subview: UIView())
         
-        let titleLabel = timeView.zz_add(subview: UILabel(text: "在职时间", font: .size(14), textColor: .c3))
+        let titleLabel = timeView.zz_add(subview: UILabel(text: "在校时间", font: .size(14), textColor: .c3))
+        
+        inTimeLabel.isUserInteractionEnabled = true
+        outTimeLabel.isUserInteractionEnabled = true
+        inTimeLabel.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(intimeAction)))
+        outTimeLabel.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(outtimeAction)))
         
         timeView.addSubview(inTimeLabel)
         timeView.addSubview(outTimeLabel)
@@ -145,5 +151,37 @@ extension PersonInfoTrainExpAddController {
 extension PersonInfoTrainExpAddController {
     @objc func saveAction() {
         
+    }
+    
+    @objc func intimeAction() {
+        calendar.titleLabel.text = "入校时间"
+        if let time = inTimeLabel.text?.zz_date(withDateFormat: "yyyy-MM-dd") {
+            calendar.calendar.config.selectDate = time
+        } else {
+            calendar.calendar.config.selectDate = Date()
+        }
+        
+        calendar.finishClosure = { [weak self] day in
+            self?.inTimeLabel.textColor = .c3
+            self?.inTimeLabel.text = String(format: "%d-%02d-%02d", day.year, day.month, day.day)
+        }
+        
+        calendar.show()
+    }
+    
+    @objc func outtimeAction() {
+        calendar.titleLabel.text = "离校时间"
+        if let time = outTimeLabel.text?.zz_date(withDateFormat: "yyyy-MM-dd") {
+            calendar.calendar.config.selectDate = time
+        } else {
+            calendar.calendar.config.selectDate = Date()
+        }
+        
+        calendar.finishClosure = { [weak self] day in
+            self?.outTimeLabel.textColor = .c3
+            self?.outTimeLabel.text = String(format: "%d-%02d-%02d", day.year, day.month, day.day)
+        }
+        
+        calendar.show()
     }
 }

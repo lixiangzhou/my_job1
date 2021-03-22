@@ -57,13 +57,13 @@ extension PersonInfoEditViewModel {
                 return ""
             case .userName, .realName, .address:
                 return input(row.rawValue)
-            case .hospital, .dept, .title, .major, .degree:
+            case .hospital, .dept, .major, .degree:
                 return input(row.rawValue, sufix: "名称")
             case .email:
                 return input("邮箱地址")
             case .contractNumber:
                 return input("电话号码")
-            case .identity, .workExperience, .trainingExperience:
+            case .title, .identity, .workExperience, .trainingExperience:
                 return "待完善"
             }
         }

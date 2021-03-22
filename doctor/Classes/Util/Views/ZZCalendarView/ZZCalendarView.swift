@@ -38,6 +38,9 @@ class ZZCalendarView: BaseView {
     }
     
     var selectMonthClosure: ((MonthModel) -> Void)?
+    var selectDayClosure: ((DayModel) -> Void)?
+    
+    var currentDayModel: DayModel? = nil
     
     // MARK: - Private Property
     private var weekView = UIStackView()
@@ -108,15 +111,6 @@ extension ZZCalendarView {
         addSubview(weekView)
         addSubview(collectionView)
         
-//        collectionView.snp.makeConstraints { (make) in
-//            make.top.equalTo(config.weekH)
-//            make.left.right.equalToSuperview()
-//            make.bottom.equalToSuperview()
-//            make.width.equalTo(collectionW)
-//            make.height.equalTo(collectionH)
-//            make.centerX.equalToSuperview()
-//        }
-        
         setSelect(year: config.selectDate.zz_year, month: config.selectDate.zz_month, animated: true)
     }
     
@@ -144,6 +138,8 @@ extension ZZCalendarView: UICollectionViewDataSource, UICollectionViewDelegate {
         
         cell.didSelectDayClosure = { [weak self] idxPath, month, day in
             guard let self = self else { return }
+            switch self.config.mode {
+            case .duration:
                 if let startDay = self.config.start {
                     if let _ = self.config.end {
                         self.config.start = day
@@ -158,7 +154,12 @@ extension ZZCalendarView: UICollectionViewDataSource, UICollectionViewDelegate {
                 } else {
                     self.config.start = day
                 }
+            case .day:
+                self.config.selectDate = day.date
+            }
             self.collectionView.reloadItems(at: [indexPath])
+            self.currentDayModel = day
+            self.selectDayClosure?(day)
         }
         return cell
     }
@@ -195,8 +196,14 @@ extension ZZCalendarView {
         var weekTitleFont: UIFont = UIFont.PingFangSC.semibold.size(13)
         var weekTitleColor: UIColor = UIColor(stringHexValue: "#989DB3")!
         var selectDate = Date()
+        var mode = Mode.day
         
         var start: DayModel?
         var end: DayModel?
+    }
+    
+    enum Mode {
+        case duration
+        case day
     }
 }

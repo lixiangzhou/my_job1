@@ -36,7 +36,7 @@ class PersonInfoEditController: BaseController {
 extension PersonInfoEditController {
     override func setUI() {
         tableView.set(dataSource: self, delegate: self, rowHeight: 52)
-        tableView.register(cell: PersonInfoEditCell.self)
+        tableView.register(cell: PersonInfoArrowCell.self)
         tableView.register(cell: PersonInfoEditAvatorCell.self)
         tableView.register(cell: PersonInfoFieldCell.self)
         tableView.register(cell: PersonInfoSexCell.self)
@@ -93,12 +93,12 @@ extension PersonInfoEditController: UITableViewDataSource, UITableViewDelegate {
             let cell = tableView.dequeue(cell: PersonInfoSexCell.self, for: indexPath)
             cell.titleLabel.text = model.row.rawValue
             return cell
-        case .userName, .realName, .hospital, .dept, .title, .contractNumber, .email, .address, .major, .degree:
+        case .userName, .realName, .hospital, .dept, .contractNumber, .email, .address, .major, .degree:
             let cell = tableView.dequeue(cell: PersonInfoFieldCell.self, for: indexPath)
             setFieldCell(cell, model: model)
             return cell
-        case .workExperience, .trainingExperience, .identity:
-            let cell = tableView.dequeue(cell: PersonInfoEditCell.self, for: indexPath)
+        case .title, .workExperience, .trainingExperience, .identity:
+            let cell = tableView.dequeue(cell: PersonInfoArrowCell.self, for: indexPath)
             setArrowCell(cell, model: model)
             return cell
         }
@@ -111,11 +111,31 @@ extension PersonInfoEditController: UITableViewDataSource, UITableViewDelegate {
         case .avator:
             UIImagePickerController.showPicker(sourceType: .photoLibrary, from: self, delegate: self)
         case .identity:
-            break
+            let picker = CommonPicker.show()
+            picker.dataSource = CommonPickerDataSouce.one(["医生", "医学生", "药剂师", "招聘人员", "医院行政管理人员"])
+            picker.selectOne("医生")
+            
+            picker.finishClosure = { picker in
+                let row = picker.commmonPicker.selectedRow(inComponent: 0)
+                switch CommonPickerDataSouce.one(["医生", "医学生", "药剂师", "招聘人员", "医院行政管理人员"]) {
+                case let .one(ds):
+                    model.text.string = ds[row]
+                    tableView.reloadRows(at: [indexPath], with: .none)
+                default:
+                    break
+                }
+            }
         case .trainingExperience:
             push(PersonInfoTrainExpListController())
         case .workExperience:
             push(PersonInfoWorkExpListController())
+        case .title:
+            let vc = PersonInfoTitleController()
+            vc.selectClosure = { txt in
+                model.text.string = txt
+                tableView.reloadRows(at: [indexPath], with: .none)
+            }
+            push(vc)
         default:
             break
         }
@@ -143,22 +163,19 @@ extension PersonInfoEditController: UIImagePickerControllerDelegate, UINavigatio
 extension PersonInfoEditController {
     func setFieldCell(_ cell: PersonInfoFieldCell, model: PersonInfoEditViewModel.RowModel) {
         cell.innerView.leftLabel.text = model.row.rawValue
-        if !model.text.string.isEmpty {
-            cell.innerView.rightField.text = model.text.string
-            cell.innerView.rightField.font = .size(14)
-        } else {
-            cell.innerView.rightField.text = nil
-            cell.innerView.rightField.font = .size(12)
-            cell.innerView.rightField.placeHolderString = model.placeholder
-        }
+        cell.innerView.rightField.text = model.text.string
+        cell.innerView.rightField.font = .size(14)
+        cell.innerView.rightField.attributedPlaceholder = NSAttributedString(string: model.placeholder, attributes: [NSAttributedString.Key.font: UIFont.size(12), NSAttributedString.Key.foregroundColor: UIColor.c9])
     }
     
-    func setArrowCell(_ cell: PersonInfoEditCell, model: PersonInfoEditViewModel.RowModel) {
+    func setArrowCell(_ cell: PersonInfoArrowCell, model: PersonInfoEditViewModel.RowModel) {
         cell.leftLabel.text = model.row.rawValue
         if !model.text.string.isEmpty {
-            cell.rightLabel.text = nil
+            cell.rightLabel.text = model.text.string
+            cell.rightLabel.textColor = .c3
         } else {
             cell.rightLabel.text = model.placeholder
+            cell.rightLabel.textColor = .c26d765
         }
     }
 }

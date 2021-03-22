@@ -28,7 +28,7 @@ class CalendarView: BaseShowView {
     let titleLabel = UILabel(text: "选择时间", font: .size(12), textColor: .c9)
     let nextView = NextView()
     var calendar: ZZCalendarView!
-    var finishClosure: ((Date) -> Void)?
+    var finishClosure: ((DayModel) -> Void)?
     
     // MARK: - Private Property
     private let toolBarHeight: CGFloat = 44
@@ -107,8 +107,10 @@ extension CalendarView {
 // MARK: - Action
 extension CalendarView {
     @objc private func finishAction() {
-//        hide()
-        print(#function)
+        hide()
+        if let day = calendar.currentDayModel {
+            finishClosure?(day)
+        }
     }
     
     @objc private func preAction() {
