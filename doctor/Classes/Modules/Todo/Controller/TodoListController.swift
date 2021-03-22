@@ -37,6 +37,7 @@ class TodoListController: BaseController {
 // MARK: - UI
 extension TodoListController {
     override func setUI() {
+        searchView.addTypeView(true)
         view.addSubview(searchView)
         
         tableView.set(dataSource: self, delegate: self)

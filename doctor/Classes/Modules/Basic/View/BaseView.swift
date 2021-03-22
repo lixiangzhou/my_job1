@@ -39,7 +39,34 @@ extension BaseView {
     }
 }
 
-class BaseShowView: BaseView {}
+class BaseShowView: BaseView {
+    let tapHideView = UIView()
+    let contentView = UIView()
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        addSubview(tapHideView)
+        addSubview(contentView)
+        
+        tapHideView.backgroundColor = .clear
+        tapHideView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(hide)))
+        
+        contentView.backgroundColor = .clear
+        
+        tapHideView.snp.makeConstraints { (make) in
+            make.top.left.right.equalToSuperview()
+        }
+        
+        contentView.snp.makeConstraints { (make) in
+            make.top.equalTo(tapHideView.snp.bottom)
+            make.left.right.bottom.equalToSuperview()
+        }
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+}
 
 extension BaseShowView {
     @objc func show() {

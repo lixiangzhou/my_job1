@@ -26,7 +26,8 @@ class RootControllerManager {
         window?.backgroundColor = .white
         
 //        if LoginManager.shared.isLogin {
-            window?.rootViewController = BaseNavigationController(rootViewController: LoginController())//MainTabBarController()
+            window?.rootViewController = MainTabBarController()
+//        window?.rootViewController = BaseNavigationController(rootViewController: LoginController())
 //        } else {
 //            window?.rootViewController = BaseNavigationController(rootViewController: LoginController())
 //        }

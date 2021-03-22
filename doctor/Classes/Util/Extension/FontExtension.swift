@@ -35,3 +35,25 @@ extension UIFont {
         PingFangSC.medium.size(size)
     }
 }
+
+extension UIFont {
+    //"AvenirNext-Medium", "AvenirNext-DemiBoldItalic", "AvenirNext-DemiBold", "AvenirNext-HeavyItalic", "AvenirNext-Regular", "AvenirNext-Italic", "AvenirNext-MediumItalic", "AvenirNext-UltraLightItalic", "AvenirNext-BoldItalic", "AvenirNext-Heavy", "AvenirNext-Bold", "AvenirNext-UltraLight"
+    enum AvenirNext: String {
+        case medium = "AvenirNext-Medium"
+        case demibolditalic = "AvenirNext-DemiBoldItalic"
+        case demibold = "AvenirNext-DemiBold"
+        case heavyitalic = "AvenirNext-HeavyItalic"
+        case regular = "AvenirNext-Regular"
+        case italic = "AvenirNext-Italic"
+        case mediumitalic = "AvenirNext-MediumItalic"
+        case ultraLightitalic = "AvenirNext-UltraLightItalic"
+        case bolditalic = "AvenirNext-BoldItalic"
+        case heavy = "AvenirNext-Heavy"
+        case bold = "AvenirNext-Bold"
+        case ultralight = "AvenirNext-UltraLight"
+        
+        func size(_ size: CGFloat) -> UIFont {
+            UIFont(name: rawValue, size: size)!
+        }
+    }
+}

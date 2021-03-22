@@ -20,7 +20,7 @@ class PatientManagerController: BaseController {
     }
 
     // MARK: - Public Property
-    let calendarView = ZZCalendarView(frame: CGRect(x: 0, y: 0, width: UIScreen.zz_width, height: 400))
+    let calendar = CalendarView(frame: CGRect(x: 0, y: 0, width: UIScreen.zz_height, height: 310))
     // MARK: - Private Property
 }
 
@@ -28,16 +28,13 @@ class PatientManagerController: BaseController {
 extension PatientManagerController {
     override func setUI() {
         
-//        view.backgroundColor = .yellow
+//        let v1 = UIView()
         
-        
-        calendarView.zz_setBorder(color: .cf5f5f5, width: 1)
-        calendarView.zz_setCorner(radius: 5, masksToBounds: true)
-        view.addSubview(calendarView)
-        
-        calendarView.selectMonthClosure = { model in
-            print(model.year, model.month)
-        }
+//        let c1 = ZZCalendarView(frame: CGRect(x: 0, y: 0, width: UIScreen.zz_height, height: 310))
+//        view.addSubview(c1)
+//        view.addSubview(calendar)
+
+//        view.addSubview(calendar)
     }
 }
 
@@ -48,8 +45,10 @@ extension PatientManagerController {
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        let model = calendarView.currentMonthModel
-        print(model.year, model.month)
+        
+//        let model = calendarView.currentMonthModel
+//        print(model.year, model.month)
+        calendar.show()
     }
 }
 

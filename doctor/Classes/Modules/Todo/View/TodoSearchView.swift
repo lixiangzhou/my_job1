@@ -26,42 +26,42 @@ class TodoSearchView: BaseView {
     var searchClosure: (() -> Void)?
     var timeClosure: (() -> Void)?
     // MARK: - Private Property
+    let searchField = UITextField()
+    
+    let selView = TodoMsgSelectSearchTimeView()
+    var timeSelectView: ZZImagePositionButton!
+    var timeTypeView: ZZImagePositionButton!
 }
 
 // MARK: - UI
 extension TodoSearchView {
     private func setUI() {
-        let leftBgView = zz_add(subview: UIView())
-        leftBgView.backgroundColor = .cfbfbfb
-        let iconView = leftBgView.zz_add(subview: UIImageView(""))
-        let tipLabel = leftBgView.zz_add(subview: UILabel(text: "搜索患者姓名", font: .size(12), textColor: .c6))
-        leftBgView.zz_setCorner(radius: 16, masksToBounds: true)
-        leftBgView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(searchAction)))
+        backgroundColor = .white
+        let leftView = UIView(frame: CGRect(origin: .zero, size: CGSize(width: 40, height: 32)))
+        leftView.addSubview(UIImageView(frame: CGRect(x: 16, y: 8, width: 16, height: 16), image: UIImage(named: "todo_top_search")))
+        searchField.leftView = leftView
+        searchField.leftViewMode = .always
+        searchField.backgroundColor = .cf6f6f6
+        searchField.attributedPlaceholder = NSAttributedString(string: "搜索患者姓名", attributes: [NSAttributedString.Key.foregroundColor: UIColor.c6])
+        searchField.font = .size(12)
+        searchField.textColor = .c3
+        searchField.zz_setCorner(radius: 16, masksToBounds: true)
+        addSubview(searchField)
         
-        let rightView = zz_add(subview: ZZImagePositionButton(title: "选择时间", font: .boldSize(12), titleColor: .c3, imageName: "", target: self, action: #selector(timeAction), imgPosition: .right, leftPadding: 0, middlePadding: 8, rightPadding: 0)) as! UIButton
-        rightView.adjustsImageWhenHighlighted = false
+        timeSelectView = ZZImagePositionButton(title: "时间区间", font: .size(12), titleColor: .c6, imageName: "todo_top_calendar", backgroundColor: .cf6f6f6, target: self, action: #selector(timeAction), imgPosition: .right, leftPadding: 6, middlePadding: 6, rightPadding: 6)
+        timeSelectView.frame = CGRect(x: 0, y: 0, width: 80, height: 32)
+        timeSelectView.zz_setCorner(radius: 8, masksToBounds: true)
+        addSubview(timeSelectView)
         
-        leftBgView.snp.makeConstraints { (make) in
+        timeTypeView = ZZImagePositionButton(title: "已逾期", font: .size(12), titleColor: .c6, imageName: "todo_top_arrow_down", backgroundColor: .cf6f6f6, target: self, action: #selector(typeAction), imgPosition: .right, leftPadding: 14, middlePadding: 4, rightPadding: 14)
+        timeTypeView.frame = CGRect(x: 0, y: 0, width: 80, height: 32)
+        timeTypeView.zz_setCorner(radius: 8, masksToBounds: true)
+        
+        searchField.snp.makeConstraints { (make) in
             make.top.equalTo(8)
             make.left.equalTo(16)
+            make.height.equalTo(32)
             make.bottom.equalToSuperview()
-            make.right.equalTo(rightView.snp.left).offset(16)
-        }
-        
-        iconView.snp.makeConstraints { (make) in
-            make.left.equalTo(15)
-            make.size.equalTo(CGSize(width: 16, height: 16))
-            make.centerY.equalToSuperview()
-        }
-        
-        tipLabel.snp.makeConstraints { (make) in
-            make.left.equalTo(iconView.snp.right).offset(10)
-            make.centerY.equalToSuperview()
-        }
-        
-        rightView.snp.makeConstraints { (make) in
-            make.right.equalTo(-16)
-            make.top.bottom.equalTo(leftBgView)
         }
     }
 }
@@ -69,15 +69,19 @@ extension TodoSearchView {
 // MARK: - Action
 extension TodoSearchView {
     @objc private func timeAction() {
-//        timeClosure?()
-        let selView = TodoMsgSelectSearchTimeView()
-        selView.interactiveViews = [self]
-        selView.show(from: self)
+        
     }
     
     @objc private func searchAction() {
         print(#function)
-//        searchClosure?()
+    }
+    
+    @objc private func typeAction() {
+        if selView.superview != nil {
+            return
+        }
+        selView.interactiveViews = [self]
+        selView.show(from: self)
     }
 }
 
@@ -93,5 +97,30 @@ extension TodoSearchView {
 
 // MARK: - Public
 extension TodoSearchView {
-    
+    func addTypeView(_ addOrNot: Bool) {
+        if addOrNot {
+            addSubview(timeTypeView)
+            
+            timeSelectView.snp.makeConstraints { (make) in
+                make.top.height.equalTo(searchField)
+                make.left.equalTo(searchField.snp.right).offset(8)
+                make.width.equalTo(timeSelectView.zz_width)
+            }
+            
+            timeTypeView.snp.makeConstraints { (make) in
+                make.top.height.equalTo(searchField)
+                make.left.equalTo(timeSelectView.snp.right).offset(8)
+                make.width.equalTo(timeTypeView.zz_width)
+                make.right.equalTo(-16)
+            }
+        } else {
+            timeSelectView.snp.makeConstraints { (make) in
+                make.top.height.equalTo(searchField)
+                make.left.equalTo(searchField.snp.right).offset(8)
+                make.width.equalTo(timeSelectView.zz_width)
+                make.right.equalTo(-16)
+            }
+        }
+        
+    }
 }

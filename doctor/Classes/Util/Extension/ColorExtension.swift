@@ -28,6 +28,16 @@ extension UIColor {
         return UIColor(stringHexValue: "#F6F8FF")!
     }
     
+    static var cf6f6f6: UIColor {
+        return UIColor(stringHexValue: "#F6F6F6")!
+    }
+    
+    static var c8DA5FF: UIColor {
+        return UIColor(stringHexValue: "#8DA5FF")!
+    }
+    
+    
+    
     static var cf94336: UIColor {
         return UIColor(stringHexValue: "#F94336")!
     }

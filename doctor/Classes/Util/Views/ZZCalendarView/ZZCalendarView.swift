@@ -25,9 +25,9 @@ class ZZCalendarView: BaseView {
     // MARK: - Public Property
     var config = Config() {
         didSet {
-            weekView.frame = CGRect(x: 0, y: 0, width: bounds.width, height: config.weekH)
-            collectionView.frame = CGRect(x: 0, y: config.weekH, width: bounds.width, height: collectionHeight)
-            collectionView.setCollectionViewLayout(getLayout(), animated: false)
+            let x = (UIScreen.zz_width - collectionW) * 0.5
+            weekView.frame = CGRect(x: x, y: 0, width: bounds.width, height: config.weekH)
+            collectionView.frame = CGRect(x: x, y: config.weekH, width: collectionW, height: collectionH)
             setSelect(year: config.selectDate.zz_year, month: config.selectDate.zz_month, animated: true)
         }
     }
@@ -44,7 +44,8 @@ class ZZCalendarView: BaseView {
     private var collectionView: UICollectionView!
     
     private lazy var dataSource: [MonthModel] = {
-        let yearRange = 1970...2050
+        let currentY = Date().zz_year
+        let yearRange = (currentY - 10)...(currentY + 10)
         let monthRange = 1...12
         let calendar = Calendar(identifier: .gregorian)
         var monthModels = [MonthModel]()
@@ -59,7 +60,7 @@ class ZZCalendarView: BaseView {
                 for d in dayRange {
                     let day = date.zz_dayAfterNow(d - 1)!
                     let cmps = calendar.dateComponents(in: .current, from: day)
-                    let dayModel = DayModel(year: y, month: m, day: d, weekday: cmps.weekday!, weekOfMonth: cmps.weekOfMonth!, date: day, state: .normal)
+                    let dayModel = DayModel(year: y, month: m, day: d, weekday: cmps.weekday!, weekOfMonth: cmps.weekOfMonth!, date: day)
                     dayModels.append(dayModel)
                 }
                 
@@ -70,8 +71,13 @@ class ZZCalendarView: BaseView {
         return monthModels
     }()
     
-    private var collectionHeight: CGFloat {
-        bounds.height - config.weekH
+    var collectionW: CGFloat {
+        floor(UIScreen.zz_width / 7) * 7
+//        UIScreen.zz_width
+    }
+    
+    var collectionH: CGFloat {
+         45 * 6
     }
 }
 
@@ -85,12 +91,13 @@ extension ZZCalendarView {
             weeks.append(UILabel(text: w, font: config.weekTitleFont, textColor: config.weekTitleColor, textAlignment: .center))
         }
         
+        let x = (UIScreen.zz_width - collectionW) * 0.5
         weekView = UIStackView(arrangedSubviews: weeks)
-        weekView.frame = CGRect(x: 0, y: 0, width: bounds.width, height: config.weekH)
+        weekView.frame = CGRect(x: x, y: 0, width: bounds.width, height: config.weekH)
         weekView.axis = .horizontal
         weekView.distribution = .fillEqually
         
-        collectionView = UICollectionView(frame: CGRect(x: 0, y: config.weekH, width: bounds.width, height: collectionHeight), collectionViewLayout: getLayout())
+        collectionView = UICollectionView(frame: CGRect(x: x, y: config.weekH, width: collectionW, height: collectionH), collectionViewLayout: getLayout())
         collectionView.isPagingEnabled = true
         collectionView.dataSource = self
         collectionView.delegate = self
@@ -101,15 +108,25 @@ extension ZZCalendarView {
         addSubview(weekView)
         addSubview(collectionView)
         
+//        collectionView.snp.makeConstraints { (make) in
+//            make.top.equalTo(config.weekH)
+//            make.left.right.equalToSuperview()
+//            make.bottom.equalToSuperview()
+//            make.width.equalTo(collectionW)
+//            make.height.equalTo(collectionH)
+//            make.centerX.equalToSuperview()
+//        }
+        
         setSelect(year: config.selectDate.zz_year, month: config.selectDate.zz_month, animated: true)
     }
     
     private func getLayout() -> UICollectionViewFlowLayout {
         let layout = UICollectionViewFlowLayout()
-        layout.itemSize = CGSize(width: bounds.width, height: bounds.height - config.weekH)
+        layout.itemSize = CGSize(width: collectionW, height: collectionH)
         layout.minimumLineSpacing = 0
         layout.minimumInteritemSpacing = 0
         layout.scrollDirection = .horizontal
+        
         return layout
     }
 }
@@ -123,6 +140,26 @@ extension ZZCalendarView: UICollectionViewDataSource, UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeue(cell: ZZCalendarMonthView.self, for: indexPath)
         cell.monthModel =  dataSource[indexPath.row]
+        cell.config = config
+        
+        cell.didSelectDayClosure = { [weak self] idxPath, month, day in
+            guard let self = self else { return }
+                if let startDay = self.config.start {
+                    if let _ = self.config.end {
+                        self.config.start = day
+                        self.config.end = nil
+                    } else {
+                        if day.date.zz_isEarlier(than: startDay.date) {
+                            self.config.start = day
+                        } else {
+                            self.config.end = day
+                        }
+                    }
+                } else {
+                    self.config.start = day
+                }
+            self.collectionView.reloadItems(at: [indexPath])
+        }
         return cell
     }
     
@@ -144,15 +181,22 @@ extension ZZCalendarView {
             } else {
                 idx = y * 12 + month - 1
             }
-            collectionView.selectItem(at: IndexPath(item: idx, section: 0), animated: animated, scrollPosition: .centeredHorizontally)
+            let idxPath = IndexPath(item: idx, section: 0)
+            collectionView.selectItem(at: idxPath, animated: animated, scrollPosition: .centeredHorizontally)
+            
+            if let cell = collectionView.cellForItem(at: idxPath) as? ZZCalendarMonthView {
+                cell.config = config
+            }
         }
     }
     
-    
-    struct Config {
-        let weekH: CGFloat = 40
-        let weekTitleFont: UIFont = UIFont.size(14)
-        let weekTitleColor: UIColor = UIColor(stringHexValue: "#989DB3")!
-        let selectDate = Date()
+    class Config {
+        var weekH: CGFloat = 40
+        var weekTitleFont: UIFont = UIFont.PingFangSC.semibold.size(13)
+        var weekTitleColor: UIColor = UIColor(stringHexValue: "#989DB3")!
+        var selectDate = Date()
+        
+        var start: DayModel?
+        var end: DayModel?
     }
 }

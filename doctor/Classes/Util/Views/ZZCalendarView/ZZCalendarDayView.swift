@@ -23,15 +23,19 @@ class ZZCalendarDayView: UICollectionViewCell {
     }
     
     // MARK: - Public Property
-    static let identifier = "ZZCalendarDayViewIdentifier"
+    
+    
     
     // MARK: - Private Property
-    let textLabel = UILabel(font: .size(14), textColor: .c3, textAlignment: .center)
+    let pannelView = UIView()
+    let textLabel = UILabel(font: UIFont.AvenirNext.demibold.size(14), textColor: .c3, textAlignment: .center)
+    let stateLabel = UILabel(text: " ", font: .size(10), textColor: .white)
+    let bgColorLeftView = UIView()
+    let bgColorRightView = UIView()
     var dayModel: DayModel! {
         didSet {
             textLabel.text = "\(dayModel.day)"
-            
-            textLabel.textColor = dayModel.isToday ? UIColor.red : UIColor.c3
+//            textLabel.textColor = dayModel.isToday ? UIColor.red : UIColor.c3
         }
     }
 }
@@ -39,11 +43,41 @@ class ZZCalendarDayView: UICollectionViewCell {
 // MARK: - UI
 extension ZZCalendarDayView {
     private func setUI() {
-        contentView.addSubview(textLabel)
+        contentView.addSubview(bgColorLeftView)
+        contentView.addSubview(bgColorRightView)
+        
+        pannelView.zz_setCorner(radius: 8, masksToBounds: true)
+        contentView.addSubview(pannelView)
+        pannelView.addSubview(textLabel)
+        pannelView.addSubview(stateLabel)
+        
+        pannelView.snp.makeConstraints { (make) in
+            make.top.equalTo(4)
+            make.centerX.equalToSuperview()
+            make.width.equalTo(32)
+            make.height.equalTo(40)
+        }
         
         textLabel.snp.makeConstraints { (make) in
-            make.center.equalToSuperview()
-            make.width.height.equalTo(30)
+            make.top.equalTo(7)
+            make.centerX.equalToSuperview()
+        }
+        
+        stateLabel.snp.makeConstraints { (make) in
+            make.bottom.equalTo(-2)
+            make.centerX.equalToSuperview()
+        }
+        
+        bgColorLeftView.snp.makeConstraints { (make) in
+            make.top.bottom.equalTo(pannelView)
+            make.left.equalToSuperview()
+            make.right.equalTo(pannelView.snp.centerX)
+        }
+        
+        bgColorRightView.snp.makeConstraints { (make) in
+            make.top.bottom.equalTo(pannelView)
+            make.right.equalToSuperview()
+            make.left.equalTo(pannelView.snp.centerX)
         }
     }
 }

@@ -14,9 +14,13 @@ struct MonthModel {
     var date: Date
     
     var days: [DayModel]
+    
+    var description: String {
+        return "\(year)-\(month)"
+    }
 }
 
-struct DayModel {
+struct DayModel: CustomStringConvertible {
     var year: Int
     var month: Int
     var day: Int
@@ -24,10 +28,17 @@ struct DayModel {
     var weekOfMonth: Int
     var date: Date
     
-    var state: DayState
-    
     var isToday: Bool {
         date.zz_isToday
+    }
+    
+    var description: String {
+        return "\(year)-\(month)-\(day)"
+    }
+    
+    static func dayModel(year: Int, month: Int, day: Int) -> DayModel {
+        let date = Date(year: year, month: month, day: day, hour: 8)!
+        return DayModel(year: year, month: month, day: day, weekday: date.zz_weekday, weekOfMonth: date.zz_weekOfMonth, date: date)
     }
 }
 

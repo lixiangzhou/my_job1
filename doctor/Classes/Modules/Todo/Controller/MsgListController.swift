@@ -37,6 +37,7 @@ class MsgListController: BaseController {
 // MARK: - UI
 extension MsgListController {
     override func setUI() {
+        searchView.addTypeView(false)
         view.addSubview(searchView)
         
         tableView.set(dataSource: self, delegate: self)
