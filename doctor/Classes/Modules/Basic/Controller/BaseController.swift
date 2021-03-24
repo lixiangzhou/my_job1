@@ -257,6 +257,13 @@ extension BaseController {
     }
     
     @discardableResult
+    func setRightBarItem(icon: String, action: Selector) -> UIButton {
+        navigationItem.rightBarButtonItem = UIBarButtonItem(imageName: icon, target: self, action: action)
+        navigationItem.rightBarButtonItem!.customView?.frame = CGRect(x: 0, y: 0, width: 44, height: 44)
+        return navigationItem.rightBarButtonItem!.customView as! UIButton
+    }
+    
+    @discardableResult
     func addLeftBackAction() -> UIButton {
         let button = UIButton(imageName: "common_nav_back", hilightedImageName: "common_nav_back", target: self, action: #selector(backAction))
         button.frame = CGRect(x: 12, y: UIScreen.zz_nav_statusHeight, width: 35, height: 44)

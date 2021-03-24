@@ -1,5 +1,5 @@
 //
-//  EMRAddController.swift
+//  EMREditMainController.swift
 //  doctor
 //
 //  Created by 李向洲 on 2021/3/24.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class EMRAddController: BaseController {
+class EMREditMainController: BaseController {
 
     // MARK: - Life Cycle
     
@@ -25,19 +25,19 @@ class EMRAddController: BaseController {
 }
 
 // MARK: - UI
-extension EMRAddController {
+extension EMREditMainController {
     override func setUI() {
         
     }
 }
 
 // MARK: - Action
-extension EMRAddController {
+extension EMREditMainController {
     
 }
 
 // MARK: - Network
-extension EMRAddController {
+extension EMREditMainController {
     
 }
 
@@ -50,17 +50,17 @@ extension EMRAddController {
 // MARK: -
 
 // MARK: - Helper
-extension EMRAddController {
+extension EMREditMainController {
     
 }
 
 // MARK: - Other
-extension EMRAddController {
+extension EMREditMainController {
     
 }
 
 // MARK: - Public
-extension EMRAddController {
+extension EMREditMainController {
     
 }
 

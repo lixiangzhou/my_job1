@@ -73,4 +73,9 @@ extension PatientManagerListController: UITableViewDataSource, UITableViewDelega
         cell.model = model
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        push(EMRListController())
+        push(EMREditController())
+    }
 }

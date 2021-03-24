@@ -1,5 +1,5 @@
 //
-//  EMRListCell.swift
+//  EMRAddReuseListCell.swift
 //  doctor
 //
 //  Created by 李向洲 on 2021/3/24.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class EMRListCell: UITableViewCell {
+class EMRAddReuseListCell: UITableViewCell {
     
     // MARK: - Life Cycle
     
@@ -24,6 +24,8 @@ class EMRListCell: UITableViewCell {
     }
     
     // MARK: - Public Property
+    let pannelBorderView = UIView()
+    
     let timeLabel = UILabel(font: .size(14), textColor: .c3)
     let tagLabel = UILabel(font: .size(12), textColor: .white, textAlignment: .center)
     let diagnosisLabel = UILabel(font: .boldSize(14), textColor: .c3)
@@ -34,21 +36,26 @@ class EMRListCell: UITableViewCell {
     let noLabel = UILabel(font: .size(12), textColor: .c6)
     
     let stateTitleLabel = UILabel(font: .size(12), textColor: .c6)
-    let stateLabel = UILabel(font: .size(12), textColor: .cFF5050)
+    let stateLabel = UILabel(font: .size(12), textColor: .c42DC79)
     
     let hospitalTitleLabel = UILabel(font: .size(12), textColor: .c6)
     let hospitalLabel = UILabel(font: .size(12), textColor: .c6)
 }
 
 // MARK: - UI
-extension EMRListCell {
+extension EMRAddReuseListCell {
     private func setUI() {
         contentView.backgroundColor = .cf7f6f8
-        let pannelView = contentView.zz_add(subview: UIView())
+        let pannelView = UIView()
+        contentView.addSubview(pannelView)
         pannelView.zz_setCorner(radius: 4, masksToBounds: true)
         pannelView.backgroundColor = .white
         
         tagLabel.zz_setCorner(radius: 4, masksToBounds: true)
+        
+        pannelBorderView.zz_setCorner(radius: 4, masksToBounds: true)
+        pannelBorderView.zz_setBorder(color: .c4167f3, width: 1)
+        pannelView.addSubview(pannelBorderView)
         
         pannelView.addSubview(timeLabel)
         pannelView.addSubview(tagLabel)
@@ -63,16 +70,14 @@ extension EMRListCell {
         pannelView.addSubview(hospitalTitleLabel)
         pannelView.addSubview(hospitalLabel)
         
-        let detailTitleLabel = pannelView.zz_add(subview: UILabel(text: "详情", font: .size(12), textColor: .c9))
-        let arrowView = pannelView.zz_add(subview: UIImageView.defaultRightArrow())
-        
-        let line = pannelView.zz_add(subview: UIView())
-        line.backgroundColor = .cEEEEEE
-        
         pannelView.snp.makeConstraints { (make) in
             make.top.equalToSuperview()
             make.left.equalTo(16)
             make.bottom.right.equalTo(-16)
+        }
+        
+        pannelBorderView.snp.makeConstraints { (make) in
+            make.edges.equalToSuperview()
         }
         
         timeLabel.snp.makeConstraints { (make) in
@@ -121,30 +126,13 @@ extension EMRListCell {
         hospitalTitleLabel.snp.makeConstraints { (make) in
             make.top.equalTo(stateTitleLabel.snp.bottom).offset(4)
             make.left.width.height.equalTo(noTitleLabel)
+            make.bottom.equalTo(-20)
         }
         
         hospitalLabel.snp.makeConstraints { (make) in
             make.left.equalTo(hospitalTitleLabel.snp.right)
             make.top.height.equalTo(hospitalTitleLabel)
             make.right.equalTo(noLabel)
-        }
-        
-        line.snp.makeConstraints { (make) in
-            make.top.equalTo(hospitalTitleLabel.snp.bottom).offset(11)
-            make.left.equalTo(12)
-            make.right.equalTo(-12)
-            make.height.equalTo(1)
-        }
-        
-        detailTitleLabel.snp.makeConstraints { (make) in
-            make.top.left.equalTo(line)
-            make.height.equalTo(45)
-            make.bottom.equalToSuperview()
-        }
-        
-        arrowView.snp.makeConstraints { (make) in
-            make.right.equalTo(-12)
-            make.centerY.equalTo(detailTitleLabel)
         }
     }
 }
