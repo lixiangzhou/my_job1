@@ -36,7 +36,9 @@ extension UIColor {
         return UIColor(stringHexValue: "#8DA5FF")!
     }
     
-    
+    static var cFF5050: UIColor {
+        return UIColor(stringHexValue: "#FF5050")!
+    }
     
     static var cf94336: UIColor {
         return UIColor(stringHexValue: "#F94336")!

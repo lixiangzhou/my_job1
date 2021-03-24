@@ -7,6 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		971EB7C52609EEBA00ECCAC9 /* PatientManagerTopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971EB7C42609EEBA00ECCAC9 /* PatientManagerTopView.swift */; };
+		971EB7C92609F1E300ECCAC9 /* PatientManagerListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971EB7C82609F1E300ECCAC9 /* PatientManagerListController.swift */; };
+		971EB7CC2609F3C900ECCAC9 /* PatientManagerListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971EB7CB2609F3C900ECCAC9 /* PatientManagerListViewModel.swift */; };
+		971EB7CF2609F59400ECCAC9 /* PatientManagerItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971EB7CE2609F59400ECCAC9 /* PatientManagerItemView.swift */; };
+		97284E07260A18B700F155BF /* PatientManagerListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97284E06260A18B700F155BF /* PatientManagerListCell.swift */; };
+		97284E10260AFCE000F155BF /* PatientManagerListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97284E0F260AFCE000F155BF /* PatientManagerListModel.swift */; };
+		97284E19260B15AB00F155BF /* EMRListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97284E18260B15AB00F155BF /* EMRListController.swift */; };
+		97284E1D260B15C300F155BF /* EMRAddController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97284E1C260B15C300F155BF /* EMRAddController.swift */; };
+		97284E20260B1A6300F155BF /* EMRListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97284E1F260B1A6300F155BF /* EMRListViewModel.swift */; };
+		97284E25260B1A7D00F155BF /* EMRAddViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97284E24260B1A7D00F155BF /* EMRAddViewModel.swift */; };
+		97284E28260B1A9300F155BF /* EMRListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97284E27260B1A9300F155BF /* EMRListCell.swift */; };
 		972EEBA4260088750025D4BD /* AuthInfoPicItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 972EEBA3260088750025D4BD /* AuthInfoPicItemView.swift */; };
 		972EEBDD2605D2AA0025D4BD /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 972EEBDC2605D2AA0025D4BD /* LoginViewModel.swift */; };
 		9741444A2605E45700ADB5FE /* BindMobileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 974144492605E45700ADB5FE /* BindMobileController.swift */; };
@@ -117,7 +128,7 @@
 		9752234B25CA96CA00C85D12 /* TopTabController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9752234A25CA96C900C85D12 /* TopTabController.swift */; };
 		9752234E25CA986700C85D12 /* TodoListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9752234D25CA986700C85D12 /* TodoListController.swift */; };
 		9752235125CA988000C85D12 /* MsgListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9752235025CA988000C85D12 /* MsgListController.swift */; };
-		9752235425CAA6A800C85D12 /* TodoSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9752235325CAA6A800C85D12 /* TodoSearchView.swift */; };
+		9752235425CAA6A800C85D12 /* TodoTopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9752235325CAA6A800C85D12 /* TodoTopView.swift */; };
 		9752235725CAADCD00C85D12 /* TodoListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9752235625CAADCD00C85D12 /* TodoListCell.swift */; };
 		9752235A25CAADDA00C85D12 /* MsgListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9752235925CAADDA00C85D12 /* MsgListCell.swift */; };
 		9752235D25CAB08400C85D12 /* TodoListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9752235C25CAB08400C85D12 /* TodoListViewModel.swift */; };
@@ -133,7 +144,7 @@
 		97BB0E1225CABBA100EB13F6 /* TodoMsgSearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97BB0E1125CABBA100EB13F6 /* TodoMsgSearchController.swift */; };
 		97BB0E1925CAC39400EB13F6 /* TodoMsgSearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97BB0E1825CAC39400EB13F6 /* TodoMsgSearchViewModel.swift */; };
 		97BB0E1C25CAC3BC00EB13F6 /* TodoMsgSearchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97BB0E1B25CAC3BC00EB13F6 /* TodoMsgSearchCell.swift */; };
-		97BB0E1F25CAC66B00EB13F6 /* TodoMsgSelectSearchTimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97BB0E1E25CAC66B00EB13F6 /* TodoMsgSelectSearchTimeView.swift */; };
+		97BB0E1F25CAC66B00EB13F6 /* DropDownSelectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97BB0E1E25CAC66B00EB13F6 /* DropDownSelectView.swift */; };
 		97BB0E2525CB893800EB13F6 /* RoundOptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97BB0E2425CB893800EB13F6 /* RoundOptionView.swift */; };
 		97BB0E4025CBBCE200EB13F6 /* MineTopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97BB0E3F25CBBCE200EB13F6 /* MineTopView.swift */; };
 		97BB0E4325CBC27C00EB13F6 /* MineViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97BB0E4225CBC27C00EB13F6 /* MineViewModel.swift */; };
@@ -184,6 +195,17 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		971EB7C42609EEBA00ECCAC9 /* PatientManagerTopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientManagerTopView.swift; sourceTree = "<group>"; };
+		971EB7C82609F1E300ECCAC9 /* PatientManagerListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientManagerListController.swift; sourceTree = "<group>"; };
+		971EB7CB2609F3C900ECCAC9 /* PatientManagerListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientManagerListViewModel.swift; sourceTree = "<group>"; };
+		971EB7CE2609F59400ECCAC9 /* PatientManagerItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientManagerItemView.swift; sourceTree = "<group>"; };
+		97284E06260A18B700F155BF /* PatientManagerListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientManagerListCell.swift; sourceTree = "<group>"; };
+		97284E0F260AFCE000F155BF /* PatientManagerListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientManagerListModel.swift; sourceTree = "<group>"; };
+		97284E18260B15AB00F155BF /* EMRListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EMRListController.swift; sourceTree = "<group>"; };
+		97284E1C260B15C300F155BF /* EMRAddController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EMRAddController.swift; sourceTree = "<group>"; };
+		97284E1F260B1A6300F155BF /* EMRListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EMRListViewModel.swift; sourceTree = "<group>"; };
+		97284E24260B1A7D00F155BF /* EMRAddViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EMRAddViewModel.swift; sourceTree = "<group>"; };
+		97284E27260B1A9300F155BF /* EMRListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EMRListCell.swift; sourceTree = "<group>"; };
 		972EEBA3260088750025D4BD /* AuthInfoPicItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthInfoPicItemView.swift; sourceTree = "<group>"; };
 		972EEBDC2605D2AA0025D4BD /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		974144492605E45700ADB5FE /* BindMobileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BindMobileController.swift; sourceTree = "<group>"; };
@@ -300,7 +322,7 @@
 		9752234A25CA96C900C85D12 /* TopTabController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopTabController.swift; sourceTree = "<group>"; };
 		9752234D25CA986700C85D12 /* TodoListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoListController.swift; sourceTree = "<group>"; };
 		9752235025CA988000C85D12 /* MsgListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MsgListController.swift; sourceTree = "<group>"; };
-		9752235325CAA6A800C85D12 /* TodoSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoSearchView.swift; sourceTree = "<group>"; };
+		9752235325CAA6A800C85D12 /* TodoTopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoTopView.swift; sourceTree = "<group>"; };
 		9752235625CAADCD00C85D12 /* TodoListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoListCell.swift; sourceTree = "<group>"; };
 		9752235925CAADDA00C85D12 /* MsgListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MsgListCell.swift; sourceTree = "<group>"; };
 		9752235C25CAB08400C85D12 /* TodoListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoListViewModel.swift; sourceTree = "<group>"; };
@@ -316,7 +338,7 @@
 		97BB0E1125CABBA100EB13F6 /* TodoMsgSearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoMsgSearchController.swift; sourceTree = "<group>"; };
 		97BB0E1825CAC39400EB13F6 /* TodoMsgSearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoMsgSearchViewModel.swift; sourceTree = "<group>"; };
 		97BB0E1B25CAC3BC00EB13F6 /* TodoMsgSearchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoMsgSearchCell.swift; sourceTree = "<group>"; };
-		97BB0E1E25CAC66B00EB13F6 /* TodoMsgSelectSearchTimeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoMsgSelectSearchTimeView.swift; sourceTree = "<group>"; };
+		97BB0E1E25CAC66B00EB13F6 /* DropDownSelectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownSelectView.swift; sourceTree = "<group>"; };
 		97BB0E2425CB893800EB13F6 /* RoundOptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundOptionView.swift; sourceTree = "<group>"; };
 		97BB0E3F25CBBCE200EB13F6 /* MineTopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MineTopView.swift; sourceTree = "<group>"; };
 		97BB0E4225CBC27C00EB13F6 /* MineViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MineViewModel.swift; sourceTree = "<group>"; };
@@ -387,6 +409,50 @@
 				A88C2482ECF59EB9BCC7A9C5 /* Pods-doctor.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		97284E13260B156800F155BF /* EMR */ = {
+			isa = PBXGroup;
+			children = (
+				97284E17260B159C00F155BF /* View */,
+				97284E16260B159900F155BF /* Model */,
+				97284E15260B159500F155BF /* Controller */,
+				97284E14260B159000F155BF /* ViewModel */,
+			);
+			path = EMR;
+			sourceTree = "<group>";
+		};
+		97284E14260B159000F155BF /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				97284E1F260B1A6300F155BF /* EMRListViewModel.swift */,
+				97284E24260B1A7D00F155BF /* EMRAddViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		97284E15260B159500F155BF /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				97284E18260B15AB00F155BF /* EMRListController.swift */,
+				97284E1C260B15C300F155BF /* EMRAddController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		97284E16260B159900F155BF /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		97284E17260B159C00F155BF /* View */ = {
+			isa = PBXGroup;
+			children = (
+				97284E27260B1A9300F155BF /* EMRListCell.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		972EEBCC2605D1A80025D4BD /* PersonInfo */ = {
@@ -544,6 +610,7 @@
 		975220FE25CA446600C85D12 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				97284E13260B156800F155BF /* EMR */,
 				972EEBCC2605D1A80025D4BD /* PersonInfo */,
 				975222FE25CA7CD000C85D12 /* Mine */,
 				975222F925CA7CAA00C85D12 /* PatientManager */,
@@ -868,8 +935,8 @@
 		975222F825CA7CA900C85D12 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				9752235325CAA6A800C85D12 /* TodoSearchView.swift */,
-				97BB0E1E25CAC66B00EB13F6 /* TodoMsgSelectSearchTimeView.swift */,
+				9752235325CAA6A800C85D12 /* TodoTopView.swift */,
+				97BB0E1E25CAC66B00EB13F6 /* DropDownSelectView.swift */,
 				9752235625CAADCD00C85D12 /* TodoListCell.swift */,
 				9752235925CAADDA00C85D12 /* MsgListCell.swift */,
 				97BB0E1B25CAC3BC00EB13F6 /* TodoMsgSearchCell.swift */,
@@ -891,6 +958,7 @@
 		975222FA25CA7CAA00C85D12 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				971EB7CB2609F3C900ECCAC9 /* PatientManagerListViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -899,6 +967,7 @@
 			isa = PBXGroup;
 			children = (
 				9752230E25CA7DC700C85D12 /* PatientManagerController.swift */,
+				971EB7C82609F1E300ECCAC9 /* PatientManagerListController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -906,6 +975,7 @@
 		975222FC25CA7CAA00C85D12 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				97284E0F260AFCE000F155BF /* PatientManagerListModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -913,6 +983,9 @@
 		975222FD25CA7CAA00C85D12 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				971EB7C42609EEBA00ECCAC9 /* PatientManagerTopView.swift */,
+				971EB7CE2609F59400ECCAC9 /* PatientManagerItemView.swift */,
+				97284E06260A18B700F155BF /* PatientManagerListCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1138,6 +1211,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				9752226925CA67E100C85D12 /* Date+ZZExtension.swift in Sources */,
+				97284E20260B1A6300F155BF /* EMRListViewModel.swift in Sources */,
+				97284E10260AFCE000F155BF /* PatientManagerListModel.swift in Sources */,
 				97C0BD6A25FF4A4C0016DA47 /* AuthInfoIDCell.swift in Sources */,
 				97C0BD3425FE20320016DA47 /* MyFavoriteCell.swift in Sources */,
 				97A44036260899B700864328 /* ZZCalendarDayView.swift in Sources */,
@@ -1145,6 +1220,7 @@
 				9752211925CA44F700C85D12 /* LLSegmentItemTitleView.swift in Sources */,
 				97C0BD1825FDC00F0016DA47 /* ZZGrowTextView.swift in Sources */,
 				97C0BD6D25FF4A660016DA47 /* AuthInfoPicCell.swift in Sources */,
+				97284E1D260B15C300F155BF /* EMRAddController.swift in Sources */,
 				9752235D25CAB08400C85D12 /* TodoListViewModel.swift in Sources */,
 				97C0BD4025FE45020016DA47 /* ConsultListViewModel.swift in Sources */,
 				9752211F25CA44F700C85D12 /* LLCtlPageView.swift in Sources */,
@@ -1161,6 +1237,7 @@
 				9752211725CA44F700C85D12 /* LLSegmentItemBadgeView.swift in Sources */,
 				9752228A25CA67E200C85D12 /* NetworkListenerManager.swift in Sources */,
 				9752227B25CA67E100C85D12 /* ZZCycleView.swift in Sources */,
+				971EB7C52609EEBA00ECCAC9 /* PatientManagerTopView.swift in Sources */,
 				9752227425CA67E100C85D12 /* UIFont+ZZExtension.swift in Sources */,
 				9752227225CA67E100C85D12 /* UILabel+ZZExtension.swift in Sources */,
 				975222AE25CA688400C85D12 /* ZZTimer.swift in Sources */,
@@ -1206,7 +1283,7 @@
 				972EEBDD2605D2AA0025D4BD /* LoginViewModel.swift in Sources */,
 				97C0BD2D25FE1D830016DA47 /* MyFavoriteViewModel.swift in Sources */,
 				97C0BD4925FF0BC80016DA47 /* PersonInfoSexCell.swift in Sources */,
-				9752235425CAA6A800C85D12 /* TodoSearchView.swift in Sources */,
+				9752235425CAA6A800C85D12 /* TodoTopView.swift in Sources */,
 				97C0BD5B25FF3AD90016DA47 /* PersonInfoWorkExpListCell.swift in Sources */,
 				97BB0E1225CABBA100EB13F6 /* TodoMsgSearchController.swift in Sources */,
 				9752211C25CA44F700C85D12 /* LLIndicatorView.swift in Sources */,
@@ -1216,9 +1293,11 @@
 				97C0BD4F25FF2E9F0016DA47 /* PersonInfoTrainExpAddController.swift in Sources */,
 				975222B625CA688500C85D12 /* TextTableViewCell.swift in Sources */,
 				9752228025CA67E100C85D12 /* ZZRefresh.swift in Sources */,
+				97284E25260B1A7D00F155BF /* EMRAddViewModel.swift in Sources */,
 				9752213F25CA463F00C85D12 /* BaseController.swift in Sources */,
 				9752227E25CA67E100C85D12 /* RefreshHeader.swift in Sources */,
 				97C0BD2425FDC88C0016DA47 /* FeedBackContactCell.swift in Sources */,
+				971EB7C92609F1E300ECCAC9 /* PatientManagerListController.swift in Sources */,
 				9752227A25CA67E100C85D12 /* UIAlertController+ZZExtension.swift in Sources */,
 				9752211A25CA44F700C85D12 /* LLSegmentBaseItemView.swift in Sources */,
 				9752226225CA67E100C85D12 /* NSNumber+ZZExtension.swift in Sources */,
@@ -1239,6 +1318,7 @@
 				97BB0E1C25CAC3BC00EB13F6 /* TodoMsgSearchCell.swift in Sources */,
 				9752235725CAADCD00C85D12 /* TodoListCell.swift in Sources */,
 				975222F025CA773200C85D12 /* ControllerExtension.swift in Sources */,
+				97284E28260B1A9300F155BF /* EMRListCell.swift in Sources */,
 				975222BA25CA688500C85D12 /* TextLeftGrowTextRightCell.swift in Sources */,
 				9752229525CA67E200C85D12 /* UIImageViewExtension.swift in Sources */,
 				9752226E25CA67E100C85D12 /* UIColor+ZZExtension.swift in Sources */,
@@ -1259,6 +1339,7 @@
 				975222B125CA688400C85D12 /* TextLeftRightCell.swift in Sources */,
 				9752228125CA67E100C85D12 /* UIScrollView+ZZRefresh.swift in Sources */,
 				9752226625CA67E100C85D12 /* CGRect+ZZExtension.swift in Sources */,
+				971EB7CC2609F3C900ECCAC9 /* PatientManagerListViewModel.swift in Sources */,
 				97C0BD8325FF63110016DA47 /* ZZCalendarMonthView.swift in Sources */,
 				97C0BD1B25FDC6450016DA47 /* FeedBackDescCell.swift in Sources */,
 				97BB0E4925CBEA7100EB13F6 /* MyCardController.swift in Sources */,
@@ -1269,9 +1350,11 @@
 				9752211D25CA44F700C85D12 /* LLSegmentViewController.swift in Sources */,
 				97C0BD4625FEF4510016DA47 /* ConsultDetailController.swift in Sources */,
 				97C0BD4C25FF2E870016DA47 /* PersonInfoWorkExpAddController.swift in Sources */,
+				97284E19260B15AB00F155BF /* EMRListController.swift in Sources */,
 				9752214425CA463F00C85D12 /* BaseView.swift in Sources */,
 				97C0BD8625FF660C0016DA47 /* ZZCalendarModel.swift in Sources */,
 				97BB0E4325CBC27C00EB13F6 /* MineViewModel.swift in Sources */,
+				97284E07260A18B700F155BF /* PatientManagerListCell.swift in Sources */,
 				9752226C25CA67E100C85D12 /* UIViewController+ZZExtension.swift in Sources */,
 				9752227025CA67E100C85D12 /* UIBarButtonItem+ZZExtension.swift in Sources */,
 				97BB0E4F25CC091B00EB13F6 /* PersonInfoEditViewModel.swift in Sources */,
@@ -1301,7 +1384,8 @@
 				9752228825CA67E100C85D12 /* ZZHud.swift in Sources */,
 				975222B525CA688500C85D12 /* LeftRightUpDownLabelCell.swift in Sources */,
 				9752228225CA67E100C85D12 /* ZZRefreshView.swift in Sources */,
-				97BB0E1F25CAC66B00EB13F6 /* TodoMsgSelectSearchTimeView.swift in Sources */,
+				971EB7CF2609F59400ECCAC9 /* PatientManagerItemView.swift in Sources */,
+				97BB0E1F25CAC66B00EB13F6 /* DropDownSelectView.swift in Sources */,
 				9752231325CA7DD800C85D12 /* TodoController.swift in Sources */,
 				9752211E25CA44F700C85D12 /* LLContainerScrollView.swift in Sources */,
 				9752226825CA67E100C85D12 /* Locale+ZZExtension.swift in Sources */,

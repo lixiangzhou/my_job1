@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TodoMsgSelectSearchTimeView: BaseView {
+class DropDownSelectView: BaseView {
     
     // MARK: - Life Cycle
     
@@ -35,7 +35,7 @@ class TodoMsgSelectSearchTimeView: BaseView {
 }
 
 // MARK: - UI
-extension TodoMsgSelectSearchTimeView {
+extension DropDownSelectView {
     private func setUI() {
         frame = UIScreen.main.bounds
         snapView.isUserInteractionEnabled = true
@@ -68,7 +68,7 @@ extension TodoMsgSelectSearchTimeView {
 }
 
 // MARK: - Other
-extension TodoMsgSelectSearchTimeView {
+extension DropDownSelectView {
 //    override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
 //        guard let superView = superview else { return nil }
 //        let views = (interactiveViews ?? []) + tableView.visibleCells
@@ -84,7 +84,7 @@ extension TodoMsgSelectSearchTimeView {
 }
 
 // MARK: - Public
-extension TodoMsgSelectSearchTimeView {
+extension DropDownSelectView {
     /// 调用之前要先设置DataSource
     func show(from view: UIView, size: CGSize) {
         let window = UIApplication.shared.keyWindow!
@@ -111,7 +111,7 @@ extension TodoMsgSelectSearchTimeView {
     }
 }
 
-extension TodoMsgSelectSearchTimeView: UITableViewDataSource, UITableViewDelegate {
+extension DropDownSelectView: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return dataSource.count
     }

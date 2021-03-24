@@ -139,13 +139,13 @@ extension UIAlertController {
 }
 
 extension LLSegmentViewController {
-    func loadSegmentedConfig() {
+    @objc func loadSegmentedConfig() {
         layoutContentView()
         loadCtls()
         setUpSegmentStyle()
     }
     
-    func layoutContentView() {
+    @objc func layoutContentView() {
         self.layoutInfo.segmentControlPositionType = .top(size: CGSize.init(width: UIScreen.main.bounds.width, height: 40), offset:0)
         self.relayoutSubViews()
     }
@@ -153,7 +153,7 @@ extension LLSegmentViewController {
     @objc func loadCtls() {
     }
     
-    func setUpSegmentStyle() {
+    @objc func setUpSegmentStyle() {
         let itemStyle = LLSegmentItemTitleViewStyle()
         itemStyle.selectedColor = UIColor.c3
         itemStyle.unSelectedColor = UIColor.c3

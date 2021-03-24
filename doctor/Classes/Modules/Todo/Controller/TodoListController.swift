@@ -30,7 +30,7 @@ class TodoListController: BaseController {
     let viewModel = TodoListViewModel()
     
     // MARK: - Private Property
-    let searchView = TodoSearchView()
+    let searchView = TodoTopView()
     let tableView = UITableView()
 }
 

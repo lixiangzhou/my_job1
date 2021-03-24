@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TodoSearchView: BaseView {
+class TodoTopView: BaseView {
     
     // MARK: - Life Cycle
     
@@ -31,7 +31,7 @@ class TodoSearchView: BaseView {
     // MARK: - Private Property
     let searchView = SearchField()
     
-    let selView = TodoMsgSelectSearchTimeView()
+    let selView = DropDownSelectView()
     var timeSelectView: ZZImagePositionButton!
     var timeTypeView: ZZImagePositionButton!
     
@@ -39,7 +39,7 @@ class TodoSearchView: BaseView {
 }
 
 // MARK: - UI
-extension TodoSearchView {
+extension TodoTopView {
     private func setUI() {
         backgroundColor = .white
         addSubview(searchView)
@@ -67,7 +67,7 @@ extension TodoSearchView {
 }
 
 // MARK: - Action
-extension TodoSearchView {
+extension TodoTopView {
     @objc private func timeAction() {
         endEditing(true)
         
@@ -94,17 +94,17 @@ extension TodoSearchView {
 }
 
 // MARK: - Helper
-extension TodoSearchView {
+extension TodoTopView {
     
 }
 
 // MARK: - Other
-extension TodoSearchView {
+extension TodoTopView {
     
 }
 
 // MARK: - Public
-extension TodoSearchView {
+extension TodoTopView {
     func addTypeView(_ addOrNot: Bool) {
         if addOrNot {
             addSubview(timeTypeView)
