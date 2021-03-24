@@ -30,6 +30,9 @@ class EMREditController: BaseController {
 // MARK: - UI
 extension EMREditController {
     override func setUI() {
+        containerView.backgroundColor = .white
+        view.addSubview(containerView)
+        
         tableView.backgroundColor = .cf8f8f8
         tableView.set(dataSource: self, delegate: self, rowHeight: 33)
         tableView.tableHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 16))
@@ -37,10 +40,8 @@ extension EMREditController {
         tableView.bounces = false
         view.addSubview(tableView)
         
-        containerView.backgroundColor = .white
-        view.addSubview(containerView)
-        
         tableView.addShadow()
+//        tableView.addShadow(color: UIColor.black.withAlphaComponent(0.3), cornerRadius: 4)
         
         tableView.snp.makeConstraints { (make) in
             make.top.left.bottom.equalToSuperview()

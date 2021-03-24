@@ -27,10 +27,8 @@ class EMREditBasicArrowCell: UITableViewCell {
         didSet {
             xView.isHidden = !hasX
             
-            titleLabel.snp.makeConstraints { (make) in
+            titleLabel.snp.updateConstraints { (make) in
                 make.left.equalTo(hasX ? 28 : 12)
-                make.bottom.equalTo(-8)
-                make.height.equalTo(20)
             }
         }
     }
@@ -40,6 +38,7 @@ class EMREditBasicArrowCell: UITableViewCell {
     // MARK: - Private Property
     let xView = UIImageView(image: UIImage(named: "mine_auth_xx"))
     let titleLabel = UILabel(font: .size(14), textColor: .c3)
+    var bottomLine: UIView!
     
     let rightLabel = UILabel(textAlignment: .right)
 }
@@ -54,7 +53,7 @@ extension EMREditBasicArrowCell {
         contentView.addSubview(rightLabel)
         let arrowView = contentView.zz_add(subview: UIImageView.defaultRightArrow())
         
-        contentView.addBottomLine(color: .cf5f5f5, left: 12, right: 16, height: 1)
+        bottomLine = contentView.addBottomLine(color: .cf5f5f5, left: 12, right: 16, height: 1)
         
         xView.snp.makeConstraints { (make) in
             make.width.height.equalTo(8)

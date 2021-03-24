@@ -27,10 +27,8 @@ class EMREditBasicFieldCell: UITableViewCell {
         didSet {
             xView.isHidden = !hasX
             
-            titleLabel.snp.makeConstraints { (make) in
+            titleLabel.snp.updateConstraints { (make) in
                 make.left.equalTo(hasX ? 28 : 12)
-                make.bottom.equalTo(-8)
-                make.height.equalTo(20)
             }
         }
     }
