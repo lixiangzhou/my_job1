@@ -8,7 +8,7 @@
 
 import UIKit
 
-class EMREditBasicArrowCell: UITableViewCell {
+class EMREditCommonArrowCell: UITableViewCell {
     
     // MARK: - Life Cycle
     
@@ -44,7 +44,7 @@ class EMREditBasicArrowCell: UITableViewCell {
 }
 
 // MARK: - UI
-extension EMREditBasicArrowCell {
+extension EMREditCommonArrowCell {
     private func setUI() {
         contentView.backgroundColor = .white
         

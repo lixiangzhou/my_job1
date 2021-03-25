@@ -34,7 +34,7 @@ extension EMREditBasicController {
     override func setUI() {
         tableView.set(dataSource: self, delegate: self, rowHeight: 52)
         tableView.register(cell: EMREditBasicFieldCell.self)
-        tableView.register(cell: EMREditBasicArrowCell.self)
+        tableView.register(cell: EMREditCommonArrowCell.self)
         tableView.register(cell: EMREditBasicSexCell.self)
         tableView.backgroundColor = .white
         tableView.tableFooterView = getFooterView()
@@ -49,7 +49,7 @@ extension EMREditBasicController {
         let footer = UIView(frame: CGRect(x: 0, y: 0, width: UIScreen.zz_width, height: 120))
         let btn = UIButton(title: "下一页", font: .size(14), titleColor: .white, backgroundColor: .c4167f3, target: self, action: #selector(nextAction))
         btn.zz_setCorner(radius: 4, masksToBounds: true)
-        btn.frame = CGRect(x: 55, y: 40, width: UIScreen.zz_width - 55 * 2 - 84, height: 42)
+        btn.frame = CGRect(x: 53, y: 40, width: UIScreen.zz_width - 53 * 2 - 84 - 4, height: 42)
         
         footer.addSubview(btn)
         
@@ -86,7 +86,7 @@ extension EMREditBasicController: UITableViewDataSource, UITableViewDelegate {
             let cell = tableView.dequeue(cell: EMREditBasicSexCell.self, for: indexPath)
             return cell
         case .nation, .address, .major, .marriage, .education, .income:
-            let cell = tableView.dequeue(cell: EMREditBasicArrowCell.self, for: indexPath)
+            let cell = tableView.dequeue(cell: EMREditCommonArrowCell.self, for: indexPath)
             setArrowCell(cell, model: model)
             cell.hasX = indexPath.section == 0
             
@@ -163,7 +163,7 @@ extension EMREditBasicController {
         cell.fieldView.attributedPlaceholder = NSAttributedString(string: model.placeholder, attributes: [NSAttributedString.Key.font: UIFont.size(12), NSAttributedString.Key.foregroundColor: UIColor.c9])
     }
     
-    func setArrowCell(_ cell: EMREditBasicArrowCell, model: EMREditBasicViewModel.RowModel) {
+    func setArrowCell(_ cell: EMREditCommonArrowCell, model: EMREditBasicViewModel.RowModel) {
         cell.titleLabel.text = model.row.rawValue
         if !model.text.string.isEmpty {
             cell.rightLabel.text = model.text.string

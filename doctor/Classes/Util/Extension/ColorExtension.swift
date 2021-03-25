@@ -87,5 +87,16 @@ extension UIColor {
         return UIColor(stringHexValue: "#42DC79")!
     }
     
+    static var cF98A21: UIColor {
+        return UIColor(stringHexValue: "#F98A21")!
+    }
+    
+    static var cDDE4FF: UIColor {
+        return UIColor(stringHexValue: "#DDE4FF")!
+    }
+    
+    static var cFAFAFA: UIColor {
+        return UIColor(stringHexValue: "#FAFAFA")!
+    }
 }
 
