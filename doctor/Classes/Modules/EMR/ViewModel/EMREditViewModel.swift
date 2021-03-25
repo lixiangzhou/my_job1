@@ -34,6 +34,7 @@ extension EMREditViewModel {
             RowModel(item: .main, controller: EMREditMainController()),
             RowModel(item: .nsr, controller: EMREditNSRController()),
             RowModel(item: .hpi, controller: EMREditHPIController()),
+            RowModel(item: .ph, controller: EMREditPHController()),
             RowModel(item: .allergic, controller: EMREditAllergicController()),
             RowModel(item: .menses, controller: EMREditMensesController()),
             RowModel(item: .familly, controller: EMREditFamillyController()),

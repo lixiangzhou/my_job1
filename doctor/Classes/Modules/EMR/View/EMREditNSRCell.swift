@@ -46,17 +46,19 @@ extension EMREditNSRCell {
         
         for i in 0...10 {
             let btn = UIButton(title: "\(i)", font: .size(12), titleColor: .c6, backgroundColor: .cF7FBFF, target: self, action: #selector(btnAction))
+            
+            let needWidth = wh + padding
+            if x + needWidth > maxW {
+                x = 0
+                y = y + wh + padding
+            }
             btn.frame = CGRect(x: x, y: y, width: wh, height: wh)
+            x += needWidth
+            
             btn.zz_setCircle()
             btn.setTitleColor(.white, for: .selected)
             scoreView.addSubview(btn)
             scoreBtns.append(btn)
-            
-            x = btn.zz_maxX + padding
-            if x > maxW {
-                x = 0
-                y = y + wh + padding
-            }
         }
         
         let nextBtn = contentView.zz_add(subview: UIButton(title: "下一页", font: .size(14), titleColor: .white, backgroundColor: .c4167f3, target: self, action: #selector(nextAction)))
@@ -97,19 +99,4 @@ extension EMREditNSRCell {
     @objc func nextAction() {
         
     }
-}
-
-// MARK: - Helper
-extension EMREditNSRCell {
-    
-}
-
-// MARK: - Other
-extension EMREditNSRCell {
-    
-}
-
-// MARK: - Public
-extension EMREditNSRCell {
-    
 }
