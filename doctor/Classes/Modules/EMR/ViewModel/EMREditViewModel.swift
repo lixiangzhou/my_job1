@@ -36,7 +36,6 @@ extension EMREditViewModel {
             RowModel(item: .hpi, controller: EMREditHPIController()),
             RowModel(item: .ph, controller: EMREditPHController()),
             RowModel(item: .allergic, controller: EMREditAllergicController()),
-            RowModel(item: .menses, controller: EMREditMensesController()),
             RowModel(item: .familly, controller: EMREditFamillyController()),
             RowModel(item: .personal, controller: EMREditPersonalController()),
             RowModel(item: .zkct, controller: EMREditZKCTController()),
@@ -67,7 +66,6 @@ extension EMREditViewModel {
         case hpi = "现病史"
         case ph = "既往史"
         case allergic = "过敏史"
-        case menses = "月经史"
         case familly = "家族史"
         case personal = "个人史"
         case zkct = "专科查体"
