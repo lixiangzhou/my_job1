@@ -104,5 +104,4 @@ extension EMREditMainController {
     func nextAction() {
         
     }
-    
 }

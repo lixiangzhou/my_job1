@@ -35,14 +35,6 @@ class PersonInfoEditViewModel: BaseViewModel {
 }
 
 extension PersonInfoEditViewModel {
-    
-    class Text {
-        var string: String
-        init(_ string: String = "") {
-            self.string = string
-        }
-    }
-    
     struct RowModel {
         var text: Text
         var row: Row
@@ -86,5 +78,4 @@ extension PersonInfoEditViewModel {
         case workExperience = "工作经历"
         case trainingExperience = "教育培训经历"
     }
-    
 }

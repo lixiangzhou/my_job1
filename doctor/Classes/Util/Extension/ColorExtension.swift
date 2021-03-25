@@ -103,5 +103,9 @@ extension UIColor {
         return UIColor(stringHexValue: "#F7FBFF")!
     }
     
+    static var cEEF1FF: UIColor {
+        return UIColor(stringHexValue: "#EEF1FF")!
+    }
+    
 }
 

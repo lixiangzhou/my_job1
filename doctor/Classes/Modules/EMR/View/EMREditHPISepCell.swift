@@ -1,14 +1,14 @@
 //
-//  EMREditBasicFieldCell.swift
+//  EMREditHPISepCell.swift
 //  doctor
 //
-//  Created by 李向洲 on 2021/3/24.
+//  Created by 李向洲 on 2021/3/25.
 //  
 //
 
 import UIKit
 
-class EMREditBasicFieldCell: EMREditXCell {
+class EMREditHPISepCell: UITableViewCell {
     
     // MARK: - Life Cycle
     
@@ -23,19 +23,23 @@ class EMREditBasicFieldCell: EMREditXCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    let fieldView = UITextField()
+    // MARK: - Public Property
+    
+    // MARK: - Private Property
+    let sepView = UIImageView()
 }
 
 // MARK: - UI
-extension EMREditBasicFieldCell {
+extension EMREditHPISepCell {
     private func setUI() {
-        contentView.addSubview(fieldView)
+        sepView.backgroundColor = .blue
+        contentView.addSubview(sepView)
         
-        fieldView.snp.makeConstraints { (make) in
-            make.height.equalTo(35)
+        sepView.snp.makeConstraints { (make) in
+            make.left.equalTo(12)
             make.right.equalTo(-16)
-            make.width.equalTo(120)
-            make.bottom.equalToSuperview()
+            make.height.equalTo(4)
+            make.top.bottom.equalToSuperview()
         }
     }
 }

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class EMREditCommonArrowCell: UITableViewCell {
+class EMREditCommonArrowCell: EMREditXCell {
     
     // MARK: - Life Cycle
     
@@ -23,22 +23,9 @@ class EMREditCommonArrowCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    var hasX: Bool = true {
-        didSet {
-            xView.isHidden = !hasX
-            
-            titleLabel.snp.updateConstraints { (make) in
-                make.left.equalTo(hasX ? 28 : 12)
-            }
-        }
-    }
-    
     // MARK: - Public Property
     
     // MARK: - Private Property
-    let xView = UIImageView(image: UIImage(named: "mine_auth_xx"))
-    let titleLabel = UILabel(font: .size(14), textColor: .c3)
-    var bottomLine: UIView!
     
     let rightLabel = UILabel(textAlignment: .right)
 }
@@ -46,35 +33,12 @@ class EMREditCommonArrowCell: UITableViewCell {
 // MARK: - UI
 extension EMREditCommonArrowCell {
     private func setUI() {
-        contentView.backgroundColor = .white
-        
-        contentView.addSubview(xView)
-        contentView.addSubview(titleLabel)
+        addArrowView()
         contentView.addSubview(rightLabel)
-        let arrowView = contentView.zz_add(subview: UIImageView.defaultRightArrow())
-        
-        bottomLine = contentView.addBottomLine(color: .cf5f5f5, left: 12, right: 16, height: 1)
-        
-        xView.snp.makeConstraints { (make) in
-            make.width.height.equalTo(8)
-            make.left.equalTo(12)
-            make.bottom.equalTo(-14)
-        }
-        
-        titleLabel.snp.makeConstraints { (make) in
-            make.left.equalTo(28)
-            make.bottom.equalTo(-8)
-            make.height.equalTo(20)
-        }
         
         rightLabel.snp.makeConstraints { (make) in
             make.right.equalTo(-30)
             make.bottom.equalTo(titleLabel)
-        }
-        
-        arrowView.snp.makeConstraints { (make) in
-            make.right.equalTo(-16)
-            make.bottom.equalTo(-11)
         }
     }
 }

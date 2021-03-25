@@ -34,7 +34,6 @@ class EMREditMainItemCell: UITableViewCell {
         }
     }
     
-    
     let partView = PartRowView()
     let timeView = RowView()
     let time2View = RowView()
