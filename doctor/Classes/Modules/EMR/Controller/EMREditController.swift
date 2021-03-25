@@ -8,6 +8,7 @@
 
 import UIKit
 
+let emrEditLeftWidth: CGFloat = 84
 class EMREditController: BaseController {
 
     // MARK: - Life Cycle
@@ -25,6 +26,8 @@ class EMREditController: BaseController {
     // MARK: - Private Property
     let tableView = UITableView()
     let containerView = UIView()
+    
+    
 }
 
 // MARK: - UI
@@ -41,11 +44,10 @@ extension EMREditController {
         view.addSubview(tableView)
         
         tableView.addShadow()
-//        tableView.addShadow(color: UIColor.black.withAlphaComponent(0.3), cornerRadius: 4)
         
         tableView.snp.makeConstraints { (make) in
             make.top.left.bottom.equalToSuperview()
-            make.width.equalTo(84)
+            make.width.equalTo(emrEditLeftWidth)
         }
         
         containerView.snp.makeConstraints { (make) in
@@ -99,9 +101,10 @@ extension EMREditController: UITableViewDataSource, UITableViewDelegate {
         containerView.subviews.forEach { $0.removeFromSuperview() }
         containerView.addSubview(model.controller.view)
         
-        model.controller.view.snp.makeConstraints { (make) in
-            make.edges.equalToSuperview()
-        }
+        model.controller.view.frame = containerView.bounds
+//        model.controller.view.snp.makeConstraints { (make) in
+//            make.edges.equalToSuperview()
+//        }
         
         tableView.reloadSections(IndexSet([indexPath.section]), with: .automatic)
     }
@@ -130,24 +133,3 @@ extension EMREditController: UITableViewDataSource, UITableViewDelegate {
         44
     }
 }
-
-
-// MARK: - Delegate External
-
-// MARK: -
-
-// MARK: - Helper
-extension EMREditController {
-    
-}
-
-// MARK: - Other
-extension EMREditController {
-    
-}
-
-// MARK: - Public
-extension EMREditController {
-    
-}
-

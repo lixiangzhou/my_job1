@@ -23,6 +23,8 @@
 		971CDC7D260C1D0A005DF51B /* EMREditMainItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971CDC7C260C1D0A005DF51B /* EMREditMainItemCell.swift */; };
 		971CDC80260C1D19005DF51B /* EMREditMainBottomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971CDC7F260C1D19005DF51B /* EMREditMainBottomCell.swift */; };
 		971CDC83260C1D60005DF51B /* EMREditMainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971CDC82260C1D60005DF51B /* EMREditMainViewModel.swift */; };
+		971CDC88260C63A5005DF51B /* EMREditNSRViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971CDC87260C63A5005DF51B /* EMREditNSRViewModel.swift */; };
+		971CDC8B260C63BA005DF51B /* EMREditNSRCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971CDC8A260C63BA005DF51B /* EMREditNSRCell.swift */; };
 		971EB7C52609EEBA00ECCAC9 /* PatientManagerTopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971EB7C42609EEBA00ECCAC9 /* PatientManagerTopView.swift */; };
 		971EB7C92609F1E300ECCAC9 /* PatientManagerListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971EB7C82609F1E300ECCAC9 /* PatientManagerListController.swift */; };
 		971EB7CC2609F3C900ECCAC9 /* PatientManagerListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971EB7CB2609F3C900ECCAC9 /* PatientManagerListViewModel.swift */; };
@@ -234,6 +236,8 @@
 		971CDC7C260C1D0A005DF51B /* EMREditMainItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EMREditMainItemCell.swift; sourceTree = "<group>"; };
 		971CDC7F260C1D19005DF51B /* EMREditMainBottomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EMREditMainBottomCell.swift; sourceTree = "<group>"; };
 		971CDC82260C1D60005DF51B /* EMREditMainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EMREditMainViewModel.swift; sourceTree = "<group>"; };
+		971CDC87260C63A5005DF51B /* EMREditNSRViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EMREditNSRViewModel.swift; sourceTree = "<group>"; };
+		971CDC8A260C63BA005DF51B /* EMREditNSRCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EMREditNSRCell.swift; sourceTree = "<group>"; };
 		971EB7C42609EEBA00ECCAC9 /* PatientManagerTopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientManagerTopView.swift; sourceTree = "<group>"; };
 		971EB7C82609F1E300ECCAC9 /* PatientManagerListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientManagerListController.swift; sourceTree = "<group>"; };
 		971EB7CB2609F3C900ECCAC9 /* PatientManagerListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientManagerListViewModel.swift; sourceTree = "<group>"; };
@@ -476,6 +480,7 @@
 				97284E38260B31BB00F155BF /* EMREditViewModel.swift */,
 				971CDC6D260B5AE9005DF51B /* EMREditBasicViewModel.swift */,
 				971CDC82260C1D60005DF51B /* EMREditMainViewModel.swift */,
+				971CDC87260C63A5005DF51B /* EMREditNSRViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -520,6 +525,7 @@
 				971CDC79260C1C39005DF51B /* EMREditCommonTopCell.swift */,
 				971CDC7C260C1D0A005DF51B /* EMREditMainItemCell.swift */,
 				971CDC7F260C1D19005DF51B /* EMREditMainBottomCell.swift */,
+				971CDC8A260C63BA005DF51B /* EMREditNSRCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1359,6 +1365,7 @@
 				9752226D25CA67E100C85D12 /* UIView+ZZExtension.swift in Sources */,
 				975222D325CA6B7D00C85D12 /* Network.swift in Sources */,
 				9752212225CA44F700C85D12 /* NSDictionary+HYBUnicodeReadable.m in Sources */,
+				971CDC8B260C63BA005DF51B /* EMREditNSRCell.swift in Sources */,
 				972EEBDD2605D2AA0025D4BD /* LoginViewModel.swift in Sources */,
 				97C0BD2D25FE1D830016DA47 /* MyFavoriteViewModel.swift in Sources */,
 				97C0BD4925FF0BC80016DA47 /* PersonInfoSexCell.swift in Sources */,
@@ -1366,6 +1373,7 @@
 				97C0BD5B25FF3AD90016DA47 /* PersonInfoWorkExpListCell.swift in Sources */,
 				97BB0E1225CABBA100EB13F6 /* TodoMsgSearchController.swift in Sources */,
 				9752211C25CA44F700C85D12 /* LLIndicatorView.swift in Sources */,
+				971CDC88260C63A5005DF51B /* EMREditNSRViewModel.swift in Sources */,
 				971CDC56260B3789005DF51B /* EMREditHPIController.swift in Sources */,
 				97A4403E2608B6C500864328 /* ZZDatePicker.swift in Sources */,
 				975222CE25CA6B1600C85D12 /* HUDConfig.swift in Sources */,

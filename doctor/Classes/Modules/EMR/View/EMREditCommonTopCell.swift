@@ -24,6 +24,17 @@ class EMREditCommonTopCell: UITableViewCell {
     }
     
     // MARK: - Public Property
+    var hasX: Bool = true {
+        didSet {
+            xView.isHidden = !hasX
+            
+            titleLabel.snp.updateConstraints { (make) in
+                make.left.equalTo(hasX ? 28 : 12)
+            }
+        }
+    }
+    
+    
     let noLabel = UILabel(text: "病历号：", font: .size(12), textColor: .c6)
     let diagnosisLabel = UILabel(text: "诊断：", font: .size(12), textColor: .c6)
     let dateLabel = UILabel(text: "创建日期：", font: .size(12), textColor: .c6)
@@ -88,24 +99,4 @@ extension EMREditCommonTopCell {
             make.height.equalTo(22)
         }
     }
-}
-
-// MARK: - Action
-extension EMREditCommonTopCell {
-    
-}
-
-// MARK: - Helper
-extension EMREditCommonTopCell {
-    
-}
-
-// MARK: - Other
-extension EMREditCommonTopCell {
-    
-}
-
-// MARK: - Public
-extension EMREditCommonTopCell {
-    
 }
