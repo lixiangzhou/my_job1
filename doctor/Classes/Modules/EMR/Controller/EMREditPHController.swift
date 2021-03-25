@@ -57,7 +57,7 @@ extension EMREditPHController: UITableViewDataSource, UITableViewDelegate {
         if indexPath.row == 0 {
             let cell = tableView.dequeue(cell: EMREditCommonTopCell.self, for: indexPath)
             cell.hasX = false
-            cell.titleLabel.text = "既往史 (必填)"
+            cell.titleLabel.text = "既往史（必填）"
             return cell
         } else {
             let cell = tableView.dequeue(cell: EMREditPHCell.self, for: indexPath)

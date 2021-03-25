@@ -42,7 +42,7 @@ class EMREditCommonTopCell: UITableViewCell {
     let descLabel = UILabel(text: "已自动填写最近一次病历信息，可继续重新填写或清空已有数据", font: .size(12), textColor: .cF98A21)
     
     let xView = UIImageView(image: UIImage(named: "mine_auth_xx"))
-    let titleLabel = UILabel(text: "主述", font: .boldSize(16), textColor: .c3)
+    let titleLabel = UILabel(font: .boldSize(16), textColor: .c3)
     // MARK: - Private Property
     
 }

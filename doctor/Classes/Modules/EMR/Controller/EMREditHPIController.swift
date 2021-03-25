@@ -65,7 +65,7 @@ extension EMREditHPIController: UITableViewDataSource, UITableViewDelegate {
         switch model {
         case .top:
             let cell = tableView.dequeue(cell: EMREditCommonTopCell.self, for: indexPath)
-            cell.titleLabel.text = "现病史 (必填)"
+            cell.titleLabel.text = "现病史（必填）"
             return cell
         case .sep:
             return tableView.dequeue(cell: EMREditHPISepCell.self, for: indexPath)

@@ -57,7 +57,7 @@ extension EMREditNSRController: UITableViewDataSource, UITableViewDelegate {
         if indexPath.row == 0 {
             let cell = tableView.dequeue(cell: EMREditCommonTopCell.self, for: indexPath)
             cell.hasX = false
-            cell.titleLabel.text = "NRS评分 (必填)"
+            cell.titleLabel.text = "NRS评分（必填）"
             return cell
         } else {
             let cell = tableView.dequeue(cell: EMREditNSRCell.self, for: indexPath)

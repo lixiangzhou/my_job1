@@ -42,7 +42,7 @@ extension EMREditNSRCell {
         let wh: CGFloat = 28
         let padding: CGFloat = 16
         
-        let maxW = UIScreen.zz_width - emrEditLeftWidth - 16 - 12
+        let maxW = UIScreen.zz_width - emrEditLeftWidth - 15 - 12
         
         for i in 0...10 {
             let btn = UIButton(title: "\(i)", font: .size(12), titleColor: .c6, backgroundColor: .cF7FBFF, target: self, action: #selector(btnAction))

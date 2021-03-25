@@ -61,6 +61,7 @@ extension EMREditMainController: UITableViewDataSource, UITableViewDelegate {
         switch model {
         case .top:
             let cell = tableView.dequeue(cell: EMREditCommonTopCell.self, for: indexPath)
+            cell.titleLabel.text = "主述"
             return cell
         case let .middle(item: item):
             let cell = tableView.dequeue(cell: EMREditMainItemCell.self, for: indexPath)
