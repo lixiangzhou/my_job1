@@ -33,7 +33,7 @@ class EMREditBasicController: BaseController {
 extension EMREditBasicController {
     override func setUI() {
         tableView.set(dataSource: self, delegate: self, rowHeight: 52)
-        tableView.register(cell: EMREditBasicFieldCell.self)
+        tableView.register(cell: EMREditCommonFieldCell.self)
         tableView.register(cell: EMREditCommonArrowCell.self)
         tableView.register(cell: EMREditBasicSexCell.self)
         tableView.backgroundColor = .white
@@ -94,7 +94,7 @@ extension EMREditBasicController: UITableViewDataSource, UITableViewDelegate {
             
             return cell
         default:
-            let cell = tableView.dequeue(cell: EMREditBasicFieldCell.self, for: indexPath)
+            let cell = tableView.dequeue(cell: EMREditCommonFieldCell.self, for: indexPath)
             setFieldCell(cell, model: model)
             cell.hasX = indexPath.section == 0
             return cell
@@ -156,7 +156,7 @@ extension EMREditBasicController: UIImagePickerControllerDelegate, UINavigationC
 
 // MARK: - Helper
 extension EMREditBasicController {
-    func setFieldCell(_ cell: EMREditBasicFieldCell, model: EMREditBasicViewModel.RowModel) {
+    func setFieldCell(_ cell: EMREditCommonFieldCell, model: EMREditBasicViewModel.RowModel) {
         cell.titleLabel.text = model.row.rawValue
         cell.fieldView.text = model.text.string
         cell.fieldView.font = .size(14)

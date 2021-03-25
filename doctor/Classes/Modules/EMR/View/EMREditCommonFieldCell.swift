@@ -1,5 +1,5 @@
 //
-//  EMREditBasicFieldCell.swift
+//  EMREditCommonFieldCell.swift
 //  doctor
 //
 //  Created by 李向洲 on 2021/3/24.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class EMREditBasicFieldCell: EMREditXCell {
+class EMREditCommonFieldCell: EMREditXCell {
     
     // MARK: - Life Cycle
     
@@ -27,7 +27,7 @@ class EMREditBasicFieldCell: EMREditXCell {
 }
 
 // MARK: - UI
-extension EMREditBasicFieldCell {
+extension EMREditCommonFieldCell {
     private func setUI() {
         contentView.addSubview(fieldView)
         

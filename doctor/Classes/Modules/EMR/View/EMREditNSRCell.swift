@@ -8,7 +8,7 @@
 
 import UIKit
 
-class EMREditNSRCell: UITableViewCell {
+class EMREditNSRCell: EMREditCommonBottomCell {
     
     // MARK: - Life Cycle
     
@@ -29,7 +29,6 @@ class EMREditNSRCell: UITableViewCell {
     var scoreBtns = [UIButton]()
     
     // MARK: - Private Property
-    var selectBtn: UIButton?
 }
 
 // MARK: - UI
@@ -61,21 +60,11 @@ extension EMREditNSRCell {
             scoreBtns.append(btn)
         }
         
-        let nextBtn = contentView.zz_add(subview: UIButton(title: "下一页", font: .size(14), titleColor: .white, backgroundColor: .c4167f3, target: self, action: #selector(nextAction)))
-        nextBtn.zz_setCorner(radius: 4, masksToBounds: true)
-        
         scoreView.snp.makeConstraints { (make) in
             make.left.top.equalTo(12)
             make.right.equalTo(-16)
             make.height.equalTo(scoreBtns.last!.zz_maxY)
-        }
-        
-        nextBtn.snp.makeConstraints { (make) in
-            make.top.equalTo(scoreView.snp.bottom).offset(60)
-            make.left.equalTo(53)
-            make.right.equalTo(-58)
-            make.height.equalTo(42)
-            make.bottom.equalTo(-42)
+            make.bottom.equalTo(bottomBtn.snp.top).offset(-60)
         }
     }
 }

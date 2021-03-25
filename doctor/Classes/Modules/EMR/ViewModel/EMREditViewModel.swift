@@ -39,6 +39,7 @@ extension EMREditViewModel {
             RowModel(item: .familly, controller: EMREditFamillyController()),
             RowModel(item: .personal, controller: EMREditPersonalController()),
             RowModel(item: .zkct, controller: EMREditZKCTController()),
+            RowModel(item: .sign, controller: EMREditSignController()),
         ]
     }
     
@@ -69,5 +70,6 @@ extension EMREditViewModel {
         case familly = "家族史"
         case personal = "个人史"
         case zkct = "专科查体"
+        case sign = "生命体征"
     }
 }

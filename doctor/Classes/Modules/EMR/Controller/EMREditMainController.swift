@@ -81,7 +81,7 @@ extension EMREditMainController: UITableViewDataSource, UITableViewDelegate {
             cell.submitClosure = { [weak self] in
                 self?.submitAction()
             }
-            cell.nextClosure = { [weak self] in
+            cell.bottomClosure = { [weak self] in
                 self?.nextAction()
             }
             return cell
