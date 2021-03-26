@@ -25,7 +25,7 @@ class AuthInfoIDCell: UITableViewCell {
     
     // MARK: - Public Property
     
-    var imageData = [AuthInfoViewModel.ImageData]() {
+    var imageData = [ImageData]() {
         didSet {
             let idImage1 = imageData[0]
             let idImage2 = imageData[1]

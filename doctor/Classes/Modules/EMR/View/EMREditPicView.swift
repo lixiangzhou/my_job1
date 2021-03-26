@@ -1,17 +1,17 @@
 //
-//  AuthInfoPicItemView.swift
+//  EMREditPicView.swift
 //  doctor
 //
-//  Created by 李向洲 on 2021/3/16.
+//  Created by 李向洲 on 2021/3/26.
 //  
 //
 
 import UIKit
 
-class AuthInfoPicItemView: BaseView {
+class EMREditPicView: BaseView {
     let imgView = UIImageView()
     let delBtn = UIButton(imageName: "mine_auth_pic_del")
-    let addView = ImageTitleView()
+    let addView = UIImageView()
     
     func setImageData(_ data: ImageData) {
         if let img = data.image {
@@ -39,11 +39,8 @@ class AuthInfoPicItemView: BaseView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        addView.imgView.image = UIImage(named: "mine_auth_pic")
-        addView.titleLabel.text = "添加证件照"
-        
         addView.backgroundColor = .cf6f8ff
-        addView.config = .init(imageSize: CGSize(width: 40, height: 40), verticalHeight1: 17, verticalHeight2: 4, titleLeft: 0, titleRight: 0, titleFont: .size(12), titleColor: .c4167f3)
+        
         imgView.zz_setCorner(radius: 4, masksToBounds: true)
         addView.zz_setCorner(radius: 4, masksToBounds: true)
         
@@ -75,3 +72,4 @@ class AuthInfoPicItemView: BaseView {
         fatalError("init(coder:) has not been implemented")
     }
 }
+

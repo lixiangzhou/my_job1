@@ -42,6 +42,7 @@ extension EMREditViewModel {
             RowModel(item: .sign, controller: EMREditSignController()),
             RowModel(item: .start, controller: EMREditDiagnosisStartController()),
             RowModel(item: .check, controller: EMREditDiagnosisCheckController()),
+            RowModel(item: .check, controller: EMREditDiagnosisComfirmController()),
         ]
     }
     
@@ -75,5 +76,6 @@ extension EMREditViewModel {
         case sign = "生命体征"
         case start = "初步诊断"
         case check = "检查检验"
+        case confirm = "确认诊断"
     }
 }

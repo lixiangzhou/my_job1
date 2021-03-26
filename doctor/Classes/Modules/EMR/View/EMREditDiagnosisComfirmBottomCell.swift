@@ -1,5 +1,5 @@
 //
-//  EMREditDiagnosisCheckBottomCell.swift
+//  EMREditDiagnosisComfirmBottomCell.swift
 //  doctor
 //
 //  Created by 李向洲 on 2021/3/26.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class EMREditDiagnosisCheckBottomCell: EMREditCommonBottomCell {
+class EMREditDiagnosisComfirmBottomCell: EMREditDiagnosisStartBottomCell {
     
     // MARK: - Life Cycle
     
@@ -30,16 +30,8 @@ class EMREditDiagnosisCheckBottomCell: EMREditCommonBottomCell {
 }
 
 // MARK: - UI
-extension EMREditDiagnosisCheckBottomCell {
+extension EMREditDiagnosisComfirmBottomCell {
     private func setUI() {
-        bottomBtn.setTitle("提交", for: .normal)
         
-        bottomBtn.snp.makeConstraints { (make) in
-            make.top.equalTo(48)
-            make.left.equalTo(53)
-            make.right.equalTo(-58)
-            make.height.equalTo(42)
-            make.bottom.equalTo(-42)
-        }
     }
 }

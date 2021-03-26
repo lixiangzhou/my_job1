@@ -45,14 +45,6 @@ extension EMREditCommonBottomCell {
             make.bottom.equalTo(-42)
         }
     }
-    
-    func setTxtView(_ txtView: ZZGrowTextView) {
-        txtView.zz_setCorner(radius: 4, masksToBounds: true)
-        txtView.zz_setBorder(color: .cf5f5f5, width: 1)
-        txtView.backgroundColor = .cFAFAFA
-        txtView.textView.backgroundColor = .cFAFAFA
-        txtView.config = .init(minHeight: 72, maxHeight: 72)
-    }
 }
 
 // MARK: - Action

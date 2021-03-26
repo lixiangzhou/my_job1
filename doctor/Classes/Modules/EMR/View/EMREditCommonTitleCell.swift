@@ -37,7 +37,7 @@ extension EMREditCommonTitleCell {
         titleLabel.snp.makeConstraints { (make) in
             make.left.equalTo(12)
             make.top.equalTo(8)
-            make.bottom.equalToSuperview()
+            make.bottom.equalTo(0)
         }
     }
     
@@ -45,7 +45,7 @@ extension EMREditCommonTitleCell {
     func setTopBottomOffset(_ top: CGFloat = 8, _ bottom: CGFloat = 0) {
         titleLabel.snp.updateConstraints { (make) in
             make.top.equalTo(top)
-            make.bottom.equalTo(0)
+            make.bottom.equalTo(-bottom)
         }
     }
 }

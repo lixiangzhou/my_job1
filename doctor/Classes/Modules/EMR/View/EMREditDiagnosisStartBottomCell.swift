@@ -33,6 +33,7 @@ class EMREditDiagnosisStartBottomCell: EMREditCommonBottomCell {
 // MARK: - UI
 extension EMREditDiagnosisStartBottomCell {
     private func setUI() {
+        
         let addBtn = UIButton(title: "新增", font: .size(12), titleColor: .c4167f3, backgroundColor: .cF5F8FF, target: self, action: #selector(addAction))
         addBtn.zz_setBorder(color: .c4167f3, width: 1)
         addBtn.zz_setCorner(radius: 4, masksToBounds: true)
@@ -47,7 +48,7 @@ extension EMREditDiagnosisStartBottomCell {
             make.top.equalTo(16)
             make.left.equalTo(12)
             make.height.equalTo(32)
-            make.bottom.equalTo(bottomBtn.snp.bottom).offset(-60)
+            make.bottom.equalTo(bottomBtn.snp.top).offset(-60)
         }
         
         delBtn.snp.makeConstraints { (make) in

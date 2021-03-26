@@ -1,14 +1,14 @@
 //
-//  AuthInfoPicCell.swift
+//  EMREditDiagnosisComfirmItemCell.swift
 //  doctor
 //
-//  Created by 李向洲 on 2021/3/15.
+//  Created by 李向洲 on 2021/3/26.
 //  
 //
 
 import UIKit
 
-class AuthInfoPicCell: UITableViewCell {
+class EMREditDiagnosisComfirmItemCell: UITableViewCell {
     
     // MARK: - Life Cycle
     
@@ -24,33 +24,32 @@ class AuthInfoPicCell: UITableViewCell {
     }
     
     // MARK: - Public Property
-    let titleLabel = UILabel(text: " ", font: .boldSize(16), textColor: .c3)
     var needRefreshClosure: (() -> Void)?
-    var model: AuthInfoViewModel.RowModel! {
+    var imageDatas = [ImageData]() {
         didSet {
-            let images = model.images
-            let range = 0...images.count
+            let range = 0...imageDatas.count
             
             let paddingY: CGFloat = 2
-            let w = (UIScreen.zz_width - 16 * 2 - 2) * 0.5
-            let h: CGFloat = 107
+            let w = (UIScreen.zz_width - emrEditLeftWidth - 12 - 16) / 3
+            let h: CGFloat = 80
             
             picView.zz_removeAllSubviews()
             
             for i in range {
-                let row = CGFloat(i / 2)
-                let x = i & 1 == 0 ? 0 : w + 2
+                let row = CGFloat(i / 3)
+                let col = CGFloat(i % 3)
+                let x = col * (w + 1)
                 let y = row * (h + paddingY)
-                if i == images.count {
+                if i == imageDatas.count {
                     addView.frame = CGRect(x: x, y: y, width: w, height: h)
                     picView.addSubview(addView)
                 } else {
     //                let imgView = UIImageView(frame: CGRect(x: x, y: y, width: w, height: h))
     //                imgView.zz_setCorner(radius: 4, masksToBounds: true)
-                    let imgView = AuthInfoPicItemView(frame: CGRect(x: x, y: y, width: w, height: h))
+                    let imgView = EMREditPicView(frame: CGRect(x: x, y: y, width: w, height: h))
                     imgView.delBtn.addTarget(self, action: #selector(delAction), for: .touchUpInside)
                     imgView.delBtn.tag = i
-                    if let img = images[i].image {
+                    if let img = imageDatas[i].image {
                         imgView.showImage(img)
                     }
                     picView.addSubview(imgView)
@@ -63,65 +62,67 @@ class AuthInfoPicCell: UITableViewCell {
         }
     }
     
-    // MARK: - Private Property
-    private let picView = UIView()
-    private let addView = AuthInfoPicItemView()
+    let titleLabel = UILabel(font: .size(14), textColor: .c3)
+    let picView = UIView()
+    let addView = EMREditPicView()
     
+    // MARK: - Private Property
+    let txtView = ZZGrowTextView()
 }
 
 // MARK: - UI
-extension AuthInfoPicCell {
+extension EMREditDiagnosisComfirmItemCell {
     private func setUI() {
-        let xxIcon = UIImageView(image: UIImage(named: "mine_auth_xx"))
-        
-        contentView.addSubview(xxIcon)
         contentView.addSubview(titleLabel)
+        
+        setTxtView(txtView)
+        txtView.config = .init(minHeight: 37, maxHeight: 37)
+        contentView.addSubview(txtView)
         contentView.addSubview(picView)
         
-        addView.imgView.image = UIImage(named: "mine_auth_pic")
-        addView.addView.titleLabel.text = "添加证件照"
- 
         addView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(addAction)))
         
-        xxIcon.snp.makeConstraints { (make) in
-            make.left.equalTo(16)
-            make.centerY.equalTo(titleLabel)
+        titleLabel.snp.makeConstraints { (make) in
+            make.left.equalTo(12)
+            make.top.equalTo(16)
+            make.height.equalTo(22)
         }
         
-        titleLabel.snp.makeConstraints { (make) in
-            make.top.equalTo(8)
-            make.left.equalTo(xxIcon.snp.right).offset(8)
+        txtView.snp.makeConstraints { (make) in
+            make.left.equalTo(titleLabel)
+            make.right.equalTo(-16)
+            make.top.equalTo(titleLabel.snp.bottom).offset(4)
         }
         
         picView.snp.makeConstraints { (make) in
-            make.top.equalTo(titleLabel.snp.bottom).offset(1)
-            make.left.equalTo(16)
+            make.top.equalTo(txtView.snp.bottom).offset(1)
+            make.left.equalTo(12)
             make.right.equalTo(-16)
-            make.height.equalTo(107)
-            make.bottom.equalTo(-8)
+            make.height.equalTo(80)
+            make.bottom.equalToSuperview()
         }
     }
 }
 
 // MARK: - Action
-extension AuthInfoPicCell {
+extension EMREditDiagnosisComfirmItemCell {
     @objc func addAction() {
         UIImagePickerController.showPicker(sourceType: .photoLibrary, from: self.zz_controller!, delegate: self)
     }
     
     @objc func delAction(_ sender: UIView) {
-        model.images.remove(at: sender.tag)
+        imageDatas.remove(at: sender.tag)
         needRefreshClosure?()
     }
 }
 
 // MARK: - Delegate
-extension AuthInfoPicCell: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+extension EMREditDiagnosisComfirmItemCell: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let img = info[UIImagePickerController.InfoKey.editedImage] as? UIImage {
             let m = ImageData()
             m.image = img
-            model.images.append(m)
+            imageDatas.append(m)
             needRefreshClosure?()
         }
         picker.dismiss()

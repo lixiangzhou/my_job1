@@ -33,11 +33,6 @@ extension AuthInfoViewModel {
         }
     }
     
-    class ImageData {
-        var image: UIImage?
-        var url: String?
-    }
-    
     enum Row: String {
         case idcard = "身份资料实名认证"
         case qualification = "医生资格证"
