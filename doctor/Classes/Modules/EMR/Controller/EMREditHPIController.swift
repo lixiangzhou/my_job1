@@ -35,7 +35,7 @@ extension EMREditHPIController {
         
         tableView.register(cell: EMREditCommonTopCell.self)
         tableView.register(cell: EMREditCommonArrowCell.self)
-        tableView.register(cell: EMREditHPISepCell.self)
+        tableView.register(cell: EMREditCommonSepCell.self)
         tableView.register(cell: EMREditCommonTitleCell.self)
         tableView.register(cell: EMREditHPICheckBoxCell.self)
         tableView.register(cell: EMREditHPIBottomCell.self)
@@ -68,7 +68,7 @@ extension EMREditHPIController: UITableViewDataSource, UITableViewDelegate {
             cell.titleLabel.text = "现病史（必填）"
             return cell
         case .sep:
-            return tableView.dequeue(cell: EMREditHPISepCell.self, for: indexPath)
+            return tableView.dequeue(cell: EMREditCommonSepCell.self, for: indexPath)
         case let .title(title, offset):
             let cell = tableView.dequeue(cell: EMREditCommonTitleCell.self, for: indexPath)
             cell.titleLabel.textColor = .c4167f3

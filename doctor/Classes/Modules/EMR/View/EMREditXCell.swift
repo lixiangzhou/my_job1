@@ -47,6 +47,7 @@ extension EMREditXCell {
         contentView.addSubview(xView)
         contentView.addSubview(titleLabel)
         
+        xView.isHidden = true
         bottomLine = contentView.addBottomLine(color: .cf5f5f5, left: 12, right: 16, height: 1)
         
         xView.snp.makeConstraints { (make) in
@@ -57,7 +58,7 @@ extension EMREditXCell {
         
         titleLabel.snp.makeConstraints { (make) in
             make.top.equalTo(16)
-            make.left.equalTo(28)
+            make.left.equalTo(12)
             make.bottom.equalTo(-8)
         }
     }

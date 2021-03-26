@@ -1,5 +1,5 @@
 //
-//  EMREditHPISepCell.swift
+//  EMREditCommonSepCell.swift
 //  doctor
 //
 //  Created by 李向洲 on 2021/3/25.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class EMREditHPISepCell: UITableViewCell {
+class EMREditCommonSepCell: UITableViewCell {
     
     // MARK: - Life Cycle
     
@@ -30,7 +30,7 @@ class EMREditHPISepCell: UITableViewCell {
 }
 
 // MARK: - UI
-extension EMREditHPISepCell {
+extension EMREditCommonSepCell {
     private func setUI() {
         sepView.backgroundColor = .blue
         contentView.addSubview(sepView)
