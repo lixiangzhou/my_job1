@@ -95,17 +95,3 @@ extension EMREditSignController {
         
     }
 }
-
-extension EMREditSignController {
-    func setLabelText(label: UILabel, txt: Text) {
-        if txt.string.isEmpty {
-            label.font = .size(12)
-            label.text = "请选择"
-            label.textColor = .c9
-        } else {
-            label.font = .size(14)
-            label.text = txt.string
-            label.textColor = .c3
-        }
-    }
-}

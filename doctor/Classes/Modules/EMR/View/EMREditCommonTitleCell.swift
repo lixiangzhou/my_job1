@@ -1,14 +1,14 @@
 //
-//  EMREditHPITitleCell.swift
+//  EMREditCommonTitleCell.swift
 //  doctor
 //
-//  Created by 李向洲 on 2021/3/25.
+//  Created by 李向洲 on 2021/3/26.
 //  
 //
 
 import UIKit
 
-class EMREditHPITitleCell: UITableViewCell {
+class EMREditCommonTitleCell: UITableViewCell {
     
     // MARK: - Life Cycle
     
@@ -26,11 +26,11 @@ class EMREditHPITitleCell: UITableViewCell {
     // MARK: - Public Property
     
     // MARK: - Private Property
-    let titleLabel = UILabel(font: .boldSize(14), textColor: .c4167f3)
+    let titleLabel = UILabel(font: .boldSize(16), textColor: .c3)
 }
 
 // MARK: - UI
-extension EMREditHPITitleCell {
+extension EMREditCommonTitleCell {
     private func setUI() {
         contentView.addSubview(titleLabel)
         
@@ -41,30 +41,11 @@ extension EMREditHPITitleCell {
         }
     }
     
-    /// 8   16
-    func setTopOffset(_ offset: CGFloat) {
+    
+    func setTopBottomOffset(_ top: CGFloat = 8, _ bottom: CGFloat = 0) {
         titleLabel.snp.updateConstraints { (make) in
-            make.top.equalTo(offset)
+            make.top.equalTo(top)
+            make.bottom.equalTo(0)
         }
     }
-}
-
-// MARK: - Action
-extension EMREditHPITitleCell {
-    
-}
-
-// MARK: - Helper
-extension EMREditHPITitleCell {
-    
-}
-
-// MARK: - Other
-extension EMREditHPITitleCell {
-    
-}
-
-// MARK: - Public
-extension EMREditHPITitleCell {
-    
 }

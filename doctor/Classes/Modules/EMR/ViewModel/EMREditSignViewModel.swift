@@ -15,10 +15,10 @@ class EMREditSignViewModel: BaseViewModel {
         DispatchQueue.main.zz_after(0.25) {
             self.dataSourceProperty.value = [
                 .top,
-                .field(left: self.getLeft(big: "I", small: "(度)"), text: Text()),
-                .field(left: self.getLeft(big: "P", small: "(次/分)"), text: Text()),
-                .field(left: self.getLeft(big: "R", small: "(次/分)"), text: Text()),
-                .field(left: self.getLeft(big: "Bp", small: "(mmHg)"), text: Text()),
+                .field(left: self.getLeft(big: "I", small: "（度）"), text: Text()),
+                .field(left: self.getLeft(big: "P", small: "（次/分）"), text: Text()),
+                .field(left: self.getLeft(big: "R", small: "（次/分）"), text: Text()),
+                .field(left: self.getLeft(big: "Bp", small: "（mmHg）"), text: Text()),
                 .arrow(left: "疼痛评分", text: Text()),
                 .bottom
             ]

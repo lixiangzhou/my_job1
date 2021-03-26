@@ -97,6 +97,24 @@ extension UILabel {
             make.width.equalTo(width + addition)
         }
     }
+    
+    func append(_ sufix: String = "*", color: UIColor = UIColor.red) {
+        let attr = NSMutableAttributedString(string: text ?? "")
+        attr.append(NSAttributedString(string: sufix, attributes: [NSAttributedString.Key.foregroundColor: color]))
+        attributedText = attr
+    }
+    
+    func set(txt: Text, txtColor: UIColor = .c3, normalFont: UIFont = .size(14), placeholder: String, placeholderColor: UIColor = .c9, placeholderFont: UIFont = .size(12)) {
+        if !txt.string.isEmpty {
+            self.text = txt.string
+            self.textColor = txtColor
+            self.font = normalFont
+        } else {
+            self.text = placeholder
+            self.textColor = placeholderColor
+            self.font = placeholderFont
+        }
+    }
 }
 
 extension InputFieldView {
@@ -132,15 +150,6 @@ extension UIView: LayoutHeightProtocol {
     }
 }
 
-
-extension UILabel {
-    func append(_ sufix: String = "*", color: UIColor = UIColor.red) {
-        let attr = NSMutableAttributedString(string: text ?? "")
-        attr.append(NSAttributedString(string: sufix, attributes: [NSAttributedString.Key.foregroundColor: color]))
-        attributedText = attr
-    }
-}
-
 extension UITextField {
     var placeHolderString: String {
         set {
@@ -164,3 +173,4 @@ extension UITableViewCell {
         return nil
     }
 }
+

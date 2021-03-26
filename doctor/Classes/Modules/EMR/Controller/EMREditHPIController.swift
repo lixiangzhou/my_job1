@@ -36,7 +36,7 @@ extension EMREditHPIController {
         tableView.register(cell: EMREditCommonTopCell.self)
         tableView.register(cell: EMREditCommonArrowCell.self)
         tableView.register(cell: EMREditHPISepCell.self)
-        tableView.register(cell: EMREditHPITitleCell.self)
+        tableView.register(cell: EMREditCommonTitleCell.self)
         tableView.register(cell: EMREditHPICheckBoxCell.self)
         tableView.register(cell: EMREditHPIBottomCell.self)
         view.addSubview(tableView)
@@ -70,9 +70,10 @@ extension EMREditHPIController: UITableViewDataSource, UITableViewDelegate {
         case .sep:
             return tableView.dequeue(cell: EMREditHPISepCell.self, for: indexPath)
         case let .title(title, offset):
-            let cell = tableView.dequeue(cell: EMREditHPITitleCell.self, for: indexPath)
+            let cell = tableView.dequeue(cell: EMREditCommonTitleCell.self, for: indexPath)
+            cell.titleLabel.textColor = .c4167f3
             cell.titleLabel.text = title
-            cell.setTopOffset(offset)
+            cell.setTopBottomOffset(offset)
             return cell
         case let .arrow(title: title, text: txt, shortTop: shortTop, hasX: hasX):
             let cell = tableView.dequeue(cell: EMREditCommonArrowCell.self, for: indexPath)
