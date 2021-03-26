@@ -1,5 +1,5 @@
 //
-//  EMREditDiagnosisStartController.swift
+//  EMREditDiagnosisCheckController.swift
 //  doctor
 //
 //  Created by 李向洲 on 2021/3/26.
@@ -9,7 +9,7 @@
 import UIKit
 import ReactiveSwift
 
-class EMREditDiagnosisStartController: BaseController {
+class EMREditDiagnosisCheckController: BaseController {
 
     // MARK: - Life Cycle
     
@@ -22,20 +22,20 @@ class EMREditDiagnosisStartController: BaseController {
     }
 
     // MARK: - Public Property
-    let viewModel = EMREditDiagnosisStartViewModel()
+    let viewModel = EMREditDiagnosisCheckViewModel()
     
     // MARK: - Private Property
     let tableView = UITableView()
 }
 
 // MARK: - UI
-extension EMREditDiagnosisStartController {
+extension EMREditDiagnosisCheckController {
     override func setUI() {
         tableView.set(dataSource: self, delegate: self)
         
         tableView.register(cell: EMREditCommonTitleCell.self)
-        tableView.register(cell: EMREditDiagnosisStartBottomCell.self)
-        tableView.register(cell: EMREditDiagnosisPositionCell.self)
+        tableView.register(cell: EMREditDiagnosisCheckBottomCell.self)
+        tableView.register(cell: EMREditDiagnosisCheckCell.self)
         view.addSubview(tableView)
         
         tableView.snp.makeConstraints { (make) in
@@ -52,7 +52,7 @@ extension EMREditDiagnosisStartController {
 
 // MARK: -
 // MARK: - UITableViewDataSource, UITableViewDelegate
-extension EMREditDiagnosisStartController: UITableViewDataSource, UITableViewDelegate {
+extension EMREditDiagnosisCheckController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.dataSourceProperty.value.count
     }
@@ -60,32 +60,32 @@ extension EMREditDiagnosisStartController: UITableViewDataSource, UITableViewDel
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let model = viewModel.dataSourceProperty.value[indexPath.row]
         switch model {
-        case .top:
+        case let .title(title):
             let cell = tableView.dequeue(cell: EMREditCommonTitleCell.self, for: indexPath)
-            cell.titleLabel.text = "初步诊断（必填）"
+            cell.titleLabel.text = title
             return cell
-        case let .item(left: left, right: right):
-            let cell = tableView.dequeue(cell: EMREditDiagnosisPositionCell.self, for: indexPath)
-            cell.leftLabel.set(txt: left, placeholder: "请选择部位")
-            cell.rightLabel.set(txt: right, placeholder: "请选择分类")
+        case let .item(items):
+            let cell = tableView.dequeue(cell: EMREditDiagnosisCheckCell.self, for: indexPath)
+            cell.items = ["腰椎MRI", "CT"]
+            cell.addClosure = {
+                tableView.performBatchUpdates {
+                    tableView.reloadRows(at: [indexPath], with: .automatic)
+                } completion: { (_) in
+                    
+                }
+            }
             return cell
         case .bottom:
-            let cell = tableView.dequeue(cell: EMREditDiagnosisStartBottomCell.self, for: indexPath)
+            let cell = tableView.dequeue(cell: EMREditDiagnosisCheckBottomCell.self, for: indexPath)
             cell.bottomClosure = { [weak self] in
                 self?.nextAction()
-            }
-            cell.addClosure = { [weak self] in
-                self?.viewModel.add()
-            }
-            cell.delClosure = {[weak self] in
-                self?.viewModel.delete()
             }
             return cell
         }
     }
 }
 
-extension EMREditDiagnosisStartController {
+extension EMREditDiagnosisCheckController {
     
     func nextAction() {
         

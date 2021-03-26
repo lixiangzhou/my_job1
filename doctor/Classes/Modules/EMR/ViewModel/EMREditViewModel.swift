@@ -41,6 +41,7 @@ extension EMREditViewModel {
             RowModel(item: .zkct, controller: EMREditZKCTController()),
             RowModel(item: .sign, controller: EMREditSignController()),
             RowModel(item: .start, controller: EMREditDiagnosisStartController()),
+            RowModel(item: .check, controller: EMREditDiagnosisCheckController()),
         ]
     }
     
@@ -73,5 +74,6 @@ extension EMREditViewModel {
         case zkct = "专科查体"
         case sign = "生命体征"
         case start = "初步诊断"
+        case check = "检查检验"
     }
 }

@@ -1,5 +1,5 @@
 //
-//  EMREditDiagnosisStartItemCell.swift
+//  EMREditDiagnosisPositionCell.swift
 //  doctor
 //
 //  Created by 李向洲 on 2021/3/26.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class EMREditDiagnosisStartItemCell: UITableViewCell {
+class EMREditDiagnosisPositionCell: UITableViewCell {
     
     // MARK: - Life Cycle
     
@@ -31,7 +31,7 @@ class EMREditDiagnosisStartItemCell: UITableViewCell {
 }
 
 // MARK: - UI
-extension EMREditDiagnosisStartItemCell {
+extension EMREditDiagnosisPositionCell {
     private func setUI() {
         contentView.addSubview(leftLabel)
         contentView.addSubview(rightLabel)
