@@ -77,7 +77,7 @@ extension EMREditHPIController: UITableViewDataSource, UITableViewDelegate {
         case let .arrow(title: title, text: txt, shortTop: shortTop, hasX: hasX):
             let cell = tableView.dequeue(cell: EMREditCommonArrowCell.self, for: indexPath)
             cell.titleLabel.text = title
-            setLabelText(label: cell.rightLabel, txt: txt)
+            cell.setRight(text: txt, placeholder: "请选择")
             cell.setTitleTopOffset(shortTop ? 8 : 16)
             cell.hasX = hasX
             return cell
@@ -112,19 +112,5 @@ extension EMREditHPIController {
     
     func nextAction() {
         
-    }
-}
-
-extension EMREditHPIController {
-    func setLabelText(label: UILabel, txt: Text) {
-        if txt.string.isEmpty {
-            label.font = .size(12)
-            label.text = "请选择"
-            label.textColor = .c9
-        } else {
-            label.font = .size(14)
-            label.text = txt.string
-            label.textColor = .c3
-        }
     }
 }

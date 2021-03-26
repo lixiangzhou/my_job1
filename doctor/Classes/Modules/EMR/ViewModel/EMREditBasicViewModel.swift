@@ -52,13 +52,6 @@ class EMREditBasicViewModel: BaseViewModel {
 
 extension EMREditBasicViewModel {
     
-    class Text {
-        var string: String
-        init(_ string: String = "") {
-            self.string = string
-        }
-    }
-    
     struct RowModel {
         var text: Text
         var row: Row

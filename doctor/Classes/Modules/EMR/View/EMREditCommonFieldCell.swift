@@ -31,6 +31,10 @@ extension EMREditCommonFieldCell {
     private func setUI() {
         contentView.addSubview(fieldView)
         
+        fieldView.font = .size(14)
+        fieldView.textColor = .c3
+        fieldView.textAlignment = .right
+        
         fieldView.snp.makeConstraints { (make) in
             make.height.equalTo(35)
             make.right.equalTo(-16)

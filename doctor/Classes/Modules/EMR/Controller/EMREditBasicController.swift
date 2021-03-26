@@ -87,16 +87,18 @@ extension EMREditBasicController: UITableViewDataSource, UITableViewDelegate {
             return cell
         case .nation, .address, .major, .marriage, .education, .income:
             let cell = tableView.dequeue(cell: EMREditCommonArrowCell.self, for: indexPath)
-            setArrowCell(cell, model: model)
+            cell.titleLabel.text = model.row.rawValue
+            cell.setRight(text: model.text, placeholder: model.placeholder, placeholderColor: .c26d765)
             cell.hasX = indexPath.section == 0
-            
             cell.bottomLine.isHidden = model.row == .address
             
             return cell
         default:
             let cell = tableView.dequeue(cell: EMREditCommonFieldCell.self, for: indexPath)
-            setFieldCell(cell, model: model)
             cell.hasX = indexPath.section == 0
+            cell.titleLabel.text = model.row.rawValue
+            cell.fieldView.text = model.text.string
+            cell.fieldView.attributedPlaceholder = model.placeholder.attribute(font: .size(12), color: .c9)
             return cell
         }
     }
@@ -150,28 +152,6 @@ extension EMREditBasicController: UIImagePickerControllerDelegate, UINavigationC
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         print(#function)
         picker.dismiss()
-    }
-}
-
-
-// MARK: - Helper
-extension EMREditBasicController {
-    func setFieldCell(_ cell: EMREditCommonFieldCell, model: EMREditBasicViewModel.RowModel) {
-        cell.titleLabel.text = model.row.rawValue
-        cell.fieldView.text = model.text.string
-        cell.fieldView.font = .size(14)
-        cell.fieldView.attributedPlaceholder = NSAttributedString(string: model.placeholder, attributes: [NSAttributedString.Key.font: UIFont.size(12), NSAttributedString.Key.foregroundColor: UIColor.c9])
-    }
-    
-    func setArrowCell(_ cell: EMREditCommonArrowCell, model: EMREditBasicViewModel.RowModel) {
-        cell.titleLabel.text = model.row.rawValue
-        if !model.text.string.isEmpty {
-            cell.rightLabel.text = model.text.string
-            cell.rightLabel.textColor = .c3
-        } else {
-            cell.rightLabel.text = model.placeholder
-            cell.rightLabel.textColor = .c26d765
-        }
     }
 }
 

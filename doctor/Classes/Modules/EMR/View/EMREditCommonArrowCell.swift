@@ -41,5 +41,16 @@ extension EMREditCommonArrowCell {
             make.bottom.equalTo(titleLabel)
         }
     }
+    
+    func setRight(text: Text, placeholder: String, placeholderColor: UIColor = .c9, placeholderFont: UIFont = .size(12)) {
+        if !text.string.isEmpty {
+            rightLabel.text = text.string
+            rightLabel.textColor = .c3
+            rightLabel.font = .size(14)
+        } else {
+            rightLabel.text = placeholder
+            rightLabel.textColor = placeholderColor
+            rightLabel.font = placeholderFont
+        }
+    }
 }
-
