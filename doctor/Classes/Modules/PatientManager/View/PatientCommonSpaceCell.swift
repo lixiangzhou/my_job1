@@ -1,5 +1,5 @@
 //
-//  EMRCommonTitleCell.swift
+//  PatientCommonSpaceCell.swift
 //  doctor
 //
 //  Created by 李向洲 on 2021/3/29.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class EMRCommonTitleCell: UITableViewCell {
+class PatientCommonSpaceCell: EMREditCommonSpaceCell {
     
     // MARK: - Life Cycle
     
@@ -26,26 +26,32 @@ class EMRCommonTitleCell: UITableViewCell {
     // MARK: - Public Property
     
     // MARK: - Private Property
-    let titleLabel = UILabel(font: .boldSize(16), textColor: .c3)
+    
 }
 
 // MARK: - UI
-extension EMRCommonTitleCell {
+extension PatientCommonSpaceCell {
     private func setUI() {
-        contentView.addSubview(titleLabel)
         
-        titleLabel.snp.makeConstraints { (make) in
-            make.left.equalTo(16)
-            make.top.equalTo(16)
-            make.bottom.equalTo(0)
-        }
     }
+}
+
+// MARK: - Action
+extension PatientCommonSpaceCell {
     
+}
+
+// MARK: - Helper
+extension PatientCommonSpaceCell {
     
-    func set(top: CGFloat, bottom: CGFloat) {
-        titleLabel.snp.updateConstraints { (make) in
-            make.top.equalTo(top)
-            make.bottom.equalTo(-bottom)
-        }
-    }
+}
+
+// MARK: - Other
+extension PatientCommonSpaceCell {
+    
+}
+
+// MARK: - Public
+extension PatientCommonSpaceCell {
+    
 }

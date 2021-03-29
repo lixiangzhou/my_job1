@@ -1,5 +1,5 @@
 //
-//  EMRCommonScaleNormalCell.swift
+//  PatientCommonScaleNormalCell.swift
 //  doctor
 //
 //  Created by 李向洲 on 2021/3/29.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class EMRCommonScaleNormalCell: UITableViewCell {
+class PatientCommonScaleNormalCell: UITableViewCell {
     
     // MARK: - Life Cycle
     
@@ -43,7 +43,7 @@ class EMRCommonScaleNormalCell: UITableViewCell {
 }
 
 // MARK: - UI
-extension EMRCommonScaleNormalCell {
+extension PatientCommonScaleNormalCell {
     private func setUI() {
         addLeftView()
         

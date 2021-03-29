@@ -1,5 +1,5 @@
 //
-//  EMRDiagnosisFinishController.swift
+//  PatientDiagnosisFinishController.swift
 //  doctor
 //
 //  Created by 李向洲 on 2021/3/29.
@@ -9,7 +9,7 @@
 import UIKit
 import ReactiveSwift
 
-class EMRDiagnosisFinishController: BaseController {
+class PatientDiagnosisFinishController: BaseController {
 
     // MARK: - Life Cycle
     
@@ -23,23 +23,23 @@ class EMRDiagnosisFinishController: BaseController {
     }
 
     // MARK: - Public Property
-    let viewModel = EMRDiagnosisFinishViewModel()
+    let viewModel = PatientDiagnosisFinishViewModel()
     
     // MARK: - Private Property
     let tableView = UITableView()
 }
 
 // MARK: - UI
-extension EMRDiagnosisFinishController {
+extension PatientDiagnosisFinishController {
     override func setUI() {
         tableView.set(dataSource: self, delegate: self)
-        tableView.register(cell: EMREditDiagnosisFinishTopCell.self)
-        tableView.register(cell: EMRCommonTitleCell.self)
-        tableView.register(cell: EMREditCommonSpaceCell.self)
-        tableView.register(cell: EMRCommonBottomCell.self)
-        tableView.register(cell: EMRCommonScaleNormalCell.self)
-        tableView.register(cell: EMRCommonScaleStartCell.self)
-        tableView.register(cell: EMRCommonLeftRightTextCell.self)
+        tableView.register(cell: PatientDiagnosisFinishTopCell.self)
+        tableView.register(cell: PatientCommonTitleCell.self)
+        tableView.register(cell: PatientCommonSpaceCell.self)
+        tableView.register(cell: PatientCommonBottomCell.self)
+        tableView.register(cell: PatientCommonScaleNormalCell.self)
+        tableView.register(cell: PatientCommonScaleStartCell.self)
+        tableView.register(cell: PatientCommonLeftRightTextCell.self)
         
         view.addSubview(tableView)
         
@@ -57,7 +57,7 @@ extension EMRDiagnosisFinishController {
 
 // MARK: -
 // MARK: - UITableViewDataSource, UITableViewDelegate
-extension EMRDiagnosisFinishController: UITableViewDataSource, UITableViewDelegate {
+extension PatientDiagnosisFinishController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.dataSourceProperty.value.count
     }
@@ -66,7 +66,7 @@ extension EMRDiagnosisFinishController: UITableViewDataSource, UITableViewDelega
         let model = viewModel.dataSourceProperty.value[indexPath.row]
         switch model {
         case let .top(model: model):
-            let cell = tableView.dequeue(cell: EMREditDiagnosisFinishTopCell.self, for: indexPath)
+            let cell = tableView.dequeue(cell: PatientDiagnosisFinishTopCell.self, for: indexPath)
             cell.iconView.backgroundColor = .blue
             cell.nameLabel.text = "积分卡"
             cell.ageLabel.text = "32岁"
@@ -74,17 +74,17 @@ extension EMRDiagnosisFinishController: UITableViewDataSource, UITableViewDelega
             cell.idLabel.text = "身份证号：12345678900985"
             return cell
         case let .title(title: title):
-            let cell = tableView.dequeue(cell: EMRCommonTitleCell.self, for: indexPath)
+            let cell = tableView.dequeue(cell: PatientCommonTitleCell.self, for: indexPath)
             cell.titleLabel.text = title
             cell.titleLabel.font = .boldSize(16)
             return cell
         case let .space(height: height, color: color):
-            let cell = tableView.dequeue(cell: EMREditCommonSpaceCell.self, for: indexPath)
+            let cell = tableView.dequeue(cell: PatientCommonSpaceCell.self, for: indexPath)
             cell.height = height
-            cell.contentView.backgroundColor = color
+            cell.spaceView.backgroundColor = color
             return cell
         case let .text(left: left, right: right, rightColor: rightColor):
-            let cell = tableView.dequeue(cell: EMRCommonLeftRightTextCell.self, for: indexPath)
+            let cell = tableView.dequeue(cell: PatientCommonLeftRightTextCell.self, for: indexPath)
             cell.leftLabel.text = left
             cell.rightLabel.text = right
             cell.rightLabel.textColor = rightColor
@@ -92,7 +92,7 @@ extension EMRDiagnosisFinishController: UITableViewDataSource, UITableViewDelega
         case let .item(model: model, position: position):
             switch position {
             case .start:
-                let cell = tableView.dequeue(cell: EMRCommonScaleStartCell.self, for: indexPath)
+                let cell = tableView.dequeue(cell: PatientCommonScaleStartCell.self, for: indexPath)
                 cell.leftTimeLabel.text = "10:10\n2021-10-10"
                 cell.inputStateLabel.text = "已填写"
                 cell.diagnosisStateLabel.text = "住院第1天"
@@ -102,7 +102,7 @@ extension EMRDiagnosisFinishController: UITableViewDataSource, UITableViewDelega
                 cell.resultLabel.text = "重度XXX"
                 return cell
             case .mid, .end:
-                let cell = tableView.dequeue(cell: EMRCommonScaleNormalCell.self, for: indexPath)
+                let cell = tableView.dequeue(cell: PatientCommonScaleNormalCell.self, for: indexPath)
                 cell.leftTimeLabel.text = "10:10\n2021-10-10"
                 cell.inputStateLabel.text = "已填写"
                 cell.diagnosisStateLabel.text = "住院第1天"
@@ -117,7 +117,7 @@ extension EMRDiagnosisFinishController: UITableViewDataSource, UITableViewDelega
                 return cell
             }
         case .bottom:
-            let cell = tableView.dequeue(cell: EMRCommonBottomCell.self, for: indexPath)
+            let cell = tableView.dequeue(cell: PatientCommonBottomCell.self, for: indexPath)
             cell.bottomClosure = { [weak self] in
                 
             }

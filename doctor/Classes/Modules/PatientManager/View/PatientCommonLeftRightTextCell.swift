@@ -8,7 +8,7 @@
 
 import UIKit
 
-class EMRCommonLeftRightTextCell: UITableViewCell {
+class PatientCommonLeftRightTextCell: UITableViewCell {
     
     // MARK: - Life Cycle
     
@@ -38,7 +38,7 @@ class EMRCommonLeftRightTextCell: UITableViewCell {
 }
 
 // MARK: - UI
-extension EMRCommonLeftRightTextCell {
+extension PatientCommonLeftRightTextCell {
     private func setUI() {
         contentView.addSubview(leftLabel)
         contentView.addSubview(rightLabel)
@@ -58,21 +58,21 @@ extension EMRCommonLeftRightTextCell {
 }
 
 // MARK: - Action
-extension EMRCommonLeftRightTextCell {
+extension PatientCommonLeftRightTextCell {
     
 }
 
 // MARK: - Helper
-extension EMRCommonLeftRightTextCell {
+extension PatientCommonLeftRightTextCell {
     
 }
 
 // MARK: - Other
-extension EMRCommonLeftRightTextCell {
+extension PatientCommonLeftRightTextCell {
     
 }
 
 // MARK: - Public
-extension EMRCommonLeftRightTextCell {
+extension PatientCommonLeftRightTextCell {
     
 }

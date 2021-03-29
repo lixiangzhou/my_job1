@@ -1,5 +1,5 @@
 //
-//  EMREditDiagnosisFinishTopCell.swift
+//  PatientDiagnosisFinishTopCell.swift
 //  doctor
 //
 //  Created by 李向洲 on 2021/3/29.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class EMREditDiagnosisFinishTopCell: UITableViewCell {
+class PatientDiagnosisFinishTopCell: UITableViewCell {
     
     // MARK: - Life Cycle
     
@@ -35,7 +35,7 @@ class EMREditDiagnosisFinishTopCell: UITableViewCell {
 }
 
 // MARK: - UI
-extension EMREditDiagnosisFinishTopCell {
+extension PatientDiagnosisFinishTopCell {
     private func setUI() {
         iconView.zz_setCorner(radius: 24, masksToBounds: true)
         contentView.addSubview(iconView)
@@ -75,21 +75,21 @@ extension EMREditDiagnosisFinishTopCell {
 }
 
 // MARK: - Action
-extension EMREditDiagnosisFinishTopCell {
+extension PatientDiagnosisFinishTopCell {
     
 }
 
 // MARK: - Helper
-extension EMREditDiagnosisFinishTopCell {
+extension PatientDiagnosisFinishTopCell {
     
 }
 
 // MARK: - Other
-extension EMREditDiagnosisFinishTopCell {
+extension PatientDiagnosisFinishTopCell {
     
 }
 
 // MARK: - Public
-extension EMREditDiagnosisFinishTopCell {
+extension PatientDiagnosisFinishTopCell {
     
 }

@@ -1,5 +1,5 @@
 //
-//  EMRDiagnosisFinishViewModel.swift
+//  PatientDiagnosisFinishViewModel.swift
 //  doctor
 //
 //  Created by 李向洲 on 2021/3/29.
@@ -8,7 +8,7 @@
 import UIKit
 import ReactiveSwift
 
-class EMRDiagnosisFinishViewModel: BaseViewModel {
+class PatientDiagnosisFinishViewModel: BaseViewModel {
     let dataSourceProperty = MutableProperty<[RowModel]>([])
     var selectIndexPath = IndexPath()
     
@@ -64,7 +64,7 @@ class EMRDiagnosisFinishViewModel: BaseViewModel {
     }
 }
 
-extension EMRDiagnosisFinishViewModel {
+extension PatientDiagnosisFinishViewModel {
     enum RowModel {
         case top(model: Any)
         case title(title: String)

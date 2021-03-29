@@ -1,5 +1,5 @@
 //
-//  EMRCommonBottomCell.swift
+//  PatientCommonBottomCell.swift
 //  doctor
 //
 //  Created by 李向洲 on 2021/3/29.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class EMRCommonBottomCell: UITableViewCell {
+class PatientCommonBottomCell: UITableViewCell {
     
     // MARK: - Life Cycle
     
@@ -30,7 +30,7 @@ class EMRCommonBottomCell: UITableViewCell {
 }
 
 // MARK: - UI
-extension EMRCommonBottomCell {
+extension PatientCommonBottomCell {
     private func setUI() {
         bottomBtn.addTarget(self, action: #selector(bottomAction), for: .touchUpInside)
         bottomBtn.zz_setCorner(radius: 4, masksToBounds: true)
@@ -47,7 +47,7 @@ extension EMRCommonBottomCell {
 }
 
 // MARK: - Action
-extension EMRCommonBottomCell {
+extension PatientCommonBottomCell {
     @objc func bottomAction() {
         bottomClosure?()
     }
