@@ -31,9 +31,9 @@ class RoundOptionView: BaseView {
     // MARK: - Public Property
     
     // MARK: - Private Property
-    private var radius: CGFloat = 8
-    private var roundColor: UIColor = .white
-    private var roundingCorners: UIRectCorner = [.bottomLeft, .bottomRight]
+    var radius: CGFloat = 8
+    var roundColor: UIColor = .white
+    var roundingCorners: UIRectCorner = [.bottomLeft, .bottomRight]
 }
 
 // MARK: - UI

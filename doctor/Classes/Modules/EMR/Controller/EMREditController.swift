@@ -37,7 +37,7 @@ extension EMREditController {
         view.addSubview(containerView)
         
         tableView.backgroundColor = .cf8f8f8
-        tableView.set(dataSource: self, delegate: self, rowHeight: 33)
+        tableView.set(dataSource: self, delegate: self)
         tableView.tableHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 16))
         tableView.register(cell: EMREditCell.self)
         tableView.bounces = false

@@ -49,8 +49,7 @@ private func getPlugin() -> [PluginType] {
         return [activityPlugin, senderPlugin]
     default:
 //        return [activityPlugin, senderPlugin]
-        var logPlugin = NetworkSimpleLoggerPlugin()
-        logPlugin.filterPaths = ["/udtEvent/upAction"]
+        let logPlugin = NetworkSimpleLoggerPlugin()
         return [logPlugin, activityPlugin, senderPlugin]
     }
 }

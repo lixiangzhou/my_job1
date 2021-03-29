@@ -23,7 +23,7 @@ class EMREditCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    let txtLabel = UILabel(font: .size(12), textColor: .c3)
+    let txtLabel = UILabel(font: .size(12), textColor: .c3, textAlignment: .right)
     let leftLine = RoundOptionView(frame: CGRect(x: 0, y: 0, width: 4, height: 16), radius: 1.5, roundColor: .c4167f3, bgColor: .white, roundingCorners: [.topRight, .bottomRight])
     // MARK: - Public Property
     
@@ -46,7 +46,8 @@ extension EMREditCell {
         
         txtLabel.snp.makeConstraints { (make) in
             make.right.equalTo(-18)
-            make.centerY.equalToSuperview()
+            make.top.equalTo(8)
+            make.bottom.equalTo(-8)
         }
     }
 }

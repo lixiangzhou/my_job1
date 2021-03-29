@@ -44,6 +44,7 @@ extension EMREditViewModel {
             RowModel(item: .check, controller: EMREditDiagnosisCheckController()),
             RowModel(item: .confirm, controller: EMREditDiagnosisComfirmController()),
             RowModel(item: .plan, controller: EMREditDiagnosisPlanController()),
+            RowModel(item: .planNext, controller: EMREditDiagnosisPlanNextController()),
         ]
     }
     
@@ -79,5 +80,6 @@ extension EMREditViewModel {
         case check = "检查检验"
         case confirm = "确认诊断"
         case plan = "诊疗计划"
+        case planNext = "下一步\n诊疗计划"
     }
 }
