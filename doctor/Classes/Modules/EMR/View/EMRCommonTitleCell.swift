@@ -26,32 +26,26 @@ class EMRCommonTitleCell: UITableViewCell {
     // MARK: - Public Property
     
     // MARK: - Private Property
-    
+    let titleLabel = UILabel(font: .boldSize(16), textColor: .c3)
 }
 
 // MARK: - UI
 extension EMRCommonTitleCell {
     private func setUI() {
+        contentView.addSubview(titleLabel)
         
+        titleLabel.snp.makeConstraints { (make) in
+            make.left.equalTo(16)
+            make.top.equalTo(16)
+            make.bottom.equalTo(0)
+        }
     }
-}
-
-// MARK: - Action
-extension EMRCommonTitleCell {
     
-}
-
-// MARK: - Helper
-extension EMRCommonTitleCell {
     
-}
-
-// MARK: - Other
-extension EMRCommonTitleCell {
-    
-}
-
-// MARK: - Public
-extension EMRCommonTitleCell {
-    
+    func set(top: CGFloat, bottom: CGFloat) {
+        titleLabel.snp.updateConstraints { (make) in
+            make.top.equalTo(top)
+            make.bottom.equalTo(-bottom)
+        }
+    }
 }

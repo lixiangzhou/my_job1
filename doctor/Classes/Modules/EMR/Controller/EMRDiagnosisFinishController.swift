@@ -93,6 +93,7 @@ extension EMRDiagnosisFinishController: UITableViewDataSource, UITableViewDelega
             switch position {
             case .start:
                 let cell = tableView.dequeue(cell: EMRCommonScaleStartCell.self, for: indexPath)
+                cell.leftTimeLabel.text = "10:10\n2021-10-10"
                 cell.inputStateLabel.text = "已填写"
                 cell.diagnosisStateLabel.text = "住院第1天"
                 cell.inputPersonLabel.text = "王八"
@@ -102,6 +103,7 @@ extension EMRDiagnosisFinishController: UITableViewDataSource, UITableViewDelega
                 return cell
             case .mid, .end:
                 let cell = tableView.dequeue(cell: EMRCommonScaleNormalCell.self, for: indexPath)
+                cell.leftTimeLabel.text = "10:10\n2021-10-10"
                 cell.inputStateLabel.text = "已填写"
                 cell.diagnosisStateLabel.text = "住院第1天"
                 cell.inputPersonLabel.text = "王八"

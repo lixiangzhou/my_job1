@@ -24,15 +24,36 @@ class EMRCommonLeftRightTextCell: UITableViewCell {
     }
     
     // MARK: - Public Property
-    
+    let leftLabel = UILabel(font: .size(14), textColor: .c3)
+    let rightLabel = UILabel(font: .size(14), textColor: .c3)
     // MARK: - Private Property
     
+    
+//    func set(top: CGFloat, bottom: CGFloat) {
+//        leftLabel.snp.updateConstraints { (make) in
+//            make.top.equalTo(top)
+//            make.bottom.equalTo(-bottom)
+//        }
+//    }
 }
 
 // MARK: - UI
 extension EMRCommonLeftRightTextCell {
     private func setUI() {
+        contentView.addSubview(leftLabel)
+        contentView.addSubview(rightLabel)
         
+        leftLabel.snp.makeConstraints { (make) in
+            make.top.equalTo(4)
+            make.left.equalTo(16)
+            make.height.equalTo(20)
+            make.bottom.equalTo(-4)
+        }
+        
+        rightLabel.snp.makeConstraints { (make) in
+            make.left.equalTo(120)
+            make.centerY.equalTo(leftLabel)
+        }
     }
 }
 

@@ -75,7 +75,7 @@ extension PatientManagerListController: UITableViewDataSource, UITableViewDelega
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        push(EMRListController())
-        push(EMREditController())
+        push(EMRDiagnosisFinishController())
+//        push(EMREditController())
     }
 }
